@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
 
-export const User = createContext<string | null>(null)
+export const User = createContext(null)
 
-export const UserProvider = ({ children }) => {
+export const UserProvider: React.FC = ({ children }) => {
 
     const [ userData, setUserData ] = useState<string | null>('')
 
