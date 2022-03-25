@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react'
 
-export const Errors = createContext<string | null>(null)
+export const User = createContext<string | null>(null)
 
 export const UserProvider = ({ children }) => {
 
-    const [ errorMessage, setErrorMessage ] = useState('')
+    const [ userData, setUserData ] = useState<string | null>('')
 
     return(
       <User.Provider value={{ userData, setUserData }}>
