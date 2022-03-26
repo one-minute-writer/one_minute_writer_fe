@@ -3,6 +3,7 @@ import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import { UserProvider } from '../ContextProviders/UserProvider';
 import { ErrorsProvider } from '../ContextProviders/ErrorsProvider';
+import Dashboard from '../Components/Dashboard/Dashboard';
 
 
 const App: React.FC = () => {
@@ -12,8 +13,8 @@ const App: React.FC = () => {
         <main>
           <Routes>
             <Route path='/dashboard' element={<Dashboard/>}/>
-            <Route path='/writing-page' element={<WritingPage/>}/>
-            <Route path="*" element={<Errors/>}/>
+            {/* <Route path='/writing-page' element={<WritingPage/>}/>
+            <Route path="*" element={<Errors/>}/> */}
           </Routes>
         </main>
       </ErrorsProvider>
