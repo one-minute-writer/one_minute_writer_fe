@@ -1,11 +1,8 @@
 import React, { createContext, useState } from 'react'
 import { IUserData } from '../types'
 
-interface userDataTypes {
-  userData: IUserData
-}
 
-const defaultState = { 
+const defaultState: IUserData = { 
   data: {
     id: 4,
     type: "user",
@@ -36,15 +33,17 @@ const defaultState = {
   }
 }
 
-export const UserContext = createContext(defaultState)
+export const SetUserContext = createContext<null | React.Dispatch<React.SetStateAction<IUserData>>>(null)
+export const UserContext = createContext({})
 
 export const UserProvider: React.FC= ({ children }) => {
-
-  const [ userData, setUserData ] = useState<userDataTypes>(defaultState)
+  const [ userData, setUserData ] = useState(defaultState)
   
   return (
-    <UserContext.Provider value={{userData, setUserData}}>
-      {children}
-    </UserContext.Provider>
+    <SetUserContext.Provider value={setUserData}>
+      <UserContext.Provider value={userData}>
+        {children}
+      </UserContext.Provider>
+    </SetUserContext.Provider>
   )
 }

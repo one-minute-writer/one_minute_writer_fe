@@ -1,10 +1,11 @@
-import * as React, { useContext } from 'react';
+import React, { useContext } from 'react';
 import './UserInfo.scss';
-import { UserProvider } from '../../ContextProviders/UserProvider';
+import { SetUserContext, UserContext } from '../../ContextProviders/UserProvider';
 
 
 const UserInfo: React.FC = () => {
-  const { userData, setUserData} = useContext(UserProvider)
+  const userData  = useContext(UserContext)
+  const setUserData  = useContext(SetUserContext)
   return (
     <section>
       <p>Welcome, User</p>
