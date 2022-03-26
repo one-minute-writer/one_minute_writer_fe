@@ -1,6 +1,6 @@
-import './WritingInput.scss';
+import './TextInput.scss';
 
-const WritingInput: React.FC = () => {
+const TextInput: React.FC = () => {
 
   return (
     <>
@@ -12,4 +12,4 @@ const WritingInput: React.FC = () => {
   )
 }
 
-export default WritingInput;
+export default TextInput;
