@@ -37,6 +37,7 @@ const Timer: React.FC<Props> = ({ total_seconds }) => {
   return (
     <section className={colorClass}>
       <button onClick={toggleTimer}>{formatTime()}</button>
+      {/* <button onClick={stopTimer}>STOP</button> */}
     </section>
   )
 }
