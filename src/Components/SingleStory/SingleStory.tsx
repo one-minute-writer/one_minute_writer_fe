@@ -1,8 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './SingleStory.scss'
 import { IUserData } from '../../types'
 
-const SingleStory: React.FC = ( { bodyText } ) => {
+interface Props {
+  bodyText: string
+}
+
+const SingleStory: React.FC<Props> = ( { bodyText } ) => {
 
   return (
     <article>
