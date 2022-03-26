@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.scss';
 import NavBar from '../NavBar/NavBar';
-import UserInfo from '../UserInfo/UserInfo';
-import SingleStory from '../SingleStory/SingleStory'
+import Inspirations from '../Inspirations/Inspirations';
 
-const Dashboard: React.FC = () => {
-  
-    
-
+const WritingPage: React.FC = () => {
 
   return (
     <>
       <NavBar />
-      <div className='writing-inspiration'>
-      
-      </div>
-
+      <section className='writing-inspiration'>
+        <Inspirations />
+      </section>
     </>
   )
 }
 
-export default Dashboard;
+export default WritingPage;
