@@ -33,8 +33,8 @@ const defaultState: IUserData = {
   }
 }
 
-export const SetUserContext = createContext<null | React.Dispatch<React.SetStateAction<IUserData>>>(null)
-export const UserContext = createContext({})
+export const SetUserContext = createContext<React.Dispatch<React.SetStateAction<IUserData>>>(() => defaultState)
+export const UserContext = createContext(defaultState)
 
 export const UserProvider: React.FC= ({ children }) => {
   const [ userData, setUserData ] = useState(defaultState)

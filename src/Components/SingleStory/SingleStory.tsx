@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import './SingleStory.scss'
+import { IUserData } from '../../types'
 
-const SingleStory: React.FC = (props) => {
+const SingleStory: React.FC = ( { bodyText } ) => {
 
   return (
     <article>
-      <h3>Title{props.title}</h3>
-      <p>Date{props.date}</p>
-      <p>Body{props.body_text}</p>
+      {/* <h3>Title{props.title}</h3>
+      <p>Date{props.date}</p> */}
+      <p>Body{bodyText}</p>
     </article>
   )
 }
