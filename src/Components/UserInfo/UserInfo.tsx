@@ -6,6 +6,7 @@ import { SetUserContext, UserContext } from '../../ContextProviders/UserProvider
 const UserInfo: React.FC = () => {
   const userData  = useContext(UserContext)
   const setUserData  = useContext(SetUserContext)
+  console.log('here', userData)
   return (
     <section>
       <p>Welcome, User</p>
