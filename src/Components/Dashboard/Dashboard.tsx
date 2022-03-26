@@ -82,7 +82,9 @@ const Dashboard: React.FC = () => {
     <> 
       <NavBar/>
       <UserInfo/>
-      { mapStories }
+      <section className='past-stories'>
+        { mapStories }
+      </section>
     </>
   )
 }
