@@ -81,7 +81,7 @@ const Dashboard: React.FC = () => {
   return (
     <> 
       <NavBar/>
-      <UserInfo/>
+      {/* <UserInfo/> */}
       { mapStories }
     </>
   )
