@@ -6,15 +6,19 @@ import TextInput from '../TextInput/TextInput';
 import Timer from '../Timer/Timer'
 
 const WritingPage: React.FC = () => {
-  const [ writingInProgress, toggleWritingInProgress ] = useState(false)
-  let total_seconds = 0
+  const [ writingInProgress, setWritingInProgress ] = useState(false)
+  const [ totalSeconds, setTotalSeconds ] = useState(0)
 
-  const stopTimer = () => {
-    toggleWritingInProgress(!writingInProgress)
+  const setSeconds = (seconds: number) => {
+    setTotalSeconds(seconds)
+  }
+
+  const stopTimer = (message: string) => {
+    setWritingInProgress(!writingInProgress)
   }
 
   const startTimer = () => {
-    toggleWritingInProgress(!writingInProgress)
+    setWritingInProgress(!writingInProgress)
   }
 
   return (
@@ -23,7 +27,7 @@ const WritingPage: React.FC = () => {
       <section className='writing-inspiration'>
         <Inspirations />
         <Timer
-          total_seconds={total_seconds}
+          total_seconds={totalSeconds}
           stopTimer={stopTimer}
         />
         <TextInput />
