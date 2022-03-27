@@ -3,17 +3,26 @@ import './Timer.scss'
 
 interface Props {
   total_seconds: number,
-  stopTimer: () => {}
+  stopTimer: (arg0: string) => {}
 }
 
 const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
   const [ elapsedTime, setElapsedTime ] = useState(0)
   const [ inProgress, toggleInProgress ] = useState(false)
   let colorClass: string = 'green'
+  const timeUpMessage: string = 'Your time is up! Would you like to keep writing or save your work?'
+  const stopTimerMessage: string = 'Would you like to keep writing or save your work?'
 
   useEffect(() => {
     inProgress && setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
-  }, [inProgress])
+  }, [elapsedTime])
+
+  useEffect(() => {
+    if (elapsedTime === total_seconds) {
+      toggleInProgress(!inProgress)
+      stopTimer(timeUpMessage)
+    }
+  })
 
   useEffect(() => {
     if (elapsedTime < total_seconds - 30) {
@@ -38,7 +47,7 @@ const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
   return (
     <section className={colorClass}>
       <button onClick={toggleTimer}>{formatTime()}</button>
-      <button onClick={stopTimer}>STOP</button>
+      <button onClick={() => stopTimer(stopTimerMessage)}>STOP</button>
     </section>
   )
 }
