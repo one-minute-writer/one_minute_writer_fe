@@ -8,7 +8,7 @@ import { GET_SINGLE_USER } from '../Queries';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: `Insert fetch URL here`
+  uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
 })
 
 const App: React.FC = () => {
