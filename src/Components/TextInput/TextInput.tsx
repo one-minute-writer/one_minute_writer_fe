@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './TextInput.scss';
 
 const TextInput: React.FC = () => {
-  const [ entry, setEntry ] = useState<string>()
-
+  const [ entry, setEntry ] = useState<string>('')
   //Place for posting the writing entry once completed
   //Did not inpout any actual functionality until we know our data
   const handleSubmit = (event: React.FormEvent) => {
