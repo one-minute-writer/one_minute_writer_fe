@@ -1,0 +1,25 @@
+textarea {
+    width: 80%;
+    height: 50vh;
+    background-color: #F8E9B3;
+    font-size: 1em;
+}
+
+form > button {
+    background-color: #52736B;
+    color: white;
+    width: 20%;
+    margin: 3%;
+    padding: 2%;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
