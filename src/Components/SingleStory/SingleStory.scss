@@ -1,0 +1,14 @@
+.single-story {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background-color: #F8E9B3;
+    margin: 2%;
+}
+
+@media (max-width: 500px) {
+    .single-story {
+        width: 70vw;
+        height: 10%;
+    }
+}

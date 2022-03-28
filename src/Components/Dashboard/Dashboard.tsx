@@ -79,10 +79,16 @@ const Dashboard: React.FC = () => {
   })
 
   return (
-    <> 
+    <>
       <NavBar/>
-      {/* <UserInfo/> */}
-      { mapStories }
+      <UserInfo  
+        words_per_minute={52}
+        total_words={1689}
+        userName="Phil"
+      />
+      <section className='past-stories'>
+        { mapStories }
+      </section>
     </>
   )
 }
