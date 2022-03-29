@@ -9,3 +9,14 @@ export const GET_SINGLE_USER = gql`
         }
     }
 `;
+
+export const CREATE_SINGLE_USER = gql `
+    query createUser($username: String!, $email: String!) {
+        createUser(username: $username, email: $email) {
+            user {
+                username
+                email
+            }
+        }
+    }
+`;
