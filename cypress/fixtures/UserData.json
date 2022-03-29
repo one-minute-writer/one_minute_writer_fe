@@ -13,7 +13,8 @@
           "body_text": "I went to the pool today",
           "image": "fake_image.com",
           "word": "hooray",
-          "sound": "fake_sound.com"
+          "sound": "fake_sound.com",
+          "title": "expedita",
         },
         {
           "id": 10,
@@ -22,7 +23,8 @@
           "body_text": "I went to the store today",
           "image": "fakest_image.com",
           "word": "hooray yall",
-          "sound": "fakest_sound.com"
+          "sound": "fakest_sound.com",
+          "title": "earnum",
         }
       ]
     }
