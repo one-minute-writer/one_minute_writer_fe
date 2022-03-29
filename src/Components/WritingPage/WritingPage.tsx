@@ -35,7 +35,7 @@ const WritingPage: React.FC = () => {
       <section className='writing-inspiration'>
         <Inspirations />
         <Timer
-          total_seconds={totalSeconds}
+          totalSeconds={totalSeconds}
           stopTimer={stopTimer}
         />
         <TextInput />

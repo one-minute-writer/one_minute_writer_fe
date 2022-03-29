@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import './Timer.scss'
 
 interface Props {
-  total_seconds: number,
+  totalSeconds: number,
   stopTimer: (arg0: string) => void
 }
 
-const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
+const Timer: React.FC<Props> = ({ totalSeconds, stopTimer }) => {
   const [ elapsedTime, setElapsedTime ] = useState(0)
   const [ inProgress, toggleInProgress ] = useState(false)
   let colorClass: string = 'green'
@@ -18,18 +18,18 @@ const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
   }, [elapsedTime])
 
   useEffect(() => {
-    if (elapsedTime === total_seconds) {
+    if (elapsedTime === totalSeconds) {
       toggleInProgress(!inProgress)
       stopTimer(timeUpMessage)
     }
   }, [elapsedTime])
 
   useEffect(() => {
-    if (elapsedTime < total_seconds - 30) {
+    if (elapsedTime < totalSeconds - 30) {
       colorClass = 'green'
-    } else if (elapsedTime >= total_seconds - 30 && elapsedTime < total_seconds) {
+    } else if (elapsedTime >= totalSeconds - 30 && elapsedTime < totalSeconds) {
       colorClass = 'yellow'
-    } else if (elapsedTime >= total_seconds) {
+    } else if (elapsedTime >= totalSeconds) {
       colorClass = 'red'
     }
   }, [elapsedTime])
