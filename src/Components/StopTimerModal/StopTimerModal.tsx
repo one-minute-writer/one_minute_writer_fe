@@ -19,8 +19,8 @@ const StopTimerModal: React.FC<Props> = ({ startTimer, saveWriting }) => {
     <section className="modal">
       <div className="pop-up-container">
         <p className="end-timer-message"></p>
-        <button className="save-writing-button" onClick={saveCurrentWriting}></button>
-        <button className="continue-writing-button" onClick={continueWriting}></button>
+        <button className="save-writing-button" onClick={saveCurrentWriting}>Save</button>
+        <button className="continue-writing-button" onClick={continueWriting}>Continue Writing</button>
       </div>
     </section>
   )
