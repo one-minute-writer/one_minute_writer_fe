@@ -8,8 +8,9 @@ import StopTimerModal from '../StopTimerModal/StopTimerModal'
 
 const WritingPage: React.FC = () => {
   const [ writingInProgress, setWritingInProgress ] = useState(false)
-  const [ totalSeconds, setTotalSeconds ] = useState(0)
+  const [ totalSeconds, setTotalSeconds ] = useState(60)
   const [ showModal, setShowModal ] = useState(false)
+  const [ elapsedTime, setElapsedTime ] = useState(0)
 
   const setSeconds = (seconds: number) => {
     setTotalSeconds(seconds)
@@ -37,9 +38,14 @@ const WritingPage: React.FC = () => {
         <Timer
           totalSeconds={totalSeconds}
           stopTimer={stopTimer}
+          startTimer={startTimer}
+          elapsedTime={elapsedTime} 
+          setElapsedTime={setElapsedTime}
+          writingInProgress={writingInProgress}
+          setWritingInProgress={setWritingInProgress}
         />
         <TextInput />
-        {!showModal && <StopTimerModal
+        {showModal && <StopTimerModal
           startTimer={startTimer}
           saveWriting={saveWriting}
         />}
