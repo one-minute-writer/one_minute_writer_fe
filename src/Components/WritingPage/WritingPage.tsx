@@ -39,10 +39,10 @@ const WritingPage: React.FC = () => {
           stopTimer={stopTimer}
         />
         <TextInput />
-        <StopTimerModal
+        {!showModal && <StopTimerModal
           startTimer={startTimer}
           saveWriting={saveWriting}
-        />
+        />}
       </section>
     </>
   )
