@@ -1,0 +1,48 @@
+@use '../Styles/_variables' as v;
+@use '../Styles/_mixins' as m;
+
+.logo {
+  height: 10vh;
+}
+
+header {
+  @include m.flexbox(row, nowrap, normal, space-between, center);
+  background-color: v.$navBg;
+  color: v.$white;
+
+  }
+  
+  nav {
+    flex: 1;
+    @include m.flexbox(row, nowrap, normal, flex-end, normal);
+    white-space: nowrap;
+    
+    .menu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      @include m.flexbox(row, nowrap, normal, flex-end, flex-start);
+
+      li {
+        position: relative;
+        padding: 0 10%;
+        border-right: 2px solid v.$offWhite;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+    }
+  }
+  
+  a {
+    color: v.$offWhite;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+  }
+  
+  .selected {
+    border-bottom: 4px solid v.$dark;
+    padding-bottom: 20%;
+  }
+

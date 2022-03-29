@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import './WritingPage.scss';
 import NavBar from '../NavBar/NavBar';
 import Inspirations from '../Inspirations/Inspirations';
