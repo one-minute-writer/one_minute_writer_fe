@@ -1,9 +1,14 @@
 textarea {
-    width: 80%;
-    height: 50vh;
+    width: 100%;
+    height: 100vh;
     background-color: #F8E9B3;
     font-size: 1em;
 }
+form {
+width: 100%;
+height: 100%;
+}
+
 
 form > button {
     background-color: #52736B;
@@ -15,6 +20,7 @@ form > button {
     border: none;
     border-radius: 10px;
 }
+
 
 @media (max-width: 500px) {
     form {
