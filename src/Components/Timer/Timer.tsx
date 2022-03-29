@@ -3,7 +3,7 @@ import './Timer.scss'
 
 interface Props {
   total_seconds: number,
-  stopTimer: (arg0: string) => {}
+  stopTimer: (arg0: string) => void
 }
 
 const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
@@ -22,7 +22,7 @@ const Timer: React.FC<Props> = ({ total_seconds, stopTimer }) => {
       toggleInProgress(!inProgress)
       stopTimer(timeUpMessage)
     }
-  })
+  }, [elapsedTime])
 
   useEffect(() => {
     if (elapsedTime < total_seconds - 30) {
