@@ -4,22 +4,34 @@ import './Timer.scss'
 interface Props {
   totalSeconds: number,
   stopTimer: (arg0: string) => void
+  startTimer: () => void
+  elapsedTime: number, 
+  setElapsedTime: (arg0: number) => void
+  writingInProgress: boolean,
+  setWritingInProgress: (arg0: boolean) => void
 }
 
-const Timer: React.FC<Props> = ({ totalSeconds, stopTimer }) => {
-  const [ elapsedTime, setElapsedTime ] = useState(0)
-  const [ inProgress, toggleInProgress ] = useState(false)
+const Timer: React.FC<Props> = ({
+    totalSeconds,
+    stopTimer,
+    startTimer,
+    elapsedTime,
+    setElapsedTime,
+    writingInProgress,
+    setWritingInProgress
+  }) => {
+
   let colorClass: string = 'green'
   const timeUpMessage: string = 'Your time is up! Would you like to keep writing or save your work?'
   const stopTimerMessage: string = 'Would you like to keep writing or save your work?'
 
   useEffect(() => {
-    inProgress && setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
+    writingInProgress && setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
   }, [elapsedTime])
 
   useEffect(() => {
     if (elapsedTime === totalSeconds) {
-      toggleInProgress(!inProgress)
+      setWritingInProgress(!writingInProgress)
       stopTimer(timeUpMessage)
     }
   }, [elapsedTime])
@@ -35,13 +47,15 @@ const Timer: React.FC<Props> = ({ totalSeconds, stopTimer }) => {
   }, [elapsedTime])
 
   const toggleTimer = () => {
-    toggleInProgress(!inProgress)
+    setWritingInProgress(!writingInProgress)
+    writingInProgress ? startTimer() : stopTimer(stopTimerMessage)
   }
 
   const formatTime = () => {
     const minutes = Math.floor(elapsedTime / 60)
     const seconds = elapsedTime % 60
-    return `${minutes}:${seconds}`
+    console.log(elapsedTime)
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 
   return (
