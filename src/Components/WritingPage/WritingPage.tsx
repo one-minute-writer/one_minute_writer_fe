@@ -3,7 +3,7 @@ import './WritingPage.scss';
 import NavBar from '../NavBar/NavBar';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
-import Timer from '../Timer/Timer'
+// import Timer from '../Timer/Timer'
 
 const WritingPage: React.FC = () => {
   const [ writingInProgress, setWritingInProgress ] = useState(false)
@@ -26,10 +26,10 @@ const WritingPage: React.FC = () => {
       <NavBar />
       <section className='writing-inspiration'>
         <Inspirations />
-        <Timer
+        {/* <Timer
           total_seconds={totalSeconds}
           stopTimer={stopTimer}
-        />
+        /> */}
         <TextInput />
       </section>
     </>
