@@ -9,10 +9,10 @@ interface Props {
 const SingleStory: React.FC<Props> = ( { bodyText } ) => {
 
   return (
-      <article className='single-story'>
-        <h3>Title</h3>
-        <p>Date</p>
-        <p>Body{bodyText}</p>
+      <article className='single-story' data-testid='single-story'>
+        <h3 data-testid='story-title'>Title</h3>
+        <p data-testid='story-date'>Date</p>
+        <p data-testid='story-body'>Body{bodyText}</p>
       </article>
   )
 }

@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
         total_words={1689}
         userName="Phil"
       />
-      <section className='past-stories'>
+      <section className='past-stories' data-testid='stories-section'>
         { mapStories }
       </section>
     </>

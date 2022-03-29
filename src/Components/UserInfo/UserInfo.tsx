@@ -16,15 +16,15 @@ const UserInfo: React.FC<Props> = (props: Props) => {
   }
   return (
     <section className='user-info'>
-        <h3>Welcome, *UserName*</h3>
-      <section className='all-user-statistics'>
+        <h3 data-testid='user-greeting'>Welcome, *UserName*</h3>
+      <section className='all-user-statistics' data-testid='user-stats'>
             <article className='user-stats'>
               <p>Words per minute: </p>
-              <p> 1932 </p>
+              <p data-testid='words-per-minute'> 1932 </p>
             </article>
             <article className='user-stats'>
               <p>Total Words: </p>
-              <p> 23243 </p>
+              <p data-testid='total-words'> 23243 </p>
             </article>
       </section>
     </section>
