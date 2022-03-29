@@ -9,17 +9,24 @@ import StopTimerModal from '../StopTimerModal/StopTimerModal'
 const WritingPage: React.FC = () => {
   const [ writingInProgress, setWritingInProgress ] = useState(false)
   const [ totalSeconds, setTotalSeconds ] = useState(0)
+  const [ showModal, setShowModal ] = useState(false)
 
   const setSeconds = (seconds: number) => {
     setTotalSeconds(seconds)
   }
 
   const stopTimer = (message: string) => {
-    setWritingInProgress(!writingInProgress)
+    setWritingInProgress(false)
+    setShowModal(true)
   }
 
   const startTimer = () => {
-    setWritingInProgress(!writingInProgress)
+    setWritingInProgress(true)
+    setShowModal(false)
+  }
+
+  const saveWriting = () => {
+    //make the post request here
   }
 
   return (
@@ -32,7 +39,10 @@ const WritingPage: React.FC = () => {
           stopTimer={stopTimer}
         />
         <TextInput />
-        <StopTimerModal />
+        <StopTimerModal
+          startTimer={startTimer}
+          saveWriting={saveWriting}
+        />
       </section>
     </>
   )
