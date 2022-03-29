@@ -10,10 +10,10 @@ const NavBar: React.FC = () => {
       <h1>One Minute Writer</h1>
       <nav>
         <ul className='menu'>
-            <li>
+            <li data-testid='dashboard-nav-button'>
               <NavLink to='/' className='selected' id="dashboard-nav-button">Dashboard</NavLink>
             </li>
-            <li>
+            <li data-testid='start-writing-nav-button'>
               <NavLink to='/start-writing' className='selected' id="start-writing-nav-button">Start Writing</NavLink>
             </li>
           </ul>
