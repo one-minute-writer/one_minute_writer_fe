@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getImages } from './imageApiCalls';
-import './Components/Inspirations/Inspirations.scss'
+import './Inspirations.scss'
 import errorImage from './error-image.png'
 
 
@@ -46,7 +46,7 @@ export const InspirationImage: React.FC = () => {
   }, []);
   
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-  
+
   if (errorHandle.error === false) {
     return (
       <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />

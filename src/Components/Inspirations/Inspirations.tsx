@@ -1,5 +1,5 @@
 import './Inspirations.scss';
-import { InspirationImage } from '../../imagesData';
+import { InspirationImage } from './imagesData';
 
 // interface inspirationImage {
 
