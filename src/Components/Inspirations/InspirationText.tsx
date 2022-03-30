@@ -7,7 +7,6 @@ export const InspirationText: React.FC = () => {
 
   useEffect(() => {
     setTextData(randomWord)
-    console.log(randomWord)
   })
 
   const randomWord =  wordsData[Math.floor(Math.random() * wordsData.length)]
