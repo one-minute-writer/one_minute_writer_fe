@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from 'react';
+import { getImages } from './imageApiCalls';
+import './Inspirations.scss'
+import errorImage from './error-image.png'
+
+
+interface IImagesData {
+ data: IImageData[]
+}
+
+interface IImageData {
+  author: string,
+  download_url: string,
+  id: string,
+  height: number,
+  url: string,
+  width: number
+}
+
+interface Error {
+  error: boolean
+}
+
+export const InspirationImage: React.FC = () => {
+  const [ inspirationImage, setInspirationImage ] = useState<IImageData>({
+    id: "",
+    author:"loading...",
+    width:5616,
+    height:3744,
+    url:"",
+    download_url:""
+  })
+
+  const [ errorHandle, setErrorHandle ] = useState<Error>({
+    error: false
+  })
+
+  useEffect(() => {
+    getImages()
+    .then((data: IImageData[]) => {
+      setInspirationImage(randomIndex(data))
+    })
+    .catch(() => {
+      setErrorHandle({error: true})
+    })
+  }, []);
+  
+  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
+
+  if (errorHandle.error === false) {
+    return (
+      <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />
+    )
+  } else {
+    return (
+      <img className='img-inspo' src={errorImage} alt='error-no-image'/>
+    )
+  }
+}
