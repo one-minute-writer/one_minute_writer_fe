@@ -59,7 +59,6 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   const formatTime = () => {
     const minutes = Math.floor(elapsedTime / 60)
     const seconds = elapsedTime % 60
-    console.log(elapsedTime)
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 
