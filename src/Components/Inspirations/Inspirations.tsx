@@ -1,9 +1,6 @@
 import './Inspirations.scss';
-import { InspirationImage } from './imagesData';
-
-// interface inspirationImage {
-
-// }
+import { InspirationImage } from './InspirationImage';
+import { InspirationText } from './InspirationText';
 
 const Inspirations: React.FC = () => {
 
@@ -15,7 +12,7 @@ const Inspirations: React.FC = () => {
         </div>
         <button className='new-img'>New Image</button>
         <div className='word-box' >
-          <h1 className='word-inspo'>blossum</h1>
+          <InspirationText />
         </div>
         <button className='new-word'>New Word</button>
         <div className="audio-box">
