@@ -5,13 +5,19 @@ import './index.scss';
 import App from './App/App';
 import { ApolloClient, InMemoryCache, ApolloProvider, useLazyQuery } from '@apollo/client';
 
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
+})
+
+console.log(client);
 
 ReactDOM.render(
-  // <React.StrictMode>
+  <ApolloProvider client={client}>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
-  // </React.StrictMode>,
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

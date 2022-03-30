@@ -10,13 +10,12 @@ export const GET_SINGLE_USER = gql`
     }
 `;
 
-export const CREATE_SINGLE_USER = gql `
-    query createUser($username: String!, $email: String!) {
-        createUser(username: $username, email: $email) {
-            user {
-                username
-                email
-            }
-        }
-    }
-`;
+// export const CREATE_NEW_USER = gql`
+//     mutation CreateNewUser($username: String!, $email: String!) {
+//     CreateNewUser(username: $username, email: $email) {
+//     user {
+//         username
+//         email
+//         }
+//     }
+// `;
