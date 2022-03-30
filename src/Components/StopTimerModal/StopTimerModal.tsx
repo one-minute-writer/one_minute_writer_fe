@@ -2,13 +2,16 @@ import React from 'react'
 import './StopTimerModal.scss'
 
 interface Props {
-  startTimer: () => void,
-  saveWriting: () => void
+  toggleTimer: () => void,
+  saveWriting: () => void,
+  modalMessage: string,
+  setShowModal: (arg0: boolean) => void
 }
 
-const StopTimerModal: React.FC<Props> = ({ startTimer, saveWriting }) => {
+const StopTimerModal: React.FC<Props> = ({ toggleTimer, saveWriting, modalMessage, setShowModal }) => {
   const continueWriting = () => {
-    startTimer()
+    toggleTimer()
+    setShowModal(false)
   }
 
   const saveCurrentWriting = () => {
@@ -18,7 +21,7 @@ const StopTimerModal: React.FC<Props> = ({ startTimer, saveWriting }) => {
   return (
     <section className="modal">
       <div className="pop-up-container">
-        <p className="end-timer-message"></p>
+        <p className="end-timer-message">{modalMessage}</p>
         <button className="save-writing-button" onClick={saveCurrentWriting}>Save</button>
         <button className="continue-writing-button" onClick={continueWriting}>Continue Writing</button>
       </div>

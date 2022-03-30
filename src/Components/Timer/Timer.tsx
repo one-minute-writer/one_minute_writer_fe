@@ -1,42 +1,52 @@
 import React, { useState, useEffect } from 'react'
 import './Timer.scss'
+import StopTimerModal from '../StopTimerModal/StopTimerModal'
 
 interface Props {
   totalSeconds: number,
-  stopTimer: (arg0: string) => void
-  startTimer: () => void
-  elapsedTime: number, 
-  setElapsedTime: (arg0: number) => void
-  writingInProgress: boolean,
-  setWritingInProgress: (arg0: boolean) => void
+  saveWriting: () => void
 }
 
-const Timer: React.FC<Props> = ({
-    totalSeconds,
-    stopTimer,
-    startTimer,
-    elapsedTime,
-    setElapsedTime,
-    writingInProgress,
-    setWritingInProgress
-  }) => {
+const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
+  const [ showModal, setShowModal ] = useState(false)
+  const [ writingInProgress, setWritingInProgress ] = useState(false)
+  const [ elapsedTime, setElapsedTime ] = useState(0)
+  const [ modalMessage, setModalMessage ] = useState('')
 
-  let colorClass: string = 'green'
+  let colorClass: string = ''
   const timeUpMessage: string = 'Your time is up! Would you like to keep writing or save your work?'
   const stopTimerMessage: string = 'Would you like to keep writing or save your work?'
 
   useEffect(() => {
-    writingInProgress && setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
-  }, [elapsedTime])
-
-  useEffect(() => {
+    formatOutlineColor()
     if (elapsedTime === totalSeconds) {
-      setWritingInProgress(!writingInProgress)
       stopTimer(timeUpMessage)
+    } else if (writingInProgress) {
+      incrementTime()
     }
   }, [elapsedTime])
 
-  useEffect(() => {
+  const incrementTime = () => {
+    setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
+  }
+
+  const toggleTimer = () => {
+    if (writingInProgress) {
+      stopTimer(stopTimerMessage)
+      setShowModal(true)
+    } else {
+      setWritingInProgress(true)
+      incrementTime()
+    }
+  }
+
+  const stopTimer = (message: string) => {
+    setWritingInProgress(false)
+    setModalMessage(message)
+    setShowModal(true)
+  }
+
+  const formatOutlineColor = () => {
     if (elapsedTime < totalSeconds - 30) {
       colorClass = 'green'
     } else if (elapsedTime >= totalSeconds - 30 && elapsedTime < totalSeconds) {
@@ -44,11 +54,6 @@ const Timer: React.FC<Props> = ({
     } else if (elapsedTime >= totalSeconds) {
       colorClass = 'red'
     }
-  }, [elapsedTime])
-
-  const toggleTimer = () => {
-    setWritingInProgress(!writingInProgress)
-    writingInProgress ? startTimer() : stopTimer(stopTimerMessage)
   }
 
   const formatTime = () => {
@@ -60,8 +65,20 @@ const Timer: React.FC<Props> = ({
 
   return (
     <section>
-      <button className={`timer-button ${colorClass}`} onClick={toggleTimer}>{formatTime()}</button>
-      <button onClick={() => stopTimer(stopTimerMessage)}>STOP</button>
+      <button
+        className={`timer-button ${colorClass}`}
+        onClick={toggleTimer}>{formatTime()}
+      </button>
+      {writingInProgress ?
+        <button onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
+        <button onClick={() => toggleTimer()}>START</button>
+      }
+      {showModal && <StopTimerModal
+        toggleTimer={toggleTimer}
+        saveWriting={saveWriting}
+        modalMessage={modalMessage}
+        setShowModal={setShowModal}
+      />}
     </section>
   )
 }
