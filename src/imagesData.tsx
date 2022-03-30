@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getImages } from './imageApiCalls';
 import './Components/Inspirations/Inspirations.scss'
+import errorImage from './error-image.png'
 
 
 interface IImagesData {
@@ -16,6 +17,10 @@ interface IImageData {
   width: number
 }
 
+interface Error {
+  error: boolean
+}
+
 export const InspirationImage: React.FC = () => {
   const [ inspirationImage, setInspirationImage ] = useState<IImageData>({
     id: "",
@@ -26,19 +31,29 @@ export const InspirationImage: React.FC = () => {
     download_url:""
   })
 
+  const [ errorHandle, setErrorHandle ] = useState<Error>({
+    error: false
+  })
+
   useEffect(() => {
     getImages()
     .then((data: IImageData[]) => {
       setInspirationImage(randomIndex(data))
     })
     .catch(() => {
-      console.log('something went wrong!')
+      setErrorHandle({error: true})
     })
   }, []);
   
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-
-  return (
-    <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />
-  )
+  
+  if (errorHandle.error === false) {
+    return (
+      <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />
+    )
+  } else {
+    return (
+      <img className='img-inspo' src={errorImage} alt='error-no-image'/>
+    )
+  }
 }
