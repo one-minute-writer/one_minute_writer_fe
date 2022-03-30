@@ -12,44 +12,28 @@ const client = new ApolloClient({
   uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
 })
 
-interface ICReateUser {
-  username: string,
-  email: string,
-}
-
 const App: React.FC = () => {
 
-  // const [createUser(arg0: string, arg1: string), { data, loading, error }] = useMutation(CREATE_SINGLE_USER);
+  const [ createUser ] = useMutation(CREATE_SINGLE_USER, {
+    errorPolicy: "all",
+    fetchPolicy: "no-cache",
+  });
 
   useEffect( () => {
-    fetchUser(id)
-    // createUser('ksdfslkfj', 'hot@hotmail.com')
-
+    createUser(
+      {
+        variables: 
+          {
+            username: 'Mochi', email: 'mochi@hotmail.com'
+          }
+        })
   }, [])
 
-  const  { fetchUser(id), loading, error, data } = useQuery(GET_SINGLE_USER, {
+  const { loading, error, data } = useQuery(GET_SINGLE_USER, {
     variables: {
       id: 1,
     }
   })
-
-  // const { createUser: (<ICreateUser>), {  error, data }} = useQuery(
-  //   CREATE_SINGLE_USER, {
-  //     variables: {
-  //       username
-  //       email
-  //     }
-  //   }
-  // )
-
-  // const [createUser, { loading: boolean, error, data }] = useLazyQuery(
-  //   CREATE_SINGLE_USER, {
-  //   variables: {
-  //     username: `Gigi Banks`,
-  //     email: `hello@hotmail.com`,
-  //   }
-  // }
-  // )
 
   return (
     <main>

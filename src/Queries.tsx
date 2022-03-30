@@ -18,5 +18,13 @@ export const CREATE_SINGLE_USER = gql `
                 email
             }
         }
+        {
+          id
+          username
+          email
+          errors {
+            message 
+          }
+        }
     }
 `;
