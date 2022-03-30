@@ -7,23 +7,12 @@ import Timer from '../Timer/Timer'
 import StopTimerModal from '../StopTimerModal/StopTimerModal'
 
 const WritingPage: React.FC = () => {
-  const [ writingInProgress, setWritingInProgress ] = useState(false)
+  // const [ showModal, setShowModal ] = useState(false)
   const [ totalSeconds, setTotalSeconds ] = useState(60)
-  const [ showModal, setShowModal ] = useState(false)
-  const [ elapsedTime, setElapsedTime ] = useState(0)
+  // const [ modalMessage, setModalMessage ] = useState('')
 
   const setSeconds = (seconds: number) => {
     setTotalSeconds(seconds)
-  }
-
-  const stopTimer = (message: string) => {
-    setWritingInProgress(false)
-    setShowModal(true)
-  }
-
-  const startTimer = () => {
-    setWritingInProgress(true)
-    setShowModal(false)
   }
 
   const saveWriting = () => {
@@ -36,19 +25,16 @@ const WritingPage: React.FC = () => {
       <section className='writing-inspiration'>
         <Inspirations />
         <Timer
+          // totalSeconds={totalSeconds}
+          // modalMessage={modalMessage}
+          // setModalMessage={setModalMessage}
+          saveWriting={saveWriting}
           totalSeconds={totalSeconds}
-          stopTimer={stopTimer}
-          startTimer={startTimer}
-          elapsedTime={elapsedTime} 
-          setElapsedTime={setElapsedTime}
-          writingInProgress={writingInProgress}
-          setWritingInProgress={setWritingInProgress}
         />
         <TextInput />
-        {showModal && <StopTimerModal
-          startTimer={startTimer}
+        {/* {showModal && <StopTimerModal
           saveWriting={saveWriting}
-        />}
+        />} */}
       </section>
     </>
   )
