@@ -21,7 +21,12 @@ const App: React.FC = () => {
       variables:{id: 1}
     })
 
-    console.log(data);
+    console.log(data, error, loading);
+    
+
+
+
+    
     
   
   return (
