@@ -5,13 +5,14 @@ import Dashboard from '../Components/Dashboard/Dashboard';
 import WritingPage from '../Components/WritingPage/WritingPage';
 
 const App: React.FC = () => {
+  
   return (
     <main>
-        <Routes>
-          <Route path='/' element={<Dashboard/>}/>
-          <Route path='/writing-page' element={<WritingPage/>}/>
-          {/* <Route path="*" element={<Errors/>}/> */}
-        </Routes>
+      <Routes>
+        <Route path='/' element={<Dashboard/>}/>
+        <Route path='/writing-page' element={<WritingPage/>}/>
+        {/* <Route path="*" element={<Errors/>}/> */}
+      </Routes>
     </main>
   )
 }

@@ -3,14 +3,21 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import './index.scss';
 import App from './App/App';
+import { ApolloClient, InMemoryCache, ApolloProvider, useLazyQuery } from '@apollo/client';
 // import reportWebVitals from './reportWebVitals';
 
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
+})
+
 ReactDOM.render(
-  // <React.StrictMode>
+  <ApolloProvider client={ client }>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
-  // </React.StrictMode>,
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
               <NavLink to='/' className='selected' id="dashboard-nav-button">Dashboard</NavLink>
             </li>
             <li>
-            <NavLink to='/writing-page' className='selected' id="start-writing-nav-button">Start Writing</NavLink>
+              <NavLink to='/writing-page' className='selected' id="start-writing-nav-button">Start Writing</NavLink>
             </li>
           </ul>
       </nav>

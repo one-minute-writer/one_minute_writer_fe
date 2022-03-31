@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
-
 import './WritingPage.scss';
 import NavBar from '../NavBar/NavBar';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
-// import Timer from '../Timer/Timer'
+import Timer from '../Timer/Timer'
 
 const WritingPage: React.FC = () => {
-  const [ writingInProgress, setWritingInProgress ] = useState(false)
-  const [ totalSeconds, setTotalSeconds ] = useState(0)
+  const [ totalSeconds, setTotalSeconds ] = useState(60)
 
   const setSeconds = (seconds: number) => {
     setTotalSeconds(seconds)
   }
 
-  const stopTimer = (message: string) => {
-    setWritingInProgress(!writingInProgress)
-  }
-
-  const startTimer = () => {
-    setWritingInProgress(!writingInProgress)
+  const saveWriting = () => {
+    //make the post request here
   }
 
   return (
@@ -27,10 +21,10 @@ const WritingPage: React.FC = () => {
       <NavBar />
       <section className='writing-inspiration'>
         <Inspirations />
-        {/* <Timer
-          total_seconds={totalSeconds}
-          stopTimer={stopTimer}
-        /> */}
+        <Timer
+          saveWriting={saveWriting}
+          totalSeconds={totalSeconds}
+        />
         <TextInput />
       </section>
     </>
