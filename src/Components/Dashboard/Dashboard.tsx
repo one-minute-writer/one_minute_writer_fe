@@ -3,9 +3,10 @@ import './Dashboard.scss';
 import NavBar from '../NavBar/NavBar';
 import UserInfo from '../UserInfo/UserInfo';
 import SingleStory from '../SingleStory/SingleStory'
+import { IUserData } from '../../types';
 
 const Dashboard: React.FC = () => {
-  const [ userData, setUserData ] = useState({ 
+  const [ userData, setUserData ] = useState<IUserData>({ 
     data: {
       id: 4,
       type: "user",
@@ -82,6 +83,7 @@ const Dashboard: React.FC = () => {
     <>
       <NavBar/>
       <UserInfo  
+        userData={userData}
         words_per_minute={52}
         total_words={1689}
         userName="Phil"
