@@ -18,12 +18,13 @@ const App: React.FC = () => {
 
 
     const { data, error, loading } = useQuery(GET_SINGLE_USER, {
-      variables:{id: 1}
+      variables:{id: 2}
     })
 
     console.log(data, error, loading);
     
 
+console.log(data, error);
 
 
     

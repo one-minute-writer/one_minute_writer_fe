@@ -16,11 +16,11 @@ query {
 
 export const GET_SINGLE_USER = gql`
 query fetchUser($id: ID!) {
-  fetchUser(id: $id) {
+    fetchUser(id: $id) {
     id
     username
     email
-  }
+    }
 }
 `;
 
