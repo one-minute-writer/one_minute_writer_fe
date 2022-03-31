@@ -10,7 +10,6 @@ const client = new ApolloClient({
   uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
 })
 
-console.log(client);
 
 ReactDOM.render(
   <React.StrictMode>
