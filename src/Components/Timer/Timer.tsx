@@ -31,18 +31,18 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   }
 
   const toggleTimer = () => {
-    if (writingInProgress) {
-      stopTimer(stopTimerMessage)
-    } else {
-      setWritingInProgress(true)
-      incrementTime()
-    }
+    writingInProgress ? stopTimer(stopTimerMessage) : startTimer()
   }
 
   const stopTimer = (message: string) => {
     setWritingInProgress(false)
     setModalMessage(message)
     setShowModal(true)
+  }
+
+  const startTimer = () => {
+    setWritingInProgress(true)
+    incrementTime()
   }
 
   const formatOutlineColor = () => {
