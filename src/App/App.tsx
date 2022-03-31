@@ -5,7 +5,7 @@ import Dashboard from '../Components/Dashboard/Dashboard';
 import WritingPage from '../Components/WritingPage/WritingPage';
 
 const App: React.FC = () => {
-
+  
   return (
     <main>
       <Routes>
