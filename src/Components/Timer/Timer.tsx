@@ -12,8 +12,8 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   const [ writingInProgress, setWritingInProgress ] = useState(false)
   const [ elapsedTime, setElapsedTime ] = useState(0)
   const [ modalMessage, setModalMessage ] = useState('')
+  const [ colorClass, setColorClass ] = useState('green')
 
-  let colorClass: string = ''
   const timeUpMessage: string = 'Your time is up! Would you like to keep writing or save your work?'
   const stopTimerMessage: string = 'Would you like to keep writing or save your work?'
 
@@ -47,12 +47,13 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   }
 
   const formatOutlineColor = () => {
+    console.log('colorClass', colorClass)
     if (elapsedTime < totalSeconds - 30) {
-      colorClass = 'green'
+      setColorClass('green')
     } else if (elapsedTime >= totalSeconds - 30 && elapsedTime < totalSeconds) {
-      colorClass = 'yellow'
+      setColorClass('yellow')
     } else if (elapsedTime >= totalSeconds) {
-      colorClass = 'red'
+      setColorClass('red')
     }
   }
 
