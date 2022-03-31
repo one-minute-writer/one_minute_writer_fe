@@ -4,12 +4,9 @@ import NavBar from '../NavBar/NavBar';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
 import Timer from '../Timer/Timer'
-import StopTimerModal from '../StopTimerModal/StopTimerModal'
 
 const WritingPage: React.FC = () => {
-  // const [ showModal, setShowModal ] = useState(false)
   const [ totalSeconds, setTotalSeconds ] = useState(60)
-  // const [ modalMessage, setModalMessage ] = useState('')
 
   const setSeconds = (seconds: number) => {
     setTotalSeconds(seconds)
@@ -25,16 +22,10 @@ const WritingPage: React.FC = () => {
       <section className='writing-inspiration'>
         <Inspirations />
         <Timer
-          // totalSeconds={totalSeconds}
-          // modalMessage={modalMessage}
-          // setModalMessage={setModalMessage}
           saveWriting={saveWriting}
           totalSeconds={totalSeconds}
         />
         <TextInput />
-        {/* {showModal && <StopTimerModal
-          saveWriting={saveWriting}
-        />} */}
       </section>
     </>
   )

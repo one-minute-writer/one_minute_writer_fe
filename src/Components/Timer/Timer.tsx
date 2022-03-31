@@ -47,7 +47,6 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   }
 
   const formatOutlineColor = () => {
-    console.log('colorClass', colorClass)
     if (elapsedTime < totalSeconds - 30) {
       setColorClass('green')
     } else if (elapsedTime >= totalSeconds - 30 && elapsedTime < totalSeconds) {
