@@ -33,7 +33,6 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   const toggleTimer = () => {
     if (writingInProgress) {
       stopTimer(stopTimerMessage)
-      setShowModal(true)
     } else {
       setWritingInProgress(true)
       incrementTime()
