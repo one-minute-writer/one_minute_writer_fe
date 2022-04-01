@@ -7,19 +7,14 @@ export const InspirationText: React.FC = () => {
 
   useEffect(() => {
     setTextData(randomWord)
-  })
+  }, [])
 
   const randomWord =  wordsData[Math.floor(Math.random() * wordsData.length)]
-  const anotherWord = wordsData[Math.floor(Math.random() * wordsData.length)]
-  
-  const getNewWord = () => {
-    setTextData(anotherWord)
-  }
 
   return (
     <>
       <h1 className='word-inspo'>{ textData }</h1>
-      <button onClick={() => getNewWord()} className='new-word-btn'>New Word</button>
+      <button onClick={() => setTextData(randomWord)} className='new-word-btn'>New Word</button>
     </>
   )
 }
