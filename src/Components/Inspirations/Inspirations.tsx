@@ -15,11 +15,6 @@ const Inspirations: React.FC = () => {
           <InspirationText />
         </div>
         <button className='new-word'>New Word</button>
-        <div className="audio-box">
-          <div className="play-button">
-            <button className="play-arrow">Play</button>
-          </div>
-        </div>
         <button className='new-word'>New audio</button>
       </article>
     </>

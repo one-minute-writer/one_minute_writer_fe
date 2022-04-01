@@ -1,5 +1,5 @@
 import './AudioPlayer.scss';
-import  './audioClips/Rain.mp3'
+import rain from './Rain.mp3'
 
 const Inspirations: React.FC = () => {
 
