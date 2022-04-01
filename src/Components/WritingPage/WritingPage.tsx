@@ -37,7 +37,7 @@ const WritingPage: React.FC = () => {
         }
         {showSetTimeModal && <ChooseTime setTimer={setTimer}/>}
       </section>
-        <TextInput />
+      <TextInput />
     </div>
   )
 }
