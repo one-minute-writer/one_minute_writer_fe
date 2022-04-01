@@ -7,11 +7,10 @@ interface Props {
 
 const ChooseTime: React.FC<Props> = ({ setTimer }) => {
   
-
   
   return (
     <section>
-
+      <input type="number"/>  
     </section>
   )
 }

@@ -25,9 +25,8 @@ const WritingPage: React.FC = () => {
   }
 
   return (
-    <>
-      <NavBar />
-      <section className='writing-inspiration'>
+    <div className="writing-page">
+      <section className='inspirations-timer-box'>
         <Inspirations />
         {timeChosen ?
           <Timer
@@ -37,9 +36,9 @@ const WritingPage: React.FC = () => {
           <button onClick={chooseTime}>Choose Time</button>
         }
         {showSetTimeModal && <ChooseTime setTimer={setTimer}/>}
-        <TextInput />
       </section>
-    </>
+        <TextInput />
+    </div>
   )
 }
 

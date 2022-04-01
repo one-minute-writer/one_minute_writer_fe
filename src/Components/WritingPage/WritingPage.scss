@@ -1,5 +1,11 @@
-.writing-inspiration {
+.writing-page {
   display: flex;
+  flex-direction: row;
+}
+
+.inspirations-timer-box {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 100%;
+  width: 30%;
 }
