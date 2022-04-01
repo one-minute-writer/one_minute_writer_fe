@@ -62,14 +62,14 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
   }
 
   return (
-    <section>
+    <section className='timer-container'>
       <button
         className={`timer-button ${colorClass}`}
         onClick={toggleTimer}>{formatTime()}
       </button>
       {writingInProgress ?
-        <button onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
-        <button onClick={() => toggleTimer()}>START</button>
+        <button className='start-stop-btn' onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
+        <button className='start-stop-btn' onClick={() => toggleTimer()}>START</button>
       }
       {showModal && <StopTimerModal
         toggleTimer={toggleTimer}

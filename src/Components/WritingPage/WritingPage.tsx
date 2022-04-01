@@ -20,11 +20,11 @@ const WritingPage: React.FC = () => {
     <>
       <NavBar />
       <section className='writing-inspiration'>
-        <Inspirations />
         <Timer
           saveWriting={saveWriting}
           totalSeconds={totalSeconds}
         />
+        <Inspirations />
         <TextInput />
       </section>
     </>

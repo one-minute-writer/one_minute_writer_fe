@@ -5,24 +5,22 @@ import { InspirationText } from './InspirationText';
 const Inspirations: React.FC = () => {
 
   return (
-    <>
-      <article className='inspirations'>
-        <div className='image-box' >
-          <InspirationImage />
+    <section className='inspirations'>
+      <div className='image-box' >
+        <InspirationImage />
+        <button className='new-img-btn'>New Image</button>
+      </div>
+      <div className='word-box' >
+        <InspirationText />
+        <button className='new-word-btn'>New Word</button>
+      </div>
+      <div className="audio-box">
+        <div className="play-button">
+          <button className="play-arrow-btn">Play</button>
         </div>
-        <button className='new-img'>New Image</button>
-        <div className='word-box' >
-          <InspirationText />
-        </div>
-        <button className='new-word'>New Word</button>
-        <div className="audio-box">
-          <div className="play-button">
-            <button className="play-arrow">Play</button>
-          </div>
-        </div>
-        <button className='new-word'>New audio</button>
-      </article>
-    </>
+          <button className='new-audio-btn'>New audio</button>
+      </div>
+    </section>
   )
 }
 
