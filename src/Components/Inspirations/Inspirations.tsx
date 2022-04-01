@@ -3,12 +3,11 @@ import { InspirationImage } from './InspirationImage';
 import { InspirationText } from './InspirationText';
 
 const Inspirations: React.FC = () => {
-
+  
   return (
     <section className='inspirations'>
       <div className='image-box' >
         <InspirationImage />
-        <button className='new-img-btn'>New Image</button>
       </div>
       <div className='word-box' >
         <InspirationText />
