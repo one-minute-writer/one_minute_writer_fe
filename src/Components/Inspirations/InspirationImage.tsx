@@ -46,10 +46,22 @@ export const InspirationImage: React.FC = () => {
   }, []);
   
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
+  const getNewImage = () => {
+    getImages()
+    .then((data: IImageData[]) => {
+      setInspirationImage(randomIndex(data))
+    })
+    .catch(() => {
+      setErrorHandle({error: true})
+    })
+  }
 
   if (errorHandle.error === false) {
     return (
-      <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />
+      <>
+        <img className='img-inspo' src={inspirationImage.download_url} id={inspirationImage.id} alt={inspirationImage.author} />
+        <button onClick={() => getNewImage()}className='new-img-btn'>New Image</button>
+      </>
     )
   } else {
     return (
