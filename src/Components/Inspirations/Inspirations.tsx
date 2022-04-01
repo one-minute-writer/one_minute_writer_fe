@@ -1,6 +1,7 @@
 import './Inspirations.scss';
 import { InspirationImage } from './InspirationImage';
 import { InspirationText } from './InspirationText';
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 const Inspirations: React.FC = () => {
 
@@ -15,6 +16,7 @@ const Inspirations: React.FC = () => {
           <InspirationText />
         </div>
         <button className='new-word'>New Word</button>
+        < AudioPlayer />
         <button className='new-word'>New audio</button>
       </article>
     </>

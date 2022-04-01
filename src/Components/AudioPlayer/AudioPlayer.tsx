@@ -1,21 +1,29 @@
 import './AudioPlayer.scss';
-import rain from './Rain.mp3'
+import { Howl, Howler } from 'howler';
+import rain from '../audioClips'
 
-const Inspirations: React.FC = () => {
 
- const audioClips = [
-  {sound: 'Rain', }
- ]
+const AudioPlayer: React.FC = () => {
 
- return (
-  <>
-    <div className="audio-box">
-     <div className="play-button">
-      <button className="play-arrow">Play</button>
-     </div>
-    </div>
-  </>
- )
+const callMySound = () => {
+  var sound = new Howl({
+    src: ['./rain.mp3'],
+    html5: true
+  });
+console.log(sound);
+
+  return sound.play();
 }
 
-export default Inspirations;
+  return (
+  <>
+    <div onClick={() => callMySound()} className="audio-box">
+      <div className="play-button">
+        <button className="play-arrow">Play</button>
+      </div>
+    </div>
+  </>
+  )
+}
+
+export default AudioPlayer;
