@@ -80,7 +80,6 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <NavBar/>
       <UserInfo  
         words_per_minute={52}
         total_words={1689}
