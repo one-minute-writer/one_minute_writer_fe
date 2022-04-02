@@ -4,6 +4,7 @@ import { InspirationImage } from './InspirationImage';
 import { InspirationText } from './InspirationText';
 import Timer from '../Timer/Timer'
 import ChooseTime from '../ChooseTime/ChooseTime'
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 const Inspirations: React.FC = () => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
@@ -43,12 +44,7 @@ const Inspirations: React.FC = () => {
         <div className='word-box' >
           <InspirationText />
         </div>
-        <div className="audio-box">
-          <div className="play-button">
-            <button className="play-arrow-btn">Play</button>
-          </div>
-            <button className='new-audio-btn'>New audio</button>
-        </div>
+        <AudioPlayer />
       </section>
     </section>  
   )
