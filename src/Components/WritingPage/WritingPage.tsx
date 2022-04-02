@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './WritingPage.scss';
-import NavBar from '../NavBar/NavBar';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
 import Timer from '../Timer/Timer'
 import ChooseTime from '../ChooseTime/ChooseTime'
 
 const WritingPage: React.FC = () => {
-  const [ totalSeconds, setTotalSeconds ] = useState(60)
+  const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
 
@@ -35,7 +34,10 @@ const WritingPage: React.FC = () => {
           /> :
           <button onClick={chooseTime}>Choose Time</button>
         }
-        {showSetTimeModal && <ChooseTime setTimer={setTimer}/>}
+        {showSetTimeModal && <ChooseTime
+          setTimer={setTimer}
+          setShowSetTimeModal={setShowSetTimeModal}
+        />}
       </section>
       <TextInput />
     </div>
