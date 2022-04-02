@@ -1,5 +1,7 @@
 import React from 'react';
 import './UserInfo.scss';
+import { gql, useQuery, useMutation } from "@apollo/client"
+import { GET_SINGLE_USER } from '../Queries';
 
 interface Props {
   words_per_minute: number;
@@ -8,12 +10,19 @@ interface Props {
 }
 
 const UserInfo: React.FC<Props> = (props: Props) => {
+
+  const  [ userData, setUserData ] = React.useState({})
+
   const displaySadPath = () => {
     if ('words_per_minute === 0') {
       return `Looks like we don't have any stats for you yet -- start writing today!`
     }
-
   }
+
+  const { data, error, loading } = useQuery(GET_SINGLE_USER, {
+    variables:{id: 1}
+  })
+
   return (
     <section className='user-info'>
         <h3>Welcome, *UserName*</h3>
