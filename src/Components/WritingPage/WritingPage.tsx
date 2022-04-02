@@ -24,7 +24,7 @@ const WritingPage: React.FC = () => {
   }
 
   return (
-    <div className="writing-page">
+    <div className="writing-inspiration">
       <section className='inspirations-timer-box'>
         <Inspirations />
         {timeChosen ?

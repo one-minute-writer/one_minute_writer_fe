@@ -27,7 +27,7 @@ const TextInput: React.FC = () => {
           onClick={(event) => handleSubmit(event)}
           type='submit'
         >
-          Submit
+          Save Writing
         </button>
       </form>
     </>

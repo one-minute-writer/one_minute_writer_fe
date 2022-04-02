@@ -1,12 +1,23 @@
 .writing-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.inspirations-timer-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  width: 30%;
+@media screen and (min-width: 40em) {
+  .writing-inspiration {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
 }
+
+// .inspirations-timer-box {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   height: 100%;
+//   width: 30%;
+// }
