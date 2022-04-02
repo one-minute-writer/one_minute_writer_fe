@@ -1,14 +1,14 @@
 import './AudioPlayer.scss';
 import { Howl, Howler } from 'howler';
-import rain from '../audioClips'
+// import rain from '../audioClips'
 
 
 const AudioPlayer: React.FC = () => {
 
 const callMySound = () => {
   var sound = new Howl({
-    src: ['./rain.mp3'],
-    html5: true
+    src: ['/Rain.mp3'],
+    html5: true,
   });
 console.log(sound);
 
