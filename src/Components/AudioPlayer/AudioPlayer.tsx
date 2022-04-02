@@ -9,8 +9,6 @@ const AudioPlayer: React.FC = () => {
    src: ['/audioClips/Rain.mp3'],
    html5: true,
   });
-  console.log(sound);
-
   return sound.play();
  }
 
