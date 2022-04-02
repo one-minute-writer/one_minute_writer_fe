@@ -44,7 +44,7 @@ const Inspirations: React.FC = () => {
         <div className='word-box' >
           <InspirationText />
         </div>
-        < AudioPlayer />
+        <AudioPlayer />
       </section>
     </section>  
   )

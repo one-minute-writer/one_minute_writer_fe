@@ -1,6 +1,5 @@
 import './AudioPlayer.scss';
-import { Howl, Howler } from 'howler';
-// import rain from '../audioClips'
+import { Howl} from 'howler';
 
 
 const AudioPlayer: React.FC = () => {
