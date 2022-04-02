@@ -17,7 +17,6 @@ const Inspirations: React.FC = () => {
         </div>
         <button className='new-word'>New Word</button>
         < AudioPlayer />
-        <button className='new-word'>New audio</button>
       </article>
     </>
   )

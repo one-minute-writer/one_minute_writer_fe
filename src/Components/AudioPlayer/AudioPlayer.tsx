@@ -7,7 +7,7 @@ const AudioPlayer: React.FC = () => {
 
 const callMySound = () => {
   var sound = new Howl({
-    src: ['/Rain.mp3'],
+    src: ['/audioClips/Rain.mp3'],
     html5: true,
   });
 console.log(sound);
@@ -22,6 +22,7 @@ console.log(sound);
         <button className="play-arrow">Play</button>
       </div>
     </div>
+      <button className='new-word'>New audio</button>
   </>
   )
 }
