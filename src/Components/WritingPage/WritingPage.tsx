@@ -6,28 +6,28 @@ import Timer from '../Timer/Timer'
 import ChooseTime from '../ChooseTime/ChooseTime'
 
 const WritingPage: React.FC = () => {
-  const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
-  const [ timeChosen, setTimeChosen ] = useState(false)
-  const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
+  // const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
+  // const [ timeChosen, setTimeChosen ] = useState(false)
+  // const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
 
-  const setTimer = (seconds: number) => {
-    setTotalSeconds(seconds)
-    setTimeChosen(true)
-  }
+  // const setTimer = (seconds: number) => {
+  //   setTotalSeconds(seconds)
+  //   setTimeChosen(true)
+  // }
 
-  const chooseTime = () => {
-    setShowSetTimeModal(true)
-  }
+  // const chooseTime = () => {
+  //   setShowSetTimeModal(true)
+  // }
 
-  const saveWriting = () => {
-    //make the post request here
-  }
+  // const saveWriting = () => {
+  //   //make the post request here
+  // }
 
   return (
-    <div className="writing-inspiration">
-      <section className='inspirations-timer-box'>
+    <div className="writing-page">
+      {/* <section className='inspirations-timer-box'> */}
         <Inspirations />
-        {timeChosen ?
+        {/* {timeChosen ?
           <Timer
             saveWriting={saveWriting}
             totalSeconds={totalSeconds}
@@ -37,8 +37,8 @@ const WritingPage: React.FC = () => {
         {showSetTimeModal && <ChooseTime
           setTimer={setTimer}
           setShowSetTimeModal={setShowSetTimeModal}
-        />}
-      </section>
+        />} */}
+      {/* </section> */}
       <TextInput />
     </div>
   )
