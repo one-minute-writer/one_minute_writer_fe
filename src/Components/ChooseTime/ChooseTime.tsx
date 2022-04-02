@@ -7,11 +7,12 @@ interface Props {
 }
 
 const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
-  const [ minutes, setMinutes ] = useState<string>('')
-  const [ seconds, setSeconds ] = useState<string>('')
+  const [ minutes, setMinutes ] = useState<string>('0')
+  const [ seconds, setSeconds ] = useState<string>('0')
   
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimer(parseInt(event.target.value))
+    const totalSeconds = parseInt(event.target.value)
+    setTimer(totalSeconds)
     setShowSetTimeModal(false)
   }
 
@@ -35,26 +36,28 @@ const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
     <section className="modal">
       <div className="pop-up-container">
         <p>How long would you like to write?</p>
-        <select onChange={event => handleSelect(event)}>
-          <option value="" disabled selected hidden>Select a time</option>
+        <select defaultValue={0} onChange={event => handleSelect(event)}>
+          <option value={0} disabled hidden>Select a time</option>
           <option value={60}>1:00</option>
           <option value={300}>5:00</option>
           <option value={600}>10:00</option>
           <option value={1200}>20:00</option>
         </select>
         <p>or</p>
-        <input
-          type="number"
-          name="minutes"
-          value={minutes}
-          onChange={event => handleMinutesInput(event)}
-        />
-        <input
-          type="number"
-          name="seconds"
-          value={seconds}
-          onChange={event => handleSecondsInput(event)}
-        />
+        <span>
+          <input
+            type="number"
+            name="minutes"
+            value={minutes}
+            onChange={event => handleMinutesInput(event)}
+          />
+          <input
+            type="number"
+            name="seconds"
+            value={seconds}
+            onChange={event => handleSecondsInput(event)}
+          />
+        </span>
         <button onClick={selectTime}>Choose</button>
       </div>
     </section>
