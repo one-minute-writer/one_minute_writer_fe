@@ -4,7 +4,7 @@ import { InspirationText } from './InspirationText';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 const Inspirations: React.FC = () => {
-
+  
   return (
     <>
       <article className='inspirations'>

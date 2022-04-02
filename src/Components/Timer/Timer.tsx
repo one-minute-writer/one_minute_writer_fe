@@ -55,21 +55,22 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
     }
   }
 
-  const formatTime = () => {
-    const minutes = Math.floor(elapsedTime / 60)
-    const seconds = elapsedTime % 60
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60)
+    const seconds = time % 60
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
   }
 
   return (
-    <section>
+    <section className='timer-container'>
       <button
         className={`timer-button ${colorClass}`}
-        onClick={toggleTimer}>{formatTime()}
+        onClick={toggleTimer}>{formatTime(elapsedTime)}
       </button>
+      <p>target: {formatTime(totalSeconds)}</p>
       {writingInProgress ?
-        <button onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
-        <button onClick={() => toggleTimer()}>START</button>
+        <button className='start-stop-btn' onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
+        <button className='start-stop-btn' onClick={() => toggleTimer()}>START</button>
       }
       {showModal && <StopTimerModal
         toggleTimer={toggleTimer}
