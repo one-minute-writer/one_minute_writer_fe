@@ -1,0 +1,9 @@
+@use '../Styles/_mixins' as m;
+
+.modal {
+  @include m.modal-background;
+}
+
+.pop-up-container {
+  @include m.modal-container;
+}

@@ -1,0 +1,32 @@
+.timer-button {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.start-stop-btn {
+  margin-top: 1em;
+}
+
+.timer-container {
+  display: flex;
+  margin: .5em;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.green {
+  border: 3px solid green;
+}
+
+.yellow {
+  border: 3px solid yellow;
+}
+
+.red {
+  border: 3px solid red;
+}

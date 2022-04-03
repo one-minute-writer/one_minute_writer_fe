@@ -1,26 +1,52 @@
+import React, { useEffect, useState } from 'react';
 import './Inspirations.scss';
+import { InspirationImage } from './InspirationImage';
+import { InspirationText } from './InspirationText';
+import Timer from '../Timer/Timer'
+import ChooseTime from '../ChooseTime/ChooseTime'
+import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 const Inspirations: React.FC = () => {
+  const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
+  const [ timeChosen, setTimeChosen ] = useState(false)
+  const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
 
+  const setTimer = (seconds: number) => {
+    setTotalSeconds(seconds)
+    setTimeChosen(true)
+  }
+
+  const chooseTime = () => {
+    setShowSetTimeModal(true)
+  }
+
+  const saveWriting = () => {
+    //make the post request here
+  }
   return (
-    <>
-        <article className='inspirations'>
-          <div className='image-box' >
-            <img className='img-inspo' src="https://images.unsplash.com/photo-1555412654-72a95a495858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="none" />
-          </div>
-          <button className='new-img'>New Image</button>
-          <div className='word-box' >
-            <h1 className='word-inspo'>blossum</h1>
-          </div>
-          <button className='new-word'>New Word</button>
-          <div className="audio-box">
-            <div className="play-button">
-              <button className="play-arrow">Play</button>
-            </div>
-          </div>
-          <button className='new-word'>New audio</button>
-        </article>
-    </>
+    <section className='container'>
+      {timeChosen ?
+        <Timer
+          saveWriting={saveWriting}
+          totalSeconds={totalSeconds}
+        /> :
+        <button className='choose-time-btn' onClick={chooseTime}>Choose Time</button>
+      }
+      {showSetTimeModal && <ChooseTime
+        setTimer={setTimer}
+        setShowSetTimeModal={setShowSetTimeModal}
+        />
+      }
+      <section className='inspirations'>
+        <div className='image-box' >
+          <InspirationImage />
+        </div>
+        <div className='word-box' >
+          <InspirationText />
+        </div>
+        <AudioPlayer />
+      </section>
+    </section>  
   )
 }
 

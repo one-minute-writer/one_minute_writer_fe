@@ -3,6 +3,7 @@ import './NavBar.scss';
 import writingLogo from './WritingLogo.png';
 import { NavLink } from 'react-router-dom';
 
+
 const NavBar: React.FC = () => {
   return (
     <header>
@@ -11,10 +12,10 @@ const NavBar: React.FC = () => {
       <nav>
         <ul className='menu'>
             <li>
-              <NavLink to='/' className='selected' id="dashboard-nav-button">Dashboard</NavLink>
+              <NavLink to='/' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="dashboard-nav-button">Dashboard</NavLink>
             </li>
             <li>
-            <NavLink to='/writing-page' className='selected' id="start-writing-nav-button">Start Writing</NavLink>
+              <NavLink to='/writing-page' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="start-writing-nav-button">Start Writing</NavLink>
             </li>
           </ul>
       </nav>

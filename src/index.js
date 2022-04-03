@@ -10,15 +10,12 @@ const client = new ApolloClient({
   uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
 })
 
-
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ApolloProvider>
-  </React.StrictMode >,
+  <ApolloProvider client={ client }>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

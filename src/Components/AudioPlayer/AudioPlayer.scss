@@ -1,0 +1,72 @@
+
+$button-size: 8em;
+$button-color: black;
+$button-bg-color: rgba( $button-color, .4 );
+$button-stroke: $button-size/30;
+$arrow-base-size: $button-size/5;
+
+.play-button {
+  align-items: center;
+  border: $button-stroke solid $button-color;
+  border-radius: 50%;
+  box-shadow: 0 0 1px 0px rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  height: $button-size;
+  opacity: 1;
+  overflow: hidden;
+  transition: all .25s ease-out;
+  transition: background-color .5s ease-in-out;
+  text-decoration: none;
+  z-index: 1;
+  width: $button-size;
+}
+.audio-box {
+  margin-top: 20%;
+  cursor: pointer;
+}
+.play-button:hover {
+  background-color: $button-bg-color;
+  
+}
+
+.play-arrow {
+  border-color: transparent;
+  border-style: solid;
+  background-color: transparent;
+  border-width: $arrow-base-size 0 $arrow-base-size $arrow-base-size*1.6;
+  border-top-color: transparent;
+  border-left-color: $button-color;	
+  display: block;
+  height: 0;
+  left: $arrow-base-size/3;
+  line-height: 0;
+  overflow: hidden;
+  position: relative;
+  text-indent: -20em;
+  width: 0;
+  cursor: pointer;
+}
+
+.play-button {
+  border: $button-stroke solid transparent;
+  box-shadow: 0 0 1px 0px rgba(255, 255, 255, 0);
+
+  .play-arrow {
+    border-width: $arrow-base-size*2 0 $arrow-base-size*2 ($arrow-base-size*1.6)*2;
+    transition: transform .25s ease-in;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border: $button-stroke solid $button-color;
+    box-shadow: 0 0 1px 0px rgba(255, 255, 255, 1);
+    transition: all .25s ease-out;
+
+    .play-arrow {
+      transform:scale(.6,.6);
+      transition: transform .25s ease-out;
+    }
+
+  }
+}

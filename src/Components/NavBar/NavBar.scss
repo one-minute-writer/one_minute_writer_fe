@@ -10,39 +10,66 @@ header {
   background-color: v.$navBg;
   color: v.$white;
 
-  }
+}
   
-  nav {
-    flex: 1;
-    @include m.flexbox(row, nowrap, normal, flex-end, normal);
-    white-space: nowrap;
-    
-    .menu {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      @include m.flexbox(row, nowrap, normal, flex-end, flex-start);
+nav {
+  flex: 1;
+  @include m.flexbox(row, nowrap, normal, flex-end, normal);
+  white-space: nowrap;
+  
+  .menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include m.flexbox(row, nowrap, normal, flex-end, flex-start);
 
-      li {
-        position: relative;
-        padding: 0 10%;
-        border-right: 2px solid v.$offWhite;
-      }
+    li {
+      position: relative;
+      padding: 0 10%;
+      border-right: 2px solid v.$offWhite;
+    }
 
-      li:last-child {
-        border-right: none;
-      }
+    li:last-child {
+      border-right: none;
     }
   }
-  
   a {
     color: v.$offWhite;
     letter-spacing: 1px;
     font-size: 1.5em;
-    text-decoration: none;
   }
+}
   
-  .selected {
-    border-bottom: 4px solid v.$dark;
+@media (max-width: 700px) {
+  header {
+    @include m.flexbox(row, nowrap, normal, center, center);
   }
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 9vh;
+  background-color: v.$navBg;
+  @include m.flexbox(row, nowrap, center, center, center);
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include m.flexbox(row, nowrap, center, center, center);
+    
+      li {
+        position: none;
+        padding: 10%;
+        margin: 0;
+        text-align: center;
+        @include m.flexbox(row, nowrap, center, center, center);
+      }
+    }
+  }
+}
 
+@media (max-width: 400px) {
+  a {
+    font-size: 1.1em;
+  }
+}
