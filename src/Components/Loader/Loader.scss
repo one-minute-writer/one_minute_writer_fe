@@ -1,0 +1,31 @@
+@use '../Styles/_variables' as v;
+
+.pos-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid v.$navBg;
+    width: 200px;
+    height: 200px;
+    transition: .5s;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+  
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  }
