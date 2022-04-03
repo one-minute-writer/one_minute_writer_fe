@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import './Inspirations.scss';
 import wordsData from './wordsData';
 
-export const InspirationText: React.FC = () => {
-  const [ textData, setTextData ] = useState<string>()
+interface Props {
+  setWord: (arg0: string) => void
+}
+
+export const InspirationText: React.FC<Props> = ({ setWord }) => {
+  const [ textData, setTextData ] = useState<string>('')
 
   useEffect(() => {
     setTextData(randomWord)
+    setWord(textData)
   }, [])
 
   const randomWord =  wordsData[Math.floor(Math.random() * wordsData.length)]

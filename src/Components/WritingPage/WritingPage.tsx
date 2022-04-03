@@ -12,6 +12,10 @@ const WritingPage: React.FC = () => {
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
 
+  const saveWriting = () => {
+    //make post request
+  }
+
   return (
     <div className="writing-page">
       <Inspirations
@@ -21,6 +25,7 @@ const WritingPage: React.FC = () => {
         setImage={setImage}
         setSound={setSound}
         setTime={setTime}
+        saveWriting={saveWriting}
       />
       <TextInput
         title={title}

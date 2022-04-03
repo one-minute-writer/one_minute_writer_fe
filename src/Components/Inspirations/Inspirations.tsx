@@ -12,10 +12,11 @@ interface Props {
   setSound: (arg0: string) => void,
   setTime: (arg0: number) => void
   writingInProgress: boolean
-  setWritingInProgress: (arg0: boolean) => void
+  setWritingInProgress: (arg0: boolean) => void,
+  saveWriting: () => void
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, writingInProgress, setWritingInProgress }) => {
+const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
@@ -29,10 +30,6 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, w
     setShowSetTimeModal(true)
   }
 
-  const saveWriting = () => {
-    //make the post request here
-  }
-
   return (
     <section className='container'>
       {timeChosen ?
@@ -41,6 +38,7 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, w
           setWritingInProgress={setWritingInProgress}
           saveWriting={saveWriting}
           totalSeconds={totalSeconds}
+          setTime={setTime}
         /> :
         <button className='choose-time-btn' onClick={chooseTime}>Choose Time</button>
       }
@@ -51,12 +49,12 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, w
       }
       <section className='inspirations'>
         <div className='image-box' >
-          <InspirationImage />
+          <InspirationImage setImage={setImage}/>
         </div>
         <div className='word-box' >
-          <InspirationText />
+          <InspirationText setWord={setWord}/>
         </div>
-        <AudioPlayer />
+        <AudioPlayer setSound={setSound}/>
       </section>
     </section>  
   )

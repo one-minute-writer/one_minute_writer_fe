@@ -3,9 +3,8 @@ import { getImages } from './imageApiCalls';
 import './Inspirations.scss'
 import errorImage from './error-image.png'
 
-
 interface IImagesData {
- data: IImageData[]
+  data: IImageData[]
 }
 
 interface IImageData {
@@ -21,7 +20,11 @@ interface Error {
   error: boolean
 }
 
-export const InspirationImage: React.FC = () => {
+interface Props {
+  setImage: (arg0: string) => void
+}
+
+export const InspirationImage: React.FC<Props> = ({ setImage }) => {
   const [ inspirationImage, setInspirationImage ] = useState<IImageData>({
     id: "",
     author:"loading...",
@@ -50,6 +53,7 @@ export const InspirationImage: React.FC = () => {
     getImages()
     .then((data: IImageData[]) => {
       setInspirationImage(randomIndex(data))
+      setImage(inspirationImage.download_url)
     })
     .catch(() => {
       setErrorHandle({error: true})
