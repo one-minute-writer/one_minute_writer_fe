@@ -3,6 +3,8 @@ import { Howl} from 'howler';
 
 
 const AudioPlayer: React.FC = () => {
+ let playing = false
+ let song: string
 
  const audioOptions = [
   { title: 'At The Zoo', src: '/audioClips/at-zoo-audio.mp3'},
@@ -14,26 +16,31 @@ const AudioPlayer: React.FC = () => {
  ]
 
  const callMySound = (link: string) => {
+
   var sound = new Howl({
    src: [link],
    html5: true,
   });
-  return sound.play();
+  if(Howl) {
+   return sound.play()
+  } else {
+   return sound.pause()
+  }
  }
 
- function getRandomIndex() {
+ function getRandomSong() {
   let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-  return callMySound(randomSong.src) 
+  return song = randomSong.src
  }
 
  return (
   <>
-   <div onClick={() => getRandomIndex()} className="audio-box">
+   <div onClick={() => callMySound(song)} className="audio-box">
     <div className="play-button">
      <button className="play-arrow">Play</button>
     </div>
    </div>
-   <button className='new-word'>New audio</button>
+   <button onClick={() => getRandomSong()} className='new-word'>New audio</button>
   </>
  )
 }
