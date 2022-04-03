@@ -49,15 +49,34 @@ query ($id: ID!) {
 //     }
 // `;
 
+export const UPDATE_STORY = gql`
+mutation {
+    updateStory(input: {
+        $id: Int!
+        $userId: Int!,
+        $title: String!,
+        $bodyText: String!,
+        $word: String!,
+        $image: String!,
+        $sound: String!,
+        $totalTimeInSeconds: Int!
+    })
+}
+`
 
-// export const GET_STORY = gql `
-//   query fetchStory($id: ID) {
-//       fetchStory(id: $id) {
-//           id
-//           title
-//       }
-//   }
-// `;
+
+export const GET_STORY = gql `
+query fetchStory($id: ID) {
+    fetchStory(id: $id) {
+        title
+    	bodyText
+        word
+        image
+        sound
+        totalTimeInSeconds
+    }
+}
+`;
 
 
 // export const GET_STORIES = gql `
@@ -69,14 +88,14 @@ query ($id: ID!) {
 // `;
 
 export const CREATE_STORY = gql `
-    mutation (
-        $userId: Int!,
-        $title: String!,
-        $bodyText: String!,
-        $word: String!,
-        $image: String!,
-        $sound: String!,
-        $totalTimeInSeconds: Int!
+mutation (
+    $userId: Int!,
+    $title: String!,
+    $bodyText: String!,
+    $word: String!,
+    $image: String!,
+    $sound: String!,
+    $totalTimeInSeconds: Int!
     ) {
         createStory(input: {
             userId: $userId,

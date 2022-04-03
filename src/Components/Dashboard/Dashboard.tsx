@@ -21,6 +21,7 @@ const Dashboard: React.FC = () => {
   const mapStories = data.fetchStories.map((story: IStory) => {
     return (
       <SingleStory
+        id={story.id}
         key={story.id}
         title={story.title}
         bodyText={story.word}
