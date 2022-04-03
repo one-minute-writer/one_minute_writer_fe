@@ -6,7 +6,14 @@ import Timer from '../Timer/Timer'
 import ChooseTime from '../ChooseTime/ChooseTime'
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
-const Inspirations: React.FC = () => {
+interface Props {
+  setWord: (arg0: string) => void,
+  setImage: (arg0: string) => void,
+  setSound: (arg0: string) => void,
+  setTime: (arg0: number) => void
+}
+
+const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
