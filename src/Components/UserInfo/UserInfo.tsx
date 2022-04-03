@@ -1,7 +1,7 @@
 import React from 'react';
 import './UserInfo.scss';
 import { gql, useQuery, useMutation } from "@apollo/client"
-import { GET_SINGLE_USER } from '../Queries';
+import { GET_SINGLE_USER } from '../../Queries';
 
 interface Props {
   words_per_minute: number;
@@ -19,13 +19,13 @@ const UserInfo: React.FC<Props> = (props: Props) => {
     }
   }
 
-  const { data, error, loading } = useQuery(GET_SINGLE_USER, {
-    variables:{id: 1}
-  })
+  // const { data, error, loading } = useQuery(GET_SINGLE_USER, {
+  //   variables:{id: 1}
+  // })
 
   return (
     <section className='user-info'>
-        <h3>Welcome, *UserName*</h3>
+        <h3>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
             <article className='user-stats'>
               <p>Words per minute: </p>
