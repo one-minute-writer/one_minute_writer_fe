@@ -6,7 +6,9 @@ import App from './App/App';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    resultCaching: false
+  }),
   uri: `https://one-minute-writer-be.herokuapp.com/graphql`,
 })
 

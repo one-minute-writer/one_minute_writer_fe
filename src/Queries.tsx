@@ -68,20 +68,6 @@ query ($id: ID!) {
 //     }
 // `;
 
-// mutation {
-//     createStory(input: 
-//       { userId: 1, title: "Thoughts", bodyText: "hello world", word: "test", image: "test_url", sound: "sample_url", totalTimeInSeconds: 120 } ) {
-//         story {
-//           title
-//           bodyText
-//           word
-//           image
-//           sound
-//           totalTimeInSeconds
-//       }
-//     }
-//   }
-
 export const CREATE_STORY = gql `
     mutation (
         $userId: Int!,

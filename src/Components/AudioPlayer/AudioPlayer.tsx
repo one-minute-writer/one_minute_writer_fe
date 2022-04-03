@@ -11,7 +11,7 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   const [ audio, setAudio ] = useState<string>('src/Comonents/AudioPlayer/ocean-waves-noise.mp3')
 
   useEffect(() => {
-    setSound('src/Comonents/AudioPlayer/ocean-waves-noise.mp3')
+    setSound('~/public/audioClips/rain.mp3')
   }, [audio])
 
   const callMySound = () => {

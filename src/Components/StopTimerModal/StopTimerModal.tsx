@@ -1,5 +1,6 @@
 import React from 'react'
 import './StopTimerModal.scss'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   toggleTimer: () => void,
@@ -15,6 +16,8 @@ const StopTimerModal: React.FC<Props> = ({
     setShowModal
   }) => {
 
+  const navigate = useNavigate()
+
   const continueWriting = () => {
     toggleTimer()
     setShowModal(false)
@@ -22,6 +25,8 @@ const StopTimerModal: React.FC<Props> = ({
 
   const saveCurrentWriting = () => {
     saveWriting()
+    setShowModal(false)
+    navigate('/')
   }
 
   return (

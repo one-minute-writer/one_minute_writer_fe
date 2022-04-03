@@ -13,6 +13,7 @@ const WritingPage: React.FC = () => {
   const [ sound, setSound ] = useState<string>('')
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
+  const [ createStory, { data, loading, error }] = useMutation(CREATE_STORY)
 
   const saveWriting = () => {
     const variables = {
@@ -26,8 +27,6 @@ const WritingPage: React.FC = () => {
     }
     createStory({variables: variables})
   }
-
-  const [ createStory, { data, loading, error }] = useMutation(CREATE_STORY)
 
   return (
     <div className="writing-page">
