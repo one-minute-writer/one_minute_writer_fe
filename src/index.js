@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
 import './index.scss';
 import App from './App/App';
-import { ApolloClient, InMemoryCache, ApolloProvider, useLazyQuery } from '@apollo/client';
-// import reportWebVitals from './reportWebVitals';
-
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
