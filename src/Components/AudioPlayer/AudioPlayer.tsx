@@ -4,6 +4,8 @@ import { Howl} from 'howler';
 
 const AudioPlayer: React.FC = () => {
 
+ const audioOptions = []
+
  const callMySound = () => {
   var sound = new Howl({
    src: ['/audioClips/Rain.mp3'],
