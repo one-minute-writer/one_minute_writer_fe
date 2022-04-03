@@ -6,12 +6,13 @@ interface Props {
   setWord: (arg0: string) => void
 }
 
-export const InspirationText: React.FC<Props> = ({ setWord }) => {
+const InspirationText: React.FC<Props> = ({ setWord }) => {
   const [ textData, setTextData ] = useState<string>('')
 
   useEffect(() => {
-    setTextData(randomWord)
-    setWord(textData)
+    const word = randomWord
+    setTextData(word)
+    setWord(word)
   }, [])
 
   const randomWord =  wordsData[Math.floor(Math.random() * wordsData.length)]
@@ -24,5 +25,4 @@ export const InspirationText: React.FC<Props> = ({ setWord }) => {
   )
 }
 
-
-
+export default InspirationText

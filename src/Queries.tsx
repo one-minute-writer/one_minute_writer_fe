@@ -82,19 +82,35 @@ query ($id: ID!) {
 //     }
 //   }
 
-// export const CREATE_STORY = gql `
-//     mutation createStory ( $userId: UserId, $title: Title, $bodyText: BodyText, $word: Word, $image: Image, $sound: Sound, $totalTimeInSeconds: TotalTimeInSeconds ) {
-//             createStory(userId: $userId, title: $title, bodyText: $bodyText, word: $word, image: $image, sound: $sound, totalTimeInSeconds: $totalTimeInSeconds) {
-//         story {
-//             title
-//             bodyText
-//             word
-//             image
-//             sound
-//             totalTimeInSeconds
-//         }
-//     }
-// }
-// `;
+export const CREATE_STORY = gql `
+    mutation (
+        $userId: Int!,
+        $title: String!,
+        $bodyText: String!,
+        $word: String!,
+        $image: String!,
+        $sound: String!,
+        $totalTimeInSeconds: Int!
+    ) {
+        createStory(input: {
+            userId: $userId,
+            title: $title,
+            bodyText: $bodyText,
+            word: $word,
+            image: $image,
+            sound: $sound,
+            totalTimeInSeconds: $totalTimeInSeconds
+        }) {
+        story {
+            title
+            bodyText
+            word
+            image
+            sound
+            totalTimeInSeconds
+        }
+    }
+}
+`;
 
 

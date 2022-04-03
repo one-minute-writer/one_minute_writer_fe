@@ -24,7 +24,7 @@ interface Props {
   setImage: (arg0: string) => void
 }
 
-export const InspirationImage: React.FC<Props> = ({ setImage }) => {
+const InspirationImage: React.FC<Props> = ({ setImage }) => {
   const [ inspirationImage, setInspirationImage ] = useState<IImageData>({
     id: "",
     author:"loading...",
@@ -39,25 +39,25 @@ export const InspirationImage: React.FC<Props> = ({ setImage }) => {
   })
 
   useEffect(() => {
-    getImages()
-    .then((data: IImageData[]) => {
-      setInspirationImage(randomIndex(data))
-    })
-    .catch(() => {
-      setErrorHandle({error: true})
-    })
+    getImage()
   }, []);
   
-  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-  const getNewImage = () => {
+  const getImage = () => {
     getImages()
     .then((data: IImageData[]) => {
-      setInspirationImage(randomIndex(data))
-      setImage(inspirationImage.download_url)
+      const randomImage = randomIndex(data)
+      setInspirationImage(randomImage)
+      setImage(randomImage.download_url)
     })
     .catch(() => {
       setErrorHandle({error: true})
     })
+  }
+
+  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
+
+  const getNewImage = () => {
+    getImage()
   }
 
   if (errorHandle.error === false) {
@@ -73,3 +73,5 @@ export const InspirationImage: React.FC<Props> = ({ setImage }) => {
     )
   }
 }
+
+export default InspirationImage

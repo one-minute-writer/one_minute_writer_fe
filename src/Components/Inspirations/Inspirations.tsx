@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Inspirations.scss';
-import { InspirationImage } from './InspirationImage';
-import { InspirationText } from './InspirationText';
+import InspirationImage from './InspirationImage';
+import InspirationText from './InspirationText';
 import Timer from '../Timer/Timer'
 import ChooseTime from '../ChooseTime/ChooseTime'
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
@@ -10,8 +10,8 @@ interface Props {
   setWord: (arg0: string) => void,
   setImage: (arg0: string) => void,
   setSound: (arg0: string) => void,
-  setTime: (arg0: number) => void
-  writingInProgress: boolean
+  setTime: (arg0: number) => void,
+  writingInProgress: boolean,
   setWritingInProgress: (arg0: boolean) => void,
   saveWriting: () => void
 }

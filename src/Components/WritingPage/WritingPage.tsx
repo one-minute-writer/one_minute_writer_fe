@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './WritingPage.scss';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
+import { useMutation } from '@apollo/client';
+import { CREATE_STORY } from '../../Queries'
 
 const WritingPage: React.FC = () => {
   const [ textBody, setTextBody ] = useState<string>('')
@@ -13,8 +15,19 @@ const WritingPage: React.FC = () => {
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
 
   const saveWriting = () => {
-    //make post request
+    const variables = {
+      userId: 1,
+      title: title,
+      bodyText: textBody,
+      word: word,
+      image: image,
+      sound: sound,
+      totalTimeInSeconds: time
+    }
+    createStory({variables: variables})
   }
+
+  const [ createStory, { data, loading, error }] = useMutation(CREATE_STORY)
 
   return (
     <div className="writing-page">
@@ -39,17 +52,3 @@ const WritingPage: React.FC = () => {
 }
 
 export default WritingPage;
-
-// mutation {
-//   createStory(input: 
-//     { userId: 1, title: "Thoughts", bodyText: "hello world", word: "test", image: "test_url", sound: "sample_url", totalTimeInSeconds: 120 } ) {
-//   	story {
-//     	title
-//     	bodyText
-//         word
-//         image
-//         sound
-//         totalTimeInSeconds
-//     }
-//   }
-// }
