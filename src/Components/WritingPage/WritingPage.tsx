@@ -4,24 +4,30 @@ import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
 
 const WritingPage: React.FC = () => {
-  const [ textBody, setTextBody ] = useState<String>('')
-  const [ title, setTitle ] = useState<String>('')
-  const [ word, setWord ] = useState<String>('')
-  const [ image, setImage ] = useState<String>('')
-  const [ sound, setSound ] = useState<String>('')
-  const [ time, setTime ] = useState<Number>(0)
+  const [ textBody, setTextBody ] = useState<string>('')
+  const [ title, setTitle ] = useState<string>('')
+  const [ word, setWord ] = useState<string>('')
+  const [ image, setImage ] = useState<string>('')
+  const [ sound, setSound ] = useState<string>('')
+  const [ time, setTime ] = useState<number>(0)
+  const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
 
   return (
     <div className="writing-page">
       <Inspirations
+        writingInProgress={writingInProgress}
+        setWritingInProgress={setWritingInProgress}
         setWord={setWord}
         setImage={setImage}
         setSound={setSound}
         setTime={setTime}
       />
       <TextInput
+        title={title}
+        textBody={textBody}
         setTextBody={setTextBody}
         setTitle={setTitle}
+        writingInProgress={writingInProgress}
       />
     </div>
   )

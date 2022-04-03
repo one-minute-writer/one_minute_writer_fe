@@ -11,9 +11,11 @@ interface Props {
   setImage: (arg0: string) => void,
   setSound: (arg0: string) => void,
   setTime: (arg0: number) => void
+  writingInProgress: boolean
+  setWritingInProgress: (arg0: boolean) => void
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime }) => {
+const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, writingInProgress, setWritingInProgress }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
@@ -30,10 +32,13 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime })
   const saveWriting = () => {
     //make the post request here
   }
+
   return (
     <section className='container'>
       {timeChosen ?
         <Timer
+          writingInProgress={writingInProgress}
+          setWritingInProgress={setWritingInProgress}
           saveWriting={saveWriting}
           totalSeconds={totalSeconds}
         /> :
