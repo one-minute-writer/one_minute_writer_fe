@@ -15,6 +15,7 @@ interface IStory {
 
 const Dashboard: React.FC = () => {
   const { loading, error, data } = useQuery(GET_SINGLE_USER, {
+    fetchPolicy: "no-cache",
     variables: {id: 1},
   })
 
