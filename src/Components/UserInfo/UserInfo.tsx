@@ -19,21 +19,17 @@ const UserInfo: React.FC<Props> = (props: Props) => {
     }
   }
 
-  // const { data, error, loading } = useQuery(GET_SINGLE_USER, {
-  //   variables:{id: 1}
-  // })
-
   return (
     <section className='user-info'>
         <h3>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
             <article className='user-stats'>
               <p>Words per minute: </p>
-              <p> 1932 </p>
+              <p>{props.words_per_minute}</p>
             </article>
             <article className='user-stats'>
               <p>Total Words: </p>
-              <p> 23243 </p>
+              <p>{props.total_words}</p>
             </article>
       </section>
     </section>
