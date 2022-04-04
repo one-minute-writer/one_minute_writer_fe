@@ -4,12 +4,14 @@ import StopTimerModal from '../StopTimerModal/StopTimerModal'
 
 interface Props {
   totalSeconds: number,
-  saveWriting: () => void
+  saveWriting: () => void,
+  writingInProgress: boolean,
+  setWritingInProgress: (arg0: boolean) => void
+  setTime: (arg0: number) => void
 }
 
-const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
+const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, setWritingInProgress, setTime }) => {
   const [ showModal, setShowModal ] = useState(false)
-  const [ writingInProgress, setWritingInProgress ] = useState(false)
   const [ elapsedTime, setElapsedTime ] = useState(0)
   const [ modalMessage, setModalMessage ] = useState('')
   const [ colorClass, setColorClass ] = useState('green')
@@ -38,6 +40,7 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting }) => {
     setWritingInProgress(false)
     setModalMessage(message)
     setShowModal(true)
+    setTime(elapsedTime)
   }
 
   const startTimer = () => {

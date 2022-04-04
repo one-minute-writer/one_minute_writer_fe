@@ -38,7 +38,6 @@ const AudioPlayer: React.FC = () => {
 
  function getRandomSong() {
    let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-   console.log(randomSong);
    song = randomSong.src
   
  }

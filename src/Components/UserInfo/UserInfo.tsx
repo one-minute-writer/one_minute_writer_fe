@@ -8,24 +8,31 @@ interface Props {
 }
 
 const UserInfo: React.FC<Props> = (props: Props) => {
-  const displaySadPath = () => {
-    if ('words_per_minute === 0') {
-      return `Looks like we don't have any stats for you yet -- start writing today!`
-    }
 
+  const displayWords = () => {
+    if (props.total_words === 0) {
+      return `Looks like we don't have any stats for you yet -- start writing today!`
+    } else {
+      return (
+        <>
+         <article className='user-stats'>
+              <p>Words per minute: </p>
+              <p>{props.words_per_minute}</p>
+          </article>
+          <article className='user-stats'>
+              <p>Total Words: </p>
+              <p>{props.total_words}</p>
+          </article>
+        </>
+      )
+    }
   }
+
   return (
     <section className='user-info'>
-        <h3>Welcome, *UserName*</h3>
+        <h3>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
-            <article className='user-stats'>
-              <p>Words per minute: </p>
-              <p> 1932 </p>
-            </article>
-            <article className='user-stats'>
-              <p>Total Words: </p>
-              <p> 23243 </p>
-            </article>
+            {displayWords()}
       </section>
     </section>
   )

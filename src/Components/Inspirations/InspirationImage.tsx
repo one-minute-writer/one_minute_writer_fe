@@ -3,9 +3,8 @@ import { getImages } from './imageApiCalls';
 import './Inspirations.scss'
 import errorImage from './error-image.png'
 
-
 interface IImagesData {
- data: IImageData[]
+  data: IImageData[]
 }
 
 interface IImageData {
@@ -21,7 +20,11 @@ interface Error {
   error: boolean
 }
 
-export const InspirationImage: React.FC = () => {
+interface Props {
+  setImage: (arg0: string) => void
+}
+
+const InspirationImage: React.FC<Props> = ({ setImage }) => {
   const [ inspirationImage, setInspirationImage ] = useState<IImageData>({
     id: "",
     author:"loading...",
@@ -36,24 +39,25 @@ export const InspirationImage: React.FC = () => {
   })
 
   useEffect(() => {
-    getImages()
-    .then((data: IImageData[]) => {
-      setInspirationImage(randomIndex(data))
-    })
-    .catch(() => {
-      setErrorHandle({error: true})
-    })
+    getImage()
   }, []);
   
-  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-  const getNewImage = () => {
+  const getImage = () => {
     getImages()
     .then((data: IImageData[]) => {
-      setInspirationImage(randomIndex(data))
+      const randomImage = randomIndex(data)
+      setInspirationImage(randomImage)
+      setImage(randomImage.download_url)
     })
     .catch(() => {
       setErrorHandle({error: true})
     })
+  }
+
+  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
+
+  const getNewImage = () => {
+    getImage()
   }
 
   if (errorHandle.error === false) {
@@ -69,3 +73,5 @@ export const InspirationImage: React.FC = () => {
     )
   }
 }
+
+export default InspirationImage
