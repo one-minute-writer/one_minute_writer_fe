@@ -55,6 +55,14 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
     setAudio(randomSong.src)
   }
 
+  const generateRandomSong = () => {
+    let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
+    setPauseClicked('pause-button')
+    setPlayClicked('play-button')
+    setAudio(randomSong.src)
+    return audioClip.pause()
+  }
+
 
 
   const checkClicked = (event: any) => {
@@ -76,6 +84,7 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
         <img onClick={(event) => { playMusic(event)}} className={`${playClick}`} src={playButton} alt="play-button" />
         <img onClick={(event) => { pauseMusic(event) }} className={`${pauseClick}`} src={pauseButton} alt="play-button" />
       </div>
+      <button onClick={() => generateRandomSong()} className='new-audio-btn'>New Audio</button>
     </>
   )
 }
