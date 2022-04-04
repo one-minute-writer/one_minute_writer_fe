@@ -15,9 +15,10 @@ interface Props {
   saveWriting: () => void
   getImage: () => void
   image: {author: string, download_url: string}
+  errorHandle: boolean
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting, image, getImage }) => {
+const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting, image, getImage, errorHandle }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
@@ -50,7 +51,7 @@ const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInPr
       }
       <section className='inspirations'>
         <div className='image-box' >
-          <InspirationImage getImage={getImage} image={image}/>
+          <InspirationImage getImage={getImage} image={image} errorHandle={errorHandle}/>
         </div>
         <div className='word-box' >
           <InspirationText setWord={setWord}/>

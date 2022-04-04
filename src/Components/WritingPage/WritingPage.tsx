@@ -7,10 +7,6 @@ import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 import { getImages } from './imageApiCalls';
 
-interface Error {
-  error: boolean
-}
-
 interface IImageData {
   author: string,
   download_url: string
@@ -34,7 +30,7 @@ const WritingPage: React.FC = () => {
   const [ sound, setSound ] = useState<string>('')
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
-  const [ errorHandle, setErrorHandle ] = useState<Error>({ error: false })
+  const [ errorHandle, setErrorHandle ] = useState<boolean>(false)
 
   const [ createStory, {
     data: createData,
@@ -52,7 +48,7 @@ const WritingPage: React.FC = () => {
       })
     })
     .catch(() => {
-      setErrorHandle({error: true})
+      setErrorHandle(true)
     })
   }
 
@@ -86,6 +82,7 @@ const WritingPage: React.FC = () => {
         saveWriting={saveWriting}
         getImage={getImage}
         image={image}
+        errorHandle={errorHandle}
       />
       <TextInput
         title={title}
