@@ -7,7 +7,6 @@ import ChooseTime from '../ChooseTime/ChooseTime'
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 interface Props {
-  setWord: (arg0: string) => void,
   setSound: (arg0: string) => void,
   setTime: (arg0: number) => void,
   writingInProgress: boolean,
@@ -15,13 +14,35 @@ interface Props {
   saveWriting: () => void
   getImage: () => void
   image: {author: string, download_url: string}
-  errorHandle: boolean
+  errorHandle: boolean,
+  word: string,
+  getNewWord: () => void,
+  totalSeconds: number,
+  setTotalSeconds: (arg0: number) => void,
+  timeChosen: boolean,
+  setTimeChosen: (arg0: boolean) => void
+  showSetTimeModal: boolean,
+  setShowSetTimeModal: (arg0: boolean) => void
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting, image, getImage, errorHandle }) => {
-  const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
-  const [ timeChosen, setTimeChosen ] = useState(false)
-  const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
+const Inspirations: React.FC<Props> = ({
+    setSound,
+    setTime,
+    writingInProgress,
+    setWritingInProgress,
+    saveWriting,
+    image,
+    getImage,
+    errorHandle,
+    word,
+    getNewWord,
+    totalSeconds,
+    setTotalSeconds,
+    timeChosen,
+    setTimeChosen,
+    showSetTimeModal,
+    setShowSetTimeModal
+  }) => {
 
   const setTimer = (seconds: number) => {
     setTotalSeconds(seconds)
@@ -51,12 +72,21 @@ const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInPr
       }
       <section className='inspirations'>
         <div className='image-box' >
-          <InspirationImage getImage={getImage} image={image} errorHandle={errorHandle}/>
+          <InspirationImage
+            getImage={getImage}
+            image={image}
+            errorHandle={errorHandle}
+          />
         </div>
         <div className='word-box' >
-          <InspirationText setWord={setWord}/>
+          <InspirationText
+            getNewWord={getNewWord}
+            word={word}
+          />
         </div>
-        <AudioPlayer setSound={setSound}/>
+        <AudioPlayer
+          setSound={setSound}
+        />
       </section>
     </section>  
   )

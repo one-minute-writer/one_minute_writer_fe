@@ -6,6 +6,7 @@ import { useMutation, useLazyQuery } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 import { getImages } from './imageApiCalls';
+import wordsData from './wordsData';
 
 interface IImageData {
   author: string,
@@ -19,7 +20,7 @@ interface IStoryData {
   image: string,
   sound: string,
   totalTimeInSeconds: number
-} 
+}
 
 const WritingPage: React.FC = () => {
   const params = useParams()
@@ -31,6 +32,9 @@ const WritingPage: React.FC = () => {
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
   const [ errorHandle, setErrorHandle ] = useState<boolean>(false)
+  const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
+  const [ timeChosen, setTimeChosen ] = useState<boolean>(false)
+  const [ showSetTimeModal, setShowSetTimeModal ] = useState<boolean>(false)
 
   const [ createStory, {
     data: createData,
@@ -54,6 +58,12 @@ const WritingPage: React.FC = () => {
 
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
 
+  const randomWord = wordsData[Math.floor(Math.random() * wordsData.length)]
+
+  const getNewWord = () => {
+    setWord(randomWord)
+  }
+
   useEffect((): void => {
     getImage()
   }, [])
@@ -76,13 +86,20 @@ const WritingPage: React.FC = () => {
       <Inspirations
         writingInProgress={writingInProgress}
         setWritingInProgress={setWritingInProgress}
-        setWord={setWord}
         setSound={setSound}
         setTime={setTime}
         saveWriting={saveWriting}
         getImage={getImage}
         image={image}
         errorHandle={errorHandle}
+        word={word}
+        getNewWord={getNewWord}
+        totalSeconds={totalSeconds}
+        setTotalSeconds={setTotalSeconds}
+        timeChosen={timeChosen}
+        setTimeChosen={setTimeChosen}
+        showSetTimeModal={showSetTimeModal}
+        setShowSetTimeModal={setShowSetTimeModal}
       />
       <TextInput
         title={title}

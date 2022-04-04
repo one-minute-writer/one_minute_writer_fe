@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Inspirations.scss';
-import wordsData from './wordsData';
+
 
 interface Props {
-  setWord: (arg0: string) => void
+  getNewWord: () => void
+  word: string
 }
 
-const InspirationText: React.FC<Props> = ({ setWord }) => {
-  const [ textData, setTextData ] = useState<string>('')
-
-  useEffect(() => {
-    const word = randomWord
-    setTextData(word)
-    setWord(word)
-  }, [])
-
-  const randomWord =  wordsData[Math.floor(Math.random() * wordsData.length)]
-
+const InspirationText: React.FC<Props> = ({ word, getNewWord }) => {
   return (
     <>
-      <h1 className='word-inspo'>{ textData }</h1>
-      <button onClick={() => setTextData(randomWord)} className='new-word-btn'>New Word</button>
+      <h1 className='word-inspo'>{ word }</h1>
+      <button onClick={() => getNewWord()}className='new-word-btn'>New Word</button>
     </>
   )
 }
