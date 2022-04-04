@@ -14,10 +14,6 @@ interface IStory {
   createdAt: string
 }
 
-// interface IDashboardMetrics {
-
-// }
-
 const Dashboard: React.FC = () => {
   const { loading, error, data } = useQuery(GET_SINGLE_USER, {
     fetchPolicy: "no-cache",
@@ -39,10 +35,12 @@ const Dashboard: React.FC = () => {
     )
   })
 
-  const calcWordsPerMinute = () => {
-    if (data.fetchUser.dashboard_metrics) {
-      return data.fetchUser.dashboard_metrics.total_words_all_time /
-        data.fetchUser.dashboard_metrics.total_time
+  const calcWordsPerMinute = (metrics: {
+    total_words_all_time: number,
+    total_time: number
+  }) => {
+    if (metrics) {
+      return metrics.total_words_all_time / metrics.total_time / 60
     } else {
       return 52
     }
@@ -51,7 +49,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <UserInfo
-        words_per_minute={calcWordsPerMinute()}
+        words_per_minute={calcWordsPerMinute(data.fetchUser.dashboard_metrics)}
         total_words={16825}
         userName={data.fetchUser.username}
       />

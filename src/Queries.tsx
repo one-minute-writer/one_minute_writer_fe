@@ -111,7 +111,7 @@ mutation (
     createUser(input: {
         username: $username,
         email: $email
-    } ) {
+    }) {
         user {
             username
             email
