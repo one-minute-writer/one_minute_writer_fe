@@ -18,7 +18,7 @@ let sound: any
  const audioOptions = [
   { title: 'At The Zoo', src: '/audioClips/at-zoo-audio.mp3'},
   { title: 'Rain', src: '/audioClips/rain.mp3' },
-  { title: 'Fredrick Rosusseasu', src: '/audioClips/fredric.mp3' },
+  { title: 'Fredrick Rosusseasu', src: '/audioClips/frederick-rousseau.mp3' },
   { title: 'Mjoras Mask', src: '/audioClips/majoras-mask.mp3' },
   { title: 'Miles Davis Solo', src: '/audioClips/miles-davis.mp3' },
   { title: 'Nature Audio', src: '/audioClips/nature-audio.mp3' },
@@ -38,8 +38,11 @@ let sound: any
 
 
  function getRandomSong() {
-  let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-  return song = randomSong.src
+  if(!sound) {
+   let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
+   console.log(randomSong);
+   song = randomSong.src
+  }
  }
 
  return (
@@ -48,6 +51,7 @@ let sound: any
     <img onClick={() => {callMySound()}} className='play-button' src={playButton} alt="play-button" />
     <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
    </div>
+   <button onClick={() => { getRandomSong() }} className='new-audio-btn'>New Audio</button>
   </>
  )
 }
