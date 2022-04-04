@@ -6,6 +6,7 @@ import WritingPage from '../Components/WritingPage/WritingPage';
 import NavBar from '../Components/NavBar/NavBar'
 import EditPage from '../Components/EditPage/EditPage'
 
+
 const App: React.FC = () => {
   
   return (
@@ -15,7 +16,7 @@ const App: React.FC = () => {
         <Route path='/' element={<Dashboard/>}/>
         <Route path='/writing-page' element={<WritingPage/>}/>
         <Route path='/edit/:id' element={<EditPage/>}/>
-        {/* <Route path="*" element={<Errors/>}/> */}
+        <Route path="*" element={<Error/>}/>
       </Routes>
     </main>
   )
