@@ -39,28 +39,46 @@ query ($id: ID!) {
 
 
 // export const CREATE_SINGLE_USER = gql `
-//     query createUser($username: String!, $email: String!) {
-//         createUser(username: $username, email: $email) {
-//             user {
-//                 username
-//                 email
-//             }
+// query createUser($username: String!, $email: String!) {
+//     createUser(username: $username, email: $email) {
+//         user {
+//             username
+//             email
 //         }
 //     }
+// }
 // `;
 
 export const UPDATE_STORY = gql`
-mutation {
+mutation (
+    $id: Int!
+    $userId: Int!,
+    $title: String!,
+    $bodyText: String!,
+    $word: String!,
+    $image: String!,
+    $sound: String!,
+    $totalTimeInSeconds: Int!
+    ){
     updateStory(input: {
-        $id: Int!
-        $userId: Int!,
-        $title: String!,
-        $bodyText: String!,
-        $word: String!,
-        $image: String!,
-        $sound: String!,
-        $totalTimeInSeconds: Int!
-    })
+        id: $id
+        userId: $userId,
+        title: $title,
+        bodyText: $bodyText,
+        word: $word,
+        image: $image,
+        sound: $sound,
+        totalTimeInSeconds: $totalTimeInSeconds
+    }) {
+        story {
+            title
+            bodyText
+            word
+            image
+            sound
+            totalTimeInSeconds
+        }
+    }
 }
 `
 
@@ -77,13 +95,12 @@ query fetchStory($id: ID) {
 }
 `;
 
-
 // export const GET_STORIES = gql `
-//     query fetchStories {
-//         id
-//         title
-//         word
-//     }
+// query fetchStories {
+//     id
+//     title
+//     word
+// }
 // `;
 
 export const CREATE_STORY = gql `
@@ -95,7 +112,7 @@ mutation (
     $image: String!,
     $sound: String!,
     $totalTimeInSeconds: Int!
-    ) {
+    ){
         createStory(input: {
             userId: $userId,
             title: $title,
