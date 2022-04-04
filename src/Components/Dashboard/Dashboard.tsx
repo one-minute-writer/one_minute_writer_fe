@@ -22,9 +22,10 @@ const Dashboard: React.FC = () => {
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
 
-  const mapStories = data.fetchStories.map((story: IStory) => {
+  const mapStories = data.fetchUser.stories.map((story: IStory) => {
     return (
       <SingleStory
+        id={story.id}
         key={story.id}
         title={story.title}
         bodyText={story.word}

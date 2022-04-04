@@ -8,11 +8,11 @@ interface Props {
   writingInProgress: boolean,
   setWritingInProgress: (arg0: boolean) => void
   setTime: (arg0: number) => void
+  time: number
 }
 
-const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, setWritingInProgress, setTime }) => {
+const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, setWritingInProgress, setTime, time }) => {
   const [ showModal, setShowModal ] = useState(false)
-  const [ elapsedTime, setElapsedTime ] = useState(0)
   const [ modalMessage, setModalMessage ] = useState('')
   const [ colorClass, setColorClass ] = useState('green')
 
@@ -21,15 +21,15 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
 
   useEffect(() => {
     formatOutlineColor()
-    if (elapsedTime === totalSeconds) {
+    if (time === totalSeconds) {
       stopTimer(timeUpMessage)
     } else if (writingInProgress) {
       incrementTime()
     }
-  }, [elapsedTime])
+  }, [time])
 
   const incrementTime = () => {
-    setTimeout(() => {setElapsedTime(elapsedTime + 1)}, 1000)
+    setTimeout(() => {setTime(time + 1)}, 1000)
   }
 
   const toggleTimer = () => {
@@ -40,7 +40,7 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
     setWritingInProgress(false)
     setModalMessage(message)
     setShowModal(true)
-    setTime(elapsedTime)
+    setTime(time)
   }
 
   const startTimer = () => {
@@ -49,11 +49,11 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
   }
 
   const formatOutlineColor = () => {
-    if (elapsedTime < totalSeconds - 30) {
+    if (time < totalSeconds - 30) {
       setColorClass('green')
-    } else if (elapsedTime >= totalSeconds - 30 && elapsedTime < totalSeconds) {
+    } else if (time >= totalSeconds - 30 && time < totalSeconds) {
       setColorClass('yellow')
-    } else if (elapsedTime >= totalSeconds) {
+    } else if (time >= totalSeconds) {
       setColorClass('red')
     }
   }
@@ -68,7 +68,7 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
     <section className='timer-container'>
       <button
         className={`timer-button ${colorClass}`}
-        onClick={toggleTimer}>{formatTime(elapsedTime)}
+        onClick={toggleTimer}>{formatTime(time)}
       </button>
       <p>target: {formatTime(totalSeconds)}</p>
       {writingInProgress ?
