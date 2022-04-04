@@ -21,6 +21,8 @@ const AudioPlayer: React.FC = () => {
     { title: 'Mjoras Mask', src: '/audioClips/majoras-mask.mp3' },
     { title: 'Miles Davis Solo', src: '/audioClips/miles-davis.mp3' },
     { title: 'Nature Audio', src: '/audioClips/nature-audio.mp3' },
+    { title: 'Worst violin', src: '/audioClips/worst-violin-audio.mp3' },
+
   ]
 
   const pauseMusic = () => {
