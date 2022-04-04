@@ -1,35 +1,53 @@
-import React, { useState, useEffect } from 'react'
 import './AudioPlayer.scss';
-import { Howl} from 'howler';
-import './ocean-waves-noise.mp3'
+import { Howl } from 'howler';
+import React, { useEffect } from 'react';
+import pauseButton from './pause-button.png'
+import playButton from './play-button.png'
 
-interface Props {
-  setSound: (arg0: string) => void
-}
 
-const AudioPlayer: React.FC<Props> = ({ setSound }) => {
-  const [ audio, setAudio ] = useState<string>('src/Comonents/AudioPlayer/ocean-waves-noise.mp3')
+
+const AudioPlayer: React.FC = () => {
+  let song: string
+  let sound: any
 
   useEffect(() => {
-    setSound('~/public/audioClips/rain.mp3')
-  }, [audio])
+    getRandomSong()
+  }, []);
+
+  const audioOptions = [
+    { title: 'At The Zoo', src: '/audioClips/at-zoo-audio.mp3' },
+    { title: 'Rain', src: '/audioClips/rain.mp3' },
+    { title: 'Fredrick Rosusseasu', src: '/audioClips/frederick-rousseau.mp3' },
+    { title: 'Mjoras Mask', src: '/audioClips/majoras-mask.mp3' },
+    { title: 'Miles Davis Solo', src: '/audioClips/miles-davis.mp3' },
+    { title: 'Nature Audio', src: '/audioClips/nature-audio.mp3' },
+  ]
+
+  const pauseMusic = () => {
+    return sound.pause()
+  }
 
   const callMySound = () => {
-    var sound = new Howl({
-      src: [audio],
+    sound = new Howl({
+      src: [song],
       html5: true,
     });
-    return sound.play();
+    return sound.play()
+  }
+
+
+  function getRandomSong() {
+    let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
+    song = randomSong.src
+
   }
 
   return (
     <>
-      <div onClick={() => callMySound()} className="audio-box">
-        <div className="play-button">
-          <button className="play-arrow">Play</button>
-        </div>
+      <div className='audio-box'>
+        <img onClick={() => { callMySound() }} className='play-button' src={playButton} alt="play-button" />
+        <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
       </div>
-      <button className='new-word'>New audio</button>
     </>
   )
 }

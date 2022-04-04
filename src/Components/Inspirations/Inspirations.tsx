@@ -16,7 +16,7 @@ interface Props {
   saveWriting: () => void
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting }) => {
+const Inspirations: React.FC<Props> = ({ setWord, setImage, setTime, writingInProgress, setWritingInProgress, saveWriting }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
@@ -54,7 +54,7 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, w
         <div className='word-box' >
           <InspirationText setWord={setWord}/>
         </div>
-        <AudioPlayer setSound={setSound}/>
+        <AudioPlayer/>
       </section>
     </section>  
   )
