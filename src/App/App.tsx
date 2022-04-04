@@ -6,6 +6,7 @@ import WritingPage from '../Components/WritingPage/WritingPage';
 import NavBar from '../Components/NavBar/NavBar'
 import EditPage from '../Components/EditPage/EditPage'
 
+
 const App: React.FC = () => {
   
   return (
