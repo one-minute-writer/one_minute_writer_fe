@@ -9,6 +9,7 @@ interface Props {
 }
 
 const InspirationImage: React.FC<Props> = ({ getImage, image, errorHandle }) => {
+  
   const getNewImage = () => {
     getImage()
   }

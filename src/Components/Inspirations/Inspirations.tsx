@@ -8,6 +8,7 @@ import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 interface Props {
   setSound: (arg0: string) => void,
+  time: number,
   setTime: (arg0: number) => void,
   writingInProgress: boolean,
   setWritingInProgress: (arg0: boolean) => void,
@@ -27,6 +28,7 @@ interface Props {
 
 const Inspirations: React.FC<Props> = ({
     setSound,
+    time,
     setTime,
     writingInProgress,
     setWritingInProgress,
@@ -62,6 +64,7 @@ const Inspirations: React.FC<Props> = ({
           saveWriting={saveWriting}
           totalSeconds={totalSeconds}
           setTime={setTime}
+          time={time}
         /> :
         <button className='choose-time-btn' onClick={chooseTime}>Choose Time</button>
       }

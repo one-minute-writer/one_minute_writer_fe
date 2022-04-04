@@ -6,7 +6,7 @@ import { useMutation, useLazyQuery } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 import { getImages } from './imageApiCalls';
-import wordsData from './wordsData';
+import wordsData from './wordsData.js';
 
 interface IImageData {
   author: string,
@@ -23,7 +23,6 @@ interface IStoryData {
 }
 
 const WritingPage: React.FC = () => {
-  const params = useParams()
   const [ textBody, setTextBody ] = useState<string>('')
   const [ title, setTitle ] = useState<string>('')
   const [ word, setWord ] = useState<string>('')
@@ -84,6 +83,7 @@ const WritingPage: React.FC = () => {
   return (
     <div className="writing-page">
       <Inspirations
+        time={time}
         writingInProgress={writingInProgress}
         setWritingInProgress={setWritingInProgress}
         setSound={setSound}

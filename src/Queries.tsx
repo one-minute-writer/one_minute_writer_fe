@@ -25,28 +25,18 @@ query ($id: ID!) {
 }
 `;
 
-// fetchStories {
-//     id
-//     title
-//     word
-// }
-// stories {
-//     id
-//     title
-//     word
-// }
-
-// export const CREATE_NEW_USER = gql`
-// mutation {
-//     createUser(input: 
-//     { username: "Lassie", email: "sillyboy@inwell.com" } ) {
-//         user {
-//         username
-//     	email
-//         }
-//     }
-// }
-// `;
+export const GET_STORY = gql `
+query fetchStory($id: ID!) {
+    fetchStory(id: $id) {
+        title
+        bodyText
+        word
+        image
+        sound
+        totalTimeInSeconds
+    }
+}
+`;
 
 export const UPDATE_STORY = gql`
 mutation (
@@ -81,19 +71,6 @@ mutation (
 }
 `
 
-export const GET_STORY = gql `
-query fetchStory($id: ID) {
-    fetchStory(id: $id) {
-        title
-    	bodyText
-        word
-        image
-        sound
-        totalTimeInSeconds
-    }
-}
-`;
-
 export const CREATE_STORY = gql `
 mutation (
     $userId: Int!,
@@ -126,3 +103,26 @@ mutation (
 `;
 
 
+
+// fetchStories {
+//     id
+//     title
+//     word
+// }
+// stories {
+//     id
+//     title
+//     word
+// }
+
+// export const CREATE_NEW_USER = gql`
+// mutation {
+//     createUser(input: 
+//     { username: "Lassie", email: "sillyboy@inwell.com" } ) {
+//         user {
+//         username
+//     	email
+//         }
+//     }
+// }
+// `;
