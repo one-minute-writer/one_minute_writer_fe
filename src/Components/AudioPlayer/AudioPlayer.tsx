@@ -25,7 +25,7 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
     { title: 'Miles Davis Solo', src: '/audioClips/miles-davis.mp3' },
     { title: 'Nature Audio', src: '/audioClips/nature-audio.mp3' },
     { title: 'Worst violin', src: '/audioClips/worst-violin-audio.mp3' },
-
+    { title: 'Ocean Waves', src: '/audioClips/ocean-waves-noise.mp3' }
   ]
 
   const pauseMusic = () => {
