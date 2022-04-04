@@ -65,6 +65,7 @@ const WritingPage: React.FC = () => {
 
   useEffect((): void => {
     getImage()
+    getNewWord()
   }, [])
   
   const saveWriting = () => {

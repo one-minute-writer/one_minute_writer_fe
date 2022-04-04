@@ -11,11 +11,22 @@ interface Props {
 
 const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   const [audio, setAudio] = useState<string>('')
-  let sound: any
+  const [playClick, setPlayClicked] = useState<string>('play-button')
+  const [pauseClick, setPauseClicked] = useState<string>('pause-button')
+  const [audioClip, setAudioClip] = useState<any>(null)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
   useEffect(() => {
-    getRandomSong()
-  });
+    assignAudio()
+  }, []);
+
+  useEffect(() => {
+    setAudioClip(new Howl({
+      src: [audio],
+      html5: true,
+    }))
+    setSound(audio)
+  }, [audio])
 
   const audioOptions = [
     { title: 'At The Zoo', src: '/audioClips/at-zoo-audio.mp3' },
@@ -28,31 +39,54 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
     { title: 'Ocean Waves', src: '/audioClips/ocean-waves-noise.mp3' }
   ]
 
-  const pauseMusic = () => {
-    return sound.pause()
+  const pauseMusic = (event: any) => {
+    if(isPlaying) {
+      checkClicked(event)
+      setIsPlaying(false)
+      return audioClip.pause()
+    }
   }
 
-  const callMySound = () => {
-    sound = new Howl({
-      src: [audio],
-      html5: true,
-    });
-    
-    return sound.play()
+  const playMusic = (event: any) => {
+    if (!isPlaying) {
+      checkClicked(event)
+      setIsPlaying(true)
+      return audioClip.play()
+    }
   }
 
-
-  function getRandomSong() {
+  const  assignAudio = () => {
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
     setAudio(randomSong.src)
+  }
+
+  const generateNewSong= () => {
+    setIsPlaying(false)
+    let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
+    setAudio(randomSong.src)
+    setPauseClicked('pause-button')
+    setPlayClicked('play-button')
+    return audioClip.pause()
+  }
+
+  const checkClicked = (event: any) => {
+    console.log(event.target.className);
+    if (event.target.className === 'play-button') {
+      setPauseClicked('pause-button')
+      setPlayClicked('play-button is-clicked')
+    } else if (event.target.className === 'pause-button') {
+      setPlayClicked('play-button')
+      setPauseClicked('pause-button is-clicked')
+    }
   }
 
   return (
     <>
       <div className='audio-box'>
-        <img onClick={() => { callMySound()}} className='play-button' src={playButton} alt="play-button" />
-        <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
+        <img onClick={(event) => { playMusic(event)}} className={`${playClick}`} src={playButton} alt="play-button" />
+        <img onClick={(event) => { pauseMusic(event) }} className={`${pauseClick}`} src={pauseButton} alt="play-button" />
       </div>
+      <button onClick={() => generateNewSong()} className='new-audio-btn'>New Audio</button>
     </>
   )
 }
