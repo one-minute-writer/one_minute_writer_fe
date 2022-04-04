@@ -7,9 +7,8 @@ import playButton from './play-button.png'
 
 
 const AudioPlayer: React.FC = () => {
- let isPlaying = false
  let song: string
-let sound: any
+ let sound: any
 
  useEffect(() => {
   getRandomSong()
