@@ -5,9 +5,13 @@ import pauseButton from './pause-button.png'
 import playButton from './play-button.png'
 
 
+interface Props {
+  setSound: (arg0: string) => void
+}
 
-const AudioPlayer: React.FC = () => {
-  let song: string
+const AudioPlayer: React.FC<Props> = ({ setSound }) => {
+  const [audio, setAudio] = useState<string>('')
+
   let sound: any
 
   useEffect(() => {
@@ -31,10 +35,9 @@ const AudioPlayer: React.FC = () => {
 
   const callMySound = () => {
     sound = new Howl({
-      src: [song],
+      src: [audio],
       html5: true,
     });
-    console.log('helloooo', song, sound);
     
     return sound.play()
   }
@@ -42,7 +45,7 @@ const AudioPlayer: React.FC = () => {
 
   function getRandomSong() {
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-    song = randomSong.src
+    setAudio(randomSong.src)
   }
 
   return (
