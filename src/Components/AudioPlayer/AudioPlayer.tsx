@@ -11,7 +11,6 @@ interface Props {
 
 const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   const [audio, setAudio] = useState<string>('')
-
   let sound: any
 
   useEffect(() => {
