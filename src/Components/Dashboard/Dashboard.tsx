@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
   })
   if (loading) return <p>Loading...</p>
 
-  const mapStories = data.fetchStories.map((story: IStory) => {
+  const mapStories = data.fetchUser.stories.map((story: IStory) => {
     return (
       <SingleStory
         id={story.id}

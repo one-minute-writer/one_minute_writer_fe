@@ -52,7 +52,7 @@ const WritingPage: React.FC = () => {
     try {
       const response = await getStory()
       if (response) {
-        setWritingInfo(data.fetchUser)
+        // setWritingInfo(response.fetchStory)
       }
     }
     catch (error) {

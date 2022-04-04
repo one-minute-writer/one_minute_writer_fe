@@ -16,14 +16,25 @@ query ($id: ID!) {
         id
         username
         email
-    }
-    fetchStories {
-        id
-        title
-        word
+        stories {
+            id
+            title
+            word
+        }
     }
 }
 `;
+
+// fetchStories {
+//     id
+//     title
+//     word
+// }
+// stories {
+//     id
+//     title
+//     word
+// }
 
 // export const CREATE_NEW_USER = gql`
 // mutation {

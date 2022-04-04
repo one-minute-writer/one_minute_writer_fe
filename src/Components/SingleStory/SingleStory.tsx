@@ -13,7 +13,7 @@ const SingleStory: React.FC<Props> = ( { bodyText, title, id } ) => {
   const navigate = useNavigate()
 
   const goToEditPage = (id: string) => {
-    navigate(`/edit/`)
+    navigate(`/edit/${id}`)
   }
 
   return (
