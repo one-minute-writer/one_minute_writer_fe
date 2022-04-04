@@ -45,8 +45,8 @@ mutation (
     $title: String!,
     $bodyText: String!,
     $word: String!,
-    $image: String!,
-    $sound: String!,
+    $image: Image!,
+    $sound: Sound!,
     $totalTimeInSeconds: Int!
     ){
     updateStory(input: {
@@ -77,8 +77,8 @@ mutation (
     $title: String!,
     $bodyText: String!,
     $word: String!,
-    $image: String!,
-    $sound: String!,
+    $image: Image!,
+    $sound: Sound!,
     $totalTimeInSeconds: Int!
     ){
         createStory(input: {
@@ -101,9 +101,7 @@ mutation (
     }
 }
 `;
-
-
-
+// {$author: String!, $download_url: String!}
 // fetchStories {
 //     id
 //     title
