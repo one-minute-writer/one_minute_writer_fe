@@ -10,8 +10,13 @@ import Loader from '../Loader/Loader';
 interface IStory {
   id: string,
   title: string,
-  word: string
+  word: string,
+  createdAt: string
 }
+
+// interface IDashboardMetrics {
+
+// }
 
 const Dashboard: React.FC = () => {
   const { loading, error, data } = useQuery(GET_SINGLE_USER, {
@@ -29,15 +34,25 @@ const Dashboard: React.FC = () => {
         key={story.id}
         title={story.title}
         bodyText={story.word}
+        createdAt={story.createdAt}
       />
     )
   })
 
+  const calcWordsPerMinute = () => {
+    if (data.fetchUser.dashboard_metrics) {
+      return data.fetchUser.dashboard_metrics.total_words_all_time /
+        data.fetchUser.dashboard_metrics.total_time
+    } else {
+      return 52
+    }
+  }
+
   return (
     <>
       <UserInfo
-        words_per_minute={52}
-        total_words={1689}
+        words_per_minute={calcWordsPerMinute()}
+        total_words={16825}
         userName={data.fetchUser.username}
       />
       <section className='past-stories'>
