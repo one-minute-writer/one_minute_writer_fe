@@ -1,6 +1,10 @@
 import './AudioPlayer.scss';
 import { Howl} from 'howler';
 import React, { useEffect } from 'react';
+import pauseButton from './pause.png'
+import playButton from './play.png'
+
+
 
 const AudioPlayer: React.FC = () => {
  let isPlaying = false
@@ -20,21 +24,18 @@ let sound: any
   { title: 'Nature Audio', src: '/audioClips/nature-audio.mp3' },
  ]
 
+ const pauseMusic = () => {
+  return sound.pause()
+ } 
+
  const callMySound = () => {
   sound = new Howl({
    src: [song],
    html5: true,
   });
-  if (!isPlaying) {
-   isPlaying = true
-   console.log('isplaying');
-   return sound.play()
-  } else {
-   isPlaying = false
-   console.log('hellloooo');
-   return sound.pause()
-  }
+  return sound.play()
  }
+
 
  function getRandomSong() {
   let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
@@ -43,8 +44,9 @@ let sound: any
 
  return (
   <>
-   <div>
-    <img src="" alt="" />
+   <div className='audio-box'>
+    <img onClick={() => {callMySound()}} className='play-button' src={playButton} alt="play-button" />
+    <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
    </div>
   </>
  )
