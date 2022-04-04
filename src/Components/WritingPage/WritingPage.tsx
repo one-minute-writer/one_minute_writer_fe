@@ -5,6 +5,16 @@ import TextInput from '../TextInput/TextInput';
 import { useMutation, useLazyQuery } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
+import { getImages } from './imageApiCalls';
+
+interface Error {
+  error: boolean
+}
+
+interface IImageData {
+  author: string,
+  download_url: string
+}
 
 interface IStoryData {
   title: string,
@@ -20,10 +30,11 @@ const WritingPage: React.FC = () => {
   const [ textBody, setTextBody ] = useState<string>('')
   const [ title, setTitle ] = useState<string>('')
   const [ word, setWord ] = useState<string>('')
-  const [ image, setImage ] = useState<string>('')
+  const [ image, setImage ] = useState<IImageData>({author: '', download_url: ''})
   const [ sound, setSound ] = useState<string>('')
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
+  const [ errorHandle, setErrorHandle ] = useState<Error>({ error: false })
 
   const [ createStory, {
     data: createData,
@@ -31,55 +42,27 @@ const WritingPage: React.FC = () => {
     error: createError
   }] = useMutation(CREATE_STORY)
 
-  const [ updateStory, {
-    data: updateData,
-    loading: updateLoading,
-    error: updateError
-  }] = useMutation(UPDATE_STORY)
+  const getImage = () => {
+    getImages()
+    .then((data: IImageData[]) => {
+      const randomImage = randomIndex(data)
+      setImage({
+        author: randomImage.author,
+        download_url: randomImage.download_url
+      })
+    })
+    .catch(() => {
+      setErrorHandle({error: true})
+    })
+  }
 
-  const [ getStory, { data, loading, error } ] = useLazyQuery(GET_STORY, {
-    fetchPolicy: "no-cache",
-    variables: {id: params.id},
-  })
+  const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
 
   useEffect((): void => {
-    if (params.id) {
-      getStoryInfo()
-    }
+    getImage()
   }, [])
-
-  const getStoryInfo = async () => {
-    try {
-      const response = await getStory()
-      if (response) {
-        // setWritingInfo(response.fetchStory)
-      }
-    }
-    catch (error) {
-      console.log(error)
-    }
-  }
-
-  const setWritingInfo = (storyInfo: IStoryData) => {
-    setTextBody(storyInfo.bodyText)
-    setTitle(storyInfo.title)
-    setWord(storyInfo.word)
-    setImage(storyInfo.image)
-    setSound(storyInfo.sound)
-    setTime(storyInfo.totalTimeInSeconds)
-  }
   
   const saveWriting = () => {
-    const updateVariables = {
-      id: params.id,
-      userId: 1,
-      title: title,
-      bodyText: textBody,
-      word: word,
-      image: image,
-      sound: sound,
-      totalTimeInSeconds: time
-    }
     const variables = {
       userId: 1,
       title: title,
@@ -89,11 +72,7 @@ const WritingPage: React.FC = () => {
       sound: sound,
       totalTimeInSeconds: time
     }
-    if (params.id) {
-      updateStory({variables: updateVariables})
-    } else {
-      createStory({variables: variables})
-    }
+    createStory({variables: variables})
   }
   
   return (
@@ -102,10 +81,11 @@ const WritingPage: React.FC = () => {
         writingInProgress={writingInProgress}
         setWritingInProgress={setWritingInProgress}
         setWord={setWord}
-        setImage={setImage}
         setSound={setSound}
         setTime={setTime}
         saveWriting={saveWriting}
+        getImage={getImage}
+        image={image}
       />
       <TextInput
         title={title}

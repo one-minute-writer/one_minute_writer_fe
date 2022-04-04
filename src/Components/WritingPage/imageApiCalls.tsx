@@ -1,6 +1,3 @@
-import './Inspirations.scss'
-
-
 const checkForError = (response: Response) => {
     if ((!response.ok && response.status >= 400) && response.status < 500) {
     throw (`${response.status} Error. Sorry, the image you're looking for doesn't exist.`)
@@ -17,7 +14,3 @@ export const getImages = () => {
   return fetch('https://picsum.photos/v2/list')
     .then(response => checkForError(response))
   }
-
-  
-  
-

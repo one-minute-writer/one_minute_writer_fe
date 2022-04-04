@@ -8,15 +8,16 @@ import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 interface Props {
   setWord: (arg0: string) => void,
-  setImage: (arg0: string) => void,
   setSound: (arg0: string) => void,
   setTime: (arg0: number) => void,
   writingInProgress: boolean,
   setWritingInProgress: (arg0: boolean) => void,
   saveWriting: () => void
+  getImage: () => void
+  image: {author: string, download_url: string}
 }
 
-const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting }) => {
+const Inspirations: React.FC<Props> = ({ setWord, setSound, setTime, writingInProgress, setWritingInProgress, saveWriting, image, getImage }) => {
   const [ totalSeconds, setTotalSeconds ] = useState<number>(0)
   const [ timeChosen, setTimeChosen ] = useState(false)
   const [ showSetTimeModal, setShowSetTimeModal ] = useState(false)
@@ -49,7 +50,7 @@ const Inspirations: React.FC<Props> = ({ setWord, setImage, setSound, setTime, w
       }
       <section className='inspirations'>
         <div className='image-box' >
-          <InspirationImage setImage={setImage}/>
+          <InspirationImage getImage={getImage} image={image}/>
         </div>
         <div className='word-box' >
           <InspirationText setWord={setWord}/>
