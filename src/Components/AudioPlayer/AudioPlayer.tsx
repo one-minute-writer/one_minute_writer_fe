@@ -14,9 +14,10 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   const [playClick, setPlayClicked] = useState<string>('play-button')
   const [pauseClick, setPauseClicked] = useState<string>('pause-button')
   const [audioClip, setAudioClip] = useState<any>(null)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
   useEffect(() => {
-    getRandomSong()
+    assignAudio()
   }, []);
 
   useEffect(() => {
@@ -24,6 +25,7 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
       src: [audio],
       html5: true,
     }))
+    setSound(audio)
   }, [audio])
 
   const audioOptions = [
@@ -38,27 +40,32 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   ]
 
   const pauseMusic = (event: any) => {
-    checkClicked(event)
-    return audioClip.pause()
+    if(isPlaying) {
+      checkClicked(event)
+      setIsPlaying(false)
+      return audioClip.pause()
+    }
   }
 
   const playMusic = (event: any) => {
-    checkClicked(event)
-    console.log(audioClip);
-    return audioClip.play()
-    
+    if (!isPlaying) {
+      checkClicked(event)
+      setIsPlaying(true)
+      return audioClip.play()
+    }
   }
 
-  const  getRandomSong = () => {
+  const  assignAudio = () => {
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
     setAudio(randomSong.src)
   }
 
-  const generateRandomSong = () => {
+  const generateNewSong= () => {
+    setIsPlaying(false)
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
+    setAudio(randomSong.src)
     setPauseClicked('pause-button')
     setPlayClicked('play-button')
-    setAudio(randomSong.src)
     return audioClip.pause()
   }
 
@@ -79,7 +86,7 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
         <img onClick={(event) => { playMusic(event)}} className={`${playClick}`} src={playButton} alt="play-button" />
         <img onClick={(event) => { pauseMusic(event) }} className={`${pauseClick}`} src={pauseButton} alt="play-button" />
       </div>
-      <button onClick={() => generateRandomSong()} className='new-audio-btn'>New Audio</button>
+      <button onClick={() => generateNewSong()} className='new-audio-btn'>New Audio</button>
     </>
   )
 }
