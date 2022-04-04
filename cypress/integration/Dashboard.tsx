@@ -1,0 +1,25 @@
+describe('Dashboard Page', () => {
+    beforeEach(()=> {
+        cy.intercept('GET', 'http://localhost:4000/', { fixture: 'UserData.json' })
+        cy.visit('http://localhost:4000/') 
+    })
+    it(`It should display user's name and user's statistics`, () => {
+        cy.get('[data-testid=user-greeting]')
+            .should('have.text', 'Welcome Plutarch')
+        // cy.get('[data-testid=user-stats]')
+        //     .should('be.visible')
+        // cy.get('[data-testid=words-per-minute]')
+        //     .should('have.text', 1932)
+        // cy.get('[data-testid=total-words]')
+        //     .should('have.text', 23243)
+    })
+    // it(`Should display the user's stories`, () => {
+    //     cy.get('[data-testid=stories-section]')
+    //         .should('be.visible')
+    //         .should('have.length', 2)
+    //     cy.get('[data-testid=single-story]').first()
+    //         .get('[data-testid=story-title]').should('be.visible')
+    //         .get('[data-testid=story-date]').should('be.visible')
+    //         .get('[data-testid=story-body]').should('be.visible')
+    // })
+})

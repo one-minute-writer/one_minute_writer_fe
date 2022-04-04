@@ -12,10 +12,10 @@ const NavBar: React.FC = () => {
       <nav>
         <ul className='menu'>
             <li>
-              <NavLink to='/' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="dashboard-nav-button">Dashboard</NavLink>
+              <NavLink to='/' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="dashboard-nav-button" data-testid='dashboard-nav-button'>Dashboard</NavLink>
             </li>
             <li>
-              <NavLink to='/writing-page' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="start-writing-nav-button">Start Writing</NavLink>
+              <NavLink to='/writing-page' style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} id="start-writing-nav-button" data-testid='start-writing-nav-button'>Start Writing</NavLink>
             </li>
           </ul>
       </nav>
