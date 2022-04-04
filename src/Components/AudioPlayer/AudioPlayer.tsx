@@ -1,6 +1,6 @@
 import './AudioPlayer.scss';
 import { Howl } from 'howler';
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import pauseButton from './pause-button.png'
 import playButton from './play-button.png'
 
@@ -12,7 +12,7 @@ const AudioPlayer: React.FC = () => {
 
   useEffect(() => {
     getRandomSong()
-  }, []);
+  });
 
   const audioOptions = [
     { title: 'At The Zoo', src: '/audioClips/at-zoo-audio.mp3' },
@@ -34,6 +34,8 @@ const AudioPlayer: React.FC = () => {
       src: [song],
       html5: true,
     });
+    console.log('helloooo', song, sound);
+    
     return sound.play()
   }
 
@@ -41,13 +43,12 @@ const AudioPlayer: React.FC = () => {
   function getRandomSong() {
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
     song = randomSong.src
-
   }
 
   return (
     <>
       <div className='audio-box'>
-        <img onClick={() => { callMySound() }} className='play-button' src={playButton} alt="play-button" />
+        <img onClick={() => { callMySound()}} className='play-button' src={playButton} alt="play-button" />
         <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
       </div>
     </>
