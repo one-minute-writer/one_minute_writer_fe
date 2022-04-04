@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './WritingPage.scss';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
-import { useMutation, useLazyQuery } from '@apollo/client';
-import { CREATE_STORY, GET_STORY } from '../../Queries'
+import { useMutation, useQuery } from '@apollo/client';
+import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 
 const WritingPage: React.FC = () => {
@@ -13,29 +13,54 @@ const WritingPage: React.FC = () => {
   const [ image, setImage ] = useState<string>('')
   const [ sound, setSound ] = useState<string>('')
   const [ time, setTime ] = useState<number>(0)
+  const params = useParams()
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
   const [ createStory, { data, loading, error }] = useMutation(CREATE_STORY)
-  const params = useParams()
 
-  useEffect(() => {
+  const [ updateStory, {
+    data: updateData,
+    loading: updateLoading,
+    error: updateError
+  }] = useMutation(UPDATE_STORY)
+  
+  const {
+    data: storyData,
+    loading: storyLoading,
+    error: storyError
+  } = useQuery(
+    GET_STORY, {
+      fetchPolicy: "no-cache",
+      variables: {id: params.id},
+    })
+
+  useEffect((): void => {
     if (params.id) {
-      // const { loading, error, data } = useLazyQuery(GET_STORY, {
-      //     fetchPolicy: "no-cache",
-      //     variables: {id: 1},
-      // })
-      // if (loading) return <p>Loading...</p>
-
-      // setTextBody()
-      // setTitle()
-      // setWord()
-      // setImage()
-      // setSound()
-      // setTime()
+      const storyInfo = getStoryInfo()
+      console.log(storyInfo)
     }
   }, [])
-
+  
+  const getStoryInfo = async () => {
+    const storyInfo = await storyData
+    setTextBody(storyData.bodyText)
+    setTitle(storyData.title)
+    setWord(storyData.word)
+    setImage(storyData.image)
+    setSound(storyData.sound)
+    setTime(storyData.totalTimeInSeconds)
+  }
 
   const saveWriting = () => {
+    const updateVariables = {
+      id: params.id,
+      userId: 1,
+      title: title,
+      bodyText: textBody,
+      word: word,
+      image: image,
+      sound: sound,
+      totalTimeInSeconds: time
+    }
     const variables = {
       userId: 1,
       title: title,
@@ -46,8 +71,7 @@ const WritingPage: React.FC = () => {
       totalTimeInSeconds: time
     }
     if (params.id) {
-      variables.id = params.id
-      updateStory({variables: variables})
+      updateStory({variables: updateVariables})
     } else {
       createStory({variables: variables})
     }

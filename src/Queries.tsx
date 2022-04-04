@@ -64,7 +64,6 @@ mutation {
 }
 `
 
-
 export const GET_STORY = gql `
 query fetchStory($id: ID) {
     fetchStory(id: $id) {
