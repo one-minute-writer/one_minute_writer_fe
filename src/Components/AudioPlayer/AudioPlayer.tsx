@@ -1,8 +1,8 @@
 import './AudioPlayer.scss';
 import { Howl} from 'howler';
 import React, { useEffect } from 'react';
-import pauseButton from './pause.png'
-import playButton from './play.png'
+import pauseButton from './pause-button.png'
+import playButton from './play-button.png'
 
 
 
@@ -38,11 +38,10 @@ let sound: any
 
 
  function getRandomSong() {
-  if(!sound) {
    let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
    console.log(randomSong);
    song = randomSong.src
-  }
+  
  }
 
  return (
@@ -51,7 +50,6 @@ let sound: any
     <img onClick={() => {callMySound()}} className='play-button' src={playButton} alt="play-button" />
     <img onClick={() => { pauseMusic() }} className='pause-button' src={pauseButton} alt="play-button" />
    </div>
-   <button onClick={() => { getRandomSong() }} className='new-audio-btn'>New Audio</button>
   </>
  )
 }
