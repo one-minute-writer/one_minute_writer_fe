@@ -15,7 +15,6 @@ const App: React.FC = () => {
         <Route path='/' element={<Dashboard/>}/>
         <Route path='/writing-page' element={<WritingPage/>}/>
         <Route path='/edit/:id' element={<EditPage/>}/>
-        {/* <Route path="*" element={<Errors/>}/> */}
       </Routes>
     </main>
   )
