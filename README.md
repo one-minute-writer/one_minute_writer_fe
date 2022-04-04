@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# One-Minute-Writer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Overview](#overview)
+- [Deployed Site](#deployed-site)
+- [Screenshots](#screenshots)
+- [Joint Learning Goal](#joint-learning-goal)
+- [Group Reflection](#group-reflection)
+- [Future Enhancements](#future-enhancements)
+- [Install & Setup](#install-and-setup)
+- [Project Spec & Rubric](#project-spec-and-rubric)
+- [Contributors](#contributors)
+- [Technologies](#technologies)
 
-## Available Scripts
+## Overview
+This is a group project incorporating a new stretch tech, GraphQL. This is also the first time the back-end program and the front-end program were able to collaborate and build a functioning application together. We used agile process to turn our application into deployed and production ready software. 
 
-In the project directory, you can run:
+## Deployed site
 
-### `npm start`
+https://one-minute-writer.herokuapp.com/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Home Page View 
 
-### `npm test`
+![home-view]()
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Application has responsive layout for mobile view or browser view. 
 
-### `npm run build`
+![responsive-layout]()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Application has a 100% Lighthouse Accessibility Score.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Accessibility-Score]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Joint Learning Goal
+Our learning goal was to build this application using a new technology that none of us had previous experience with. We chose GraphQL and TypeScript.
 
-### `npm run eject`
+## Group Reflection 
+In hindsight, we probably should have done only GraphQL and not implement TypeScript as well. In our research, we learned that graphQL also types our properties, and data that we're passsing. But implementing TypeScript was a great learning experience for all of us, since we aren't completely familiar with TypeScript. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Enhancements
+- Add login page for multiple users experience
+- Add larger curated words list for users to have more inspiration words. 
+- Add more curated images for user to have more inspiration images. 
+- Add a section in the writing page for users to be able to check for synonyms of words. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Install and Setup
+  1. Clone this repo `git clone git@github.com:one-minute-writer/one_minute_writer_fe.git`
+  2. Install the necessary package dependencies `npm install`
+  3. Run the command `npm start`
+  4. Start the server at `http://localhost:4000/`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Spec and Rubric
+[Turing School of Software & Design - Stretch Tech Project Spec](https://mod4.turing.edu/projects/capstone/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributors
+- [Gabby Recny](https://github.com/Gabby-Recny)
+- [Jacob Quintana](https://github.com/Jayquintana)  
+- [Phil Lewis](https://github.com/philalewis)  
+- [Lynn Nguyen](https://github.com/Alynn022)
 
-## Learn More
+## Contact Us on LinkedIn
+- Gabby Recny [@gabbyrecny](https://www.linkedin.com/in/gabbyrecny/)
+- Jacob Quintana [@jacob-quintana-2110fe](https://www.linkedin.com/in/jacob-quintana-2110fe/)
+- Phil Lewis [@philambroselewis](https://www.linkedin.com/in/philambroselewis/) 
+- Lynn Nguyen [@lynnnguyen22](https://www.linkedin.com/in/lynnnguyen22/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- GraphQL
+- TypeScript 
+- Continuous Integrations/Deployment 
+- Heroku
+- React Router
+- Cypress
+- Howl
+- JavaScript
+- HTML
+- CSS/SASS
+- Git
+- Figma
+- Miro
+- Webpack
+- Fetch API
