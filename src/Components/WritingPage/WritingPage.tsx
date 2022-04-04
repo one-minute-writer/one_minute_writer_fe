@@ -6,41 +6,61 @@ import { useMutation, useLazyQuery } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 
+interface IStoryData {
+  title: string,
+  bodyText: string,
+  word: string,
+  image: string,
+  sound: string,
+  totalTimeInSeconds: number
+} 
+
 const WritingPage: React.FC = () => {
+  const params = useParams()
   const [ textBody, setTextBody ] = useState<string>('')
   const [ title, setTitle ] = useState<string>('')
   const [ word, setWord ] = useState<string>('')
   const [ image, setImage ] = useState<string>('')
   const [ sound, setSound ] = useState<string>('')
   const [ time, setTime ] = useState<number>(0)
-  const params = useParams()
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
-  const [ createStory, { data, loading, error }] = useMutation(CREATE_STORY)
-  
+
+  const [ createStory, {
+    data: createData,
+    loading: createLoading,
+    error: createError
+  }] = useMutation(CREATE_STORY)
+
   const [ updateStory, {
     data: updateData,
     loading: updateLoading,
     error: updateError
   }] = useMutation(UPDATE_STORY)
-  
-  const [getStory, {
-    data: storyData,
-    loading: storyLoading,
-    error: storyError
-  }] = useLazyQuery(GET_STORY, {
-      fetchPolicy: "no-cache",
-      variables: {id: params.id},
-    })
-    
+
+  const [ getStory, { data, loading, error } ] = useLazyQuery(GET_STORY, {
+    fetchPolicy: "no-cache",
+    variables: {id: params.id},
+  })
+
   useEffect((): void => {
     if (params.id) {
       getStoryInfo()
     }
   }, [])
-    
+
   const getStoryInfo = async () => {
-    getStory()
-    const storyInfo = await storyData
+    try {
+      const response = await getStory()
+      if (response) {
+        setWritingInfo(data.fetchUser)
+      }
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+  const setWritingInfo = (storyInfo: IStoryData) => {
     setTextBody(storyInfo.bodyText)
     setTitle(storyInfo.title)
     setWord(storyInfo.word)

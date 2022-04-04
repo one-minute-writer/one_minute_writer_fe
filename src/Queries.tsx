@@ -37,18 +37,6 @@ query ($id: ID!) {
 // }
 // `;
 
-
-// export const CREATE_SINGLE_USER = gql `
-// query createUser($username: String!, $email: String!) {
-//     createUser(username: $username, email: $email) {
-//         user {
-//             username
-//             email
-//         }
-//     }
-// }
-// `;
-
 export const UPDATE_STORY = gql`
 mutation (
     $id: Int!
@@ -94,14 +82,6 @@ query fetchStory($id: ID) {
     }
 }
 `;
-
-// export const GET_STORIES = gql `
-// query fetchStories {
-//     id
-//     title
-//     word
-// }
-// `;
 
 export const CREATE_STORY = gql `
 mutation (
