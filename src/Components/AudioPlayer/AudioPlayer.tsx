@@ -9,7 +9,6 @@ interface Props {
   setSound: (arg0: string) => void
 }
 
-
 const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   const [audio, setAudio] = useState<string>('')
   const [playClick, setPlayClicked] = useState<string>('play-button')
@@ -63,8 +62,6 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
     return audioClip.pause()
   }
 
-
-
   const checkClicked = (event: any) => {
     console.log(event.target.className);
     if (event.target.className === 'play-button') {
@@ -75,8 +72,6 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
       setPauseClicked('pause-button is-clicked')
     }
   }
-
-  
 
   return (
     <>
