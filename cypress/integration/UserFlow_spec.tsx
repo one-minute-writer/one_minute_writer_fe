@@ -18,10 +18,12 @@ describe('UserFlow', () => {
     .get('.img-inspo').should('exist').should('have.attr', 'src').should('include','https://picsum.photos/id/1011/5472/3648')  
   })
   
-  beforeEach(() => {
-    cy.visit('http://localhost:4000/writing-page')
-  })
+  // beforeEach(() => {
+  //   cy.visit('http://localhost:4000/writing-page')
+  // })
+
   it('should be able to get new inspiration word', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('.word-inspo').should('exist')
     .get('.new-word-btn').click()
     .get('.word-inspo').should('exist')
@@ -32,6 +34,7 @@ describe('UserFlow', () => {
   // })
 
   it('should be able to choose a time to start writing', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -43,6 +46,7 @@ describe('UserFlow', () => {
     .get('.modal').should('not.exist')
   })
   it('should have a pop up a modal when time is up', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -54,11 +58,13 @@ describe('UserFlow', () => {
   })
 
   it('should be able to enter a title', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('input').type('One minute writer')
     .get('input').should('have.value', 'One minute writer')
   })
 
   it('text area should be disabled if user has not chosen a time', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('textarea').should('be.disabled')
     .get('.choose-time-btn').should('exist').click()
     .get('select')
@@ -69,6 +75,7 @@ describe('UserFlow', () => {
   })
 
   it('should be able to start writing in the text area', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -79,6 +86,7 @@ describe('UserFlow', () => {
   })
 
   it('should be able to save their writing', () => {
+    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
