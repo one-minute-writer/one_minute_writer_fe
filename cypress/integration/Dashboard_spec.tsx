@@ -8,7 +8,7 @@ describe("User Dashboard", () => {
       (req) => {
         aliasQuery(req, "fetchUser", "fetchUser.json")
   })
-    cy.visit('http://localhost:4000/dashboard') 
+    cy.visit('https://one-minute-writer.herokuapp.com/dashboard') 
 })
 
   it('Should display the title, header, logo and nav bar', () => {
