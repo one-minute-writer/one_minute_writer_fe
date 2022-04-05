@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
-    width: 90%;
+    width: 80%;
     margin: 2%;
     padding: 2%;
     font-size: 1em;
@@ -12,7 +12,7 @@
 
 .welcome-user {
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     margin: 0;
 }
 
@@ -24,18 +24,25 @@
     margin: 0;
     margin-top: 2%;
     margin-left: 2%;
+    text-align: center;
+}
+
+.total-word-statistics,
+.word-statistics {
+    text-align: center;
 }
 
 .all-user-statistics {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 50%;
     border-radius: 10px;
 }
 
 .words-per-minute,
-.total-words {
+.total-words,
+.welcome-box {
     width: 40%;
     height: 100%;
     border-radius: 14px;
@@ -46,10 +53,14 @@
     background-color:#F08080
 }
 
-.words-per-minute {
+.words-per-minute,
+.welcome-box {
 background-color: #ADD8E6;
 }
-
+.welcome-box {
+    width: 20%;
+    margin-left: 5%;
+}
 .fire-emoji {
     width: 10%;
     height: 50%;
