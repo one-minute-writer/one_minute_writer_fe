@@ -22,17 +22,16 @@ describe('UserFlow', () => {
   })
   
   it('should be able to get new inspiration word', () => {
-    // cy.visit('http://localhost:4000/writing-page')
     cy.get('.word-inspo').should('exist')
     .get('.new-word-btn').click()
     .get('.word-inspo').should('exist')
-  })
+})
 
   it('should be able to get new inspiration sound', () => {
     
   })
+
   it('should be able to choose a time to start writing', () => {
-    // cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -44,7 +43,6 @@ describe('UserFlow', () => {
     .get('.modal').should('not.exist')
   })
   it('should have a pop up a modal when time is up', () => {
-    // cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -56,28 +54,49 @@ describe('UserFlow', () => {
   })
 
   it('should be able to enter a title', () => {
-    // cy.visit('http://localhost:4000/writing-page')
     cy.get('input').type('One minute writer')
     .get('input').should('have.value', 'One minute writer')
   })
 
   it('text area should be disabled if user has not chosen a time', () => {
-    // cy.visit('http://localhost:4000/writing-page')
+    cy.get('textarea').should('be.disabled')
+    .get('.choose-time-btn').should('exist').click()
+    .get('select')
+    .select('60')
+    .get('p').should('have.text', 'target: 01:00')
+    .get('.start-stop-btn').click()
+    .get('textarea').should('exist')
   })
 
   it('should be able to start writing in the text area', () => {
-    
+    cy.get('.choose-time-btn').should('exist').click()
+    .get('select')
+    .select('60')
+    .get('p').should('have.text', 'target: 01:00')
+    .get('.start-stop-btn').click()
+    .get('textarea').type('Our story begins....')
+    .get('textarea').should('have.text', 'Our story begins....')
   })
+
   it('should be able to save their writing', () => {
-    
+    cy.get('.choose-time-btn').should('exist').click()
+    .get('select')
+    .select('60')
+    .get('p').should('have.text', 'target: 01:00')
+    .get('.start-stop-btn').click()
+    .get('input').type('One minute writer')
+    .get('input').should('have.value', 'One minute writer')
+    .get('textarea').type('Our story begins....')
+    .get('textarea').should('have.text', 'Our story begins....')
+    .get('.start-stop-btn').click()
+    .get('.save-writing-button').click()
+    .intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql', { 
+      fixture: 'UserData.json' 
+    })
+    .visit('http://localhost:4000/')
   })
   it('should be able to go to the dashboard and see their writing', () => {
     
   })
 })
 
-
-// cy.intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql', { 
-//   fixture: 'UserData.json' 
-// })
-// .visit('http://localhost:4000/')
