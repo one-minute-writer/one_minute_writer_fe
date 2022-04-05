@@ -10,13 +10,19 @@
 
 header {
   @include m.flexbox(row, nowrap, normal, space-between, center);
-  background-color: transparent;
-  border: 2px solid wheat;
+  background-color: v.$navBg;
+  width: 80%;
   color: v.$white;
-
+  top: 0;
+  margin-left: 10%;
+  align-self: center;
+  z-index: 1000;
+  position: fixed;
+  opacity: 90%;
 }
   
 nav {
+  align-self: center;
   flex: 1;
   @include m.flexbox(row, nowrap, normal, flex-end, normal);
   white-space: nowrap;
