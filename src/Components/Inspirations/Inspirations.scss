@@ -13,6 +13,11 @@ $button-size: 7.5em;
   overflow: hidden;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+}
+
 .img-inspo {
   height: 5%;
   width: 10%;

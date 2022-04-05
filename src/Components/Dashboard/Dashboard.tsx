@@ -34,16 +34,17 @@ const Dashboard: React.FC = () => {
   })
 
   return (
-    <>
+    <section className='dashboard'>
       <UserInfo
         words_per_minute={52}
         total_words={1689}
         userName={data.fetchUser.username}
       />
-      <section className='past-stories'>
+      <h1 className='past-writings'>Past Writings</h1>
+      <article className='past-stories'>
         { mapStories }
-      </section>
-    </>
+      </article>
+    </section>
   )
 }
 
