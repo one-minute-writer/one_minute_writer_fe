@@ -17,11 +17,11 @@ const UserInfo: React.FC<Props> = (props: Props) => {
         <>
           <article className='user-stats'>
             <p>Words per minute: </p>
-            <p>{props.words_per_minute}</p>
+            <p className='words-per-minute'>{props.words_per_minute}</p>
           </article>
           <article className='user-stats'>
             <p>Total Words: </p>
-            <p>{props.total_words}</p>
+            <p className='total-words'>{props.total_words}</p>
           </article>
         </>
       )
