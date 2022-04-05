@@ -10,6 +10,11 @@
     font-size: 1em;
 }
 
+.welcome-user {
+    color: white;
+    font-size: 30px;
+}
+
 .all-user-statistics {
     display: flex;
     flex-direction: row;
@@ -27,11 +32,11 @@
 }
 
 .total-words {
-    background-color: #DC143C;
+    background-color: #CD5C5C;
 }
 
 .words-per-minute {
-background-color: #4B0082;
+background-color: #FFB6C1;
 }
 
 .fire-emoji {

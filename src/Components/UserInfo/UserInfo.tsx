@@ -32,7 +32,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
 
   return (
     <section className='user-info'>
-        <h3>Welcome, {props.userName}</h3>
+        <h3 className='welcome-user'>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
             {displayWords()}
       </section>
