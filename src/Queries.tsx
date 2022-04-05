@@ -20,6 +20,7 @@ query ($id: ID!) {
             id
             title
             word
+            createdAt
         }
     }
 }
@@ -38,6 +39,37 @@ query fetchStory($id: ID!) {
 }
 `;
 
+export const CREATE_STORY = gql `
+mutation (
+    $userId: Int!,
+    $title: String!,
+    $bodyText: String!,
+    $word: String!,
+    $image: Image!,
+    $sound: Sound!,
+    $totalTimeInSeconds: Int!
+    ){
+        createStory(input: {
+            userId: $userId,
+            title: $title,
+            bodyText: $bodyText,
+            word: $word,
+            image: $image,
+            sound: $sound,
+            totalTimeInSeconds: $totalTimeInSeconds
+        }) {
+        story {
+            title
+            bodyText
+            word
+            image
+            sound
+            totalTimeInSeconds
+        }
+    }
+}
+`;
+
 export const UPDATE_STORY = gql`
 mutation (
     $id: Int!
@@ -45,8 +77,8 @@ mutation (
     $title: String!,
     $bodyText: String!,
     $word: String!,
-    $image: String!,
-    $sound: String!,
+    $image: Image!,
+    $sound: Sound!,
     $totalTimeInSeconds: Int!
     ){
     updateStory(input: {
@@ -71,58 +103,19 @@ mutation (
 }
 `
 
-export const CREATE_STORY = gql `
+export const CREATE_NEW_USER = gql`
 mutation (
-    $userId: Int!,
-    $title: String!,
-    $bodyText: String!,
-    $word: String!,
-    $image: String!,
-    $sound: String!,
-    $totalTimeInSeconds: Int!
+    $username: String!,
+    $email: String!
     ){
-        createStory(input: {
-            userId: $userId,
-            title: $title,
-            bodyText: $bodyText,
-            word: $word,
-            image: $image,
-            sound: $sound,
-            totalTimeInSeconds: $totalTimeInSeconds
-        }) {
-        story {
-            title
-            bodyText
-            word
-            image
-            sound
-            totalTimeInSeconds
+    createUser(input: {
+        username: $username,
+        email: $email
+    }) {
+        user {
+            username
+            email
         }
     }
 }
 `;
-
-
-
-// fetchStories {
-//     id
-//     title
-//     word
-// }
-// stories {
-//     id
-//     title
-//     word
-// }
-
-// export const CREATE_NEW_USER = gql`
-// mutation {
-//     createUser(input: 
-//     { username: "Lassie", email: "sillyboy@inwell.com" } ) {
-//         user {
-//         username
-//     	email
-//         }
-//     }
-// }
-// `;

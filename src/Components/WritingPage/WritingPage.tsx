@@ -40,7 +40,6 @@ const WritingPage: React.FC = () => {
     loading: createLoading,
     error: createError
   }] = useMutation(CREATE_STORY)
-
   const getImage = () => {
     getImages()
     .then((data: IImageData[]) => {
@@ -54,19 +53,20 @@ const WritingPage: React.FC = () => {
       setErrorHandle(true)
     })
   }
-
+  
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-
+  
   const randomWord = wordsData[Math.floor(Math.random() * wordsData.length)]
-
+  
   const getNewWord = () => {
     setWord(randomWord)
   }
-
+  
   useEffect((): void => {
     getImage()
     getNewWord()
   }, [])
+  console.log(createError)
   
   const saveWriting = () => {
     const variables = {
