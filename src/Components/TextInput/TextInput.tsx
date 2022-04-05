@@ -18,7 +18,6 @@ const TextInput: React.FC<Props> = ({ title, textBody, setTextBody, setTitle,wri
         placeholder="Title..."
         value={title}
         onChange={event => setTitle(event.target.value)}
-        data-testid='title'
       />
       <textarea
         aria-label='text area'
@@ -27,7 +26,6 @@ const TextInput: React.FC<Props> = ({ title, textBody, setTextBody, setTitle,wri
         rows={20}
         cols={30}
         value={textBody}
-        data-testid='text-area'
         onChange={(event) => setTextBody(event.target.value)}
       >
       </textarea>
