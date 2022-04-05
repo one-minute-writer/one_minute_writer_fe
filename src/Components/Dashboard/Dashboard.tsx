@@ -38,15 +38,18 @@ const Dashboard: React.FC = () => {
   return (
     <>
     <NavBar />
+    <section className='dashboard'>
       <UserInfo
         words_per_minute={data.fetchUser.dashboardMetrics.average_words_per_minute}
         total_words={data.fetchUser.dashboardMetrics.total_words_all_time}
         userName={data.fetchUser.username}
       />
-      <section className='past-stories'>
+      <h1 className='past-writings'>Past Writings</h1>
+      <article className='past-stories'>
         { mapStories }
-      </section>
-    </>
+      </article>
+    </section>
+   </>
   )
 }
 

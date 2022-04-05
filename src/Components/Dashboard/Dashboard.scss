@@ -9,6 +9,31 @@
     box-sizing: border-box;
 }
 
+// .dashboard {
+//     background-image: url('./type-writer.jpg'), url("paper-background.jpg");
+//     // position: fixed;
+//     overflow-y: auto;
+// }
+
+body
+    {
+    width: 100%;
+    height: 100%;
+    background-image: url('./type-writer.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    margin: 0;
+    padding: 0;
+    }
+
+.past-writings{
+    align-self: center;
+    margin-left: 8%;
+    font-family: Helvetica;
+    font-weight: 200;
+    color: white;
+}
+
 @media (max-width: 500px) {
     .past-stories {
         width: 100vw;

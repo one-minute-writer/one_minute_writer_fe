@@ -1,5 +1,7 @@
 import React from 'react';
 import './UserInfo.scss';
+import fire from './danger.png'
+import all from './all.png'
 
 interface Props {
   words_per_minute: number;
@@ -15,13 +17,14 @@ const UserInfo: React.FC<Props> = (props: Props) => {
     } else {
       return (
         <>
-          <article className='user-stats'>
-            <p>Words per minute: </p>
-            <p>{props.words_per_minute}</p>
+        <article className='words-per-minute'>
+            <p><img className='fire-emoji' src={fire} alt="fire icon" />Words per minute: </p>
+              <p>{props.words_per_minute}</p>
           </article>
-          <article className='user-stats'>
-            <p>Total Words: </p>
-            <p>{props.total_words}</p>
+          <article className='total-words'>
+              <p>Total Words: </p>
+              <p>{props.total_words}</p>
+
           </article>
         </>
       )
@@ -30,7 +33,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
 
   return (
     <section className='user-info'>
-        <h3>Welcome, {props.userName}</h3>
+        <h3 className='welcome-user'>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
         {displayWords()}
       </section>
