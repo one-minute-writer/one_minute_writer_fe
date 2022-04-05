@@ -19,6 +19,9 @@ const Dashboard: React.FC = () => {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   })
+  console.log('Loading', loading)
+  console.log('Error', error)
+  console.log('Data', data)
 
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
