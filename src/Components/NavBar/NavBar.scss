@@ -10,7 +10,8 @@
 
 header {
   @include m.flexbox(row, nowrap, normal, space-between, center);
-  background-color: v.$navBg;
+  background-color: transparent;
+  border: 2px solid wheat;
   color: v.$white;
 
 }
