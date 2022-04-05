@@ -13,7 +13,7 @@
 - [Technologies](#technologies)
 
 ## Overview
-This is a group project incorporating a new stretch tech, GraphQL. This is also the first time the back-end program and the front-end program were able to collaborate and build a functioning application together. We used agile process to turn our application into deployed and production ready software. 
+One minute writer is for creatives who are seeking inspiration and a space to document and organize their ideas and writing. They can track their progress through metrics on a user dashboard as well as revisit and edit past writings. This is a group project incorporating a new stretch tech, GraphQL. This is also the first time the back-end program and the front-end program were able to collaborate and build a functioning application together. We used agile process to turn our application into deployed and production ready software. 
 
 ## Deployed site
 
