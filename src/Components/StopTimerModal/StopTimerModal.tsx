@@ -26,7 +26,7 @@ const StopTimerModal: React.FC<Props> = ({
   const saveCurrentWriting = () => {
     saveWriting()
     setShowModal(false)
-    navigate('/')
+    navigate('/dashboard')
   }
 
   return (

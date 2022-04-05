@@ -16,7 +16,7 @@ describe('Writing Page', () => {
         cy.get('.audio-box').should('be.visible')
             .get('.new-audio-btn').should('be.visible')
     })
-    it.only('Should have a writing section', () => {
+    it('Should have a writing section', () => {
         cy.get('input').should('be.visible')
             .should('have.attr', 'placeholder','Title...')
         cy.get('textarea').should('be.visible')

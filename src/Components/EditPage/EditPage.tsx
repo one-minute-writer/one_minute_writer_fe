@@ -7,6 +7,7 @@ import { GET_STORY, UPDATE_STORY } from '../../Queries'
 import { useParams } from 'react-router-dom'
 import { getImages } from '../WritingPage/imageApiCalls';
 import wordsData from '../WritingPage/wordsData.js';
+import NavBar from '../NavBar/NavBar'
 
 interface IImageData {
   author: string,
@@ -102,34 +103,37 @@ const EditPage = () => {
     return <p>Loading...</p>
   } else {
     return (
-      <div className="writing-page">
-        <Inspirations
-          writingInProgress={writingInProgress}
-          setWritingInProgress={setWritingInProgress}
-          setSound={setSound}
-          time={time}
-          setTime={setTime}
-          saveWriting={saveWriting}
-          getImage={getImage}
-          image={image}
-          errorHandle={errorHandle}
-          word={word}
-          getNewWord={getNewWord}
-          totalSeconds={totalSeconds}
-          setTotalSeconds={setTotalSeconds}
-          timeChosen={timeChosen}
-          setTimeChosen={setTimeChosen}
-          showSetTimeModal={showSetTimeModal}
-          setShowSetTimeModal={setShowSetTimeModal}
-        />
-        <TextInput
-          title={title}
-          textBody={textBody}
-          setTextBody={setTextBody}
-          setTitle={setTitle}
-          writingInProgress={writingInProgress}
-        />
-      </div>
+      <>
+        <NavBar />
+        <div className="writing-page">
+          <Inspirations
+            writingInProgress={writingInProgress}
+            setWritingInProgress={setWritingInProgress}
+            setSound={setSound}
+            time={time}
+            setTime={setTime}
+            saveWriting={saveWriting}
+            getImage={getImage}
+            image={image}
+            errorHandle={errorHandle}
+            word={word}
+            getNewWord={getNewWord}
+            totalSeconds={totalSeconds}
+            setTotalSeconds={setTotalSeconds}
+            timeChosen={timeChosen}
+            setTimeChosen={setTimeChosen}
+            showSetTimeModal={showSetTimeModal}
+            setShowSetTimeModal={setShowSetTimeModal}
+          />
+          <TextInput
+            title={title}
+            textBody={textBody}
+            setTextBody={setTextBody}
+            setTitle={setTitle}
+            writingInProgress={writingInProgress}
+          />
+        </div>
+      </>
     )
   }
 }

@@ -92,7 +92,7 @@ describe('UserFlow', () => {
     .get('.start-stop-btn').click()
     .get('.save-writing-button').click()
     .intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql')
-    .visit('https://one-minute-writer.herokuapp.com')
+    .visit('https://one-minute-writer.herokuapp.com/dashboard')
   })
   // it('should be able to go to the dashboard and see their writing', () => {
     

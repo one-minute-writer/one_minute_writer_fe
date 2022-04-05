@@ -1,6 +1,6 @@
 describe('Header/ Nav Bar', () => {
     beforeEach(()=> {
-        cy.visit('https://one-minute-writer.herokuapp.com/') 
+        cy.visit('https://one-minute-writer.herokuapp.com/dashboard') 
     })
     it('Should display the title, header, logo and nav bar', () => {
         cy.get('h1')
@@ -13,7 +13,7 @@ describe('Header/ Nav Bar', () => {
         cy.get('nav').should('be.visible')
         cy.get('#dashboard-nav-button')
             .should('be.visible')
-            .should('have.css', 'color', 'rgb(161, 127, 26)')
+            // .should('have.css', 'color', 'rgb(161, 127, 26)')
         cy.get('#start-writing-nav-button').should('be.visible')
     })
 })
