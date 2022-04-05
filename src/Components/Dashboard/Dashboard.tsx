@@ -18,28 +18,16 @@ interface IStory {
 
 
 const Dashboard: React.FC = () => {
-  // const [ userStories, setUserStories ] = useState([])
   const  { loading, error, data }  = useQuery(GET_SINGLE_USER, {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   });
-
 
   const [ deleteStory, {
     data: deleteData,
     loading: deleteLoading,
     error: deleteError
   }] = useMutation(DELETE_STORY)
-
-  // const getUserInfo = async () => {
-  //   console.log('async data', data)
-  //   const result = await data;
-  //   setUserStories(result.fetchUser.stories)
-  // }
-  // useEffect( (): void => {
-  //   console.log('data', data)
-  //   getUserInfo()
-  // }, [data])
 
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
