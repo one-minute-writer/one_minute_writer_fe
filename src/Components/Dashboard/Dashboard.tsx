@@ -19,10 +19,8 @@ const Dashboard: React.FC = () => {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   })
-
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
-
 
   const mapStories = data.fetchUser.stories.map((story: IStory) => {
     return (
@@ -36,15 +34,10 @@ const Dashboard: React.FC = () => {
     )
   })
 
-  const calcWordsPerMinute = (metrics: {
-    total_words_all_time: number,
-    total_time: number
-  }) => Math.round(metrics.total_words_all_time / metrics.total_time * 60)
-
   return (
     <>
       <UserInfo
-        words_per_minute={calcWordsPerMinute(data.fetchUser.dashboardMetrics)}
+        words_per_minute={data.fetchUser.dashboardMetrics.average_words_per_minute}
         total_words={data.fetchUser.dashboardMetrics.total_words_all_time}
         userName={data.fetchUser.username}
       />
