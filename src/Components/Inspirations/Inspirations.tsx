@@ -88,6 +88,7 @@ const Inspirations: React.FC<Props> = ({
           />
         </div>
         <AudioPlayer
+          data-testid='audio-player'
           setSound={setSound}
         />
       </section>
