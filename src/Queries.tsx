@@ -73,7 +73,7 @@ mutation (
 
 export const UPDATE_STORY = gql`
 mutation (
-    $id: Int!
+    $id: Int!,
     $userId: Int!,
     $title: String!,
     $bodyText: String!,
@@ -119,4 +119,18 @@ mutation (
         }
     }
 }
+`;
+
+export const DELETE_STORY = gql`
+mutation (
+    $id: String!
+    ){
+    deleteStory(input:
+      { id: $id } ) {
+        story {
+          title
+          bodyText
+      }
+    }
+  }
 `;
