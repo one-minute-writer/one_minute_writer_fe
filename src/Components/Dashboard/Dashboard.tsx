@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from "@apollo/client";
+import { useQuery, useLazyQuery } from "@apollo/client";
 import { GET_SINGLE_USER, DELETE_STORY } from '../../Queries';
 import './Dashboard.scss';
 import UserInfo from '../UserInfo/UserInfo';
@@ -18,12 +18,12 @@ interface IStory {
 
 
 const Dashboard: React.FC = () => {
-  const [ userStories, setUserStories ] = useState([]);
-
-  const { loading, error, data } = useQuery(GET_SINGLE_USER, {
+  // const [ userStories, setUserStories ] = useState([])
+  const  { loading, error, data }  = useQuery(GET_SINGLE_USER, {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   });
+
 
   const [ deleteStory, {
     data: deleteData,
@@ -31,32 +31,31 @@ const Dashboard: React.FC = () => {
     error: deleteError
   }] = useMutation(DELETE_STORY)
 
-  const getUserInfo = async () => {
-    const result = await data;
-    setUserStories(result.fetchUser.stories)
-  }
-
-  useEffect( (): void => {
-    getUserInfo()
-  }, [data])
+  // const getUserInfo = async () => {
+  //   console.log('async data', data)
+  //   const result = await data;
+  //   setUserStories(result.fetchUser.stories)
+  // }
+  // useEffect( (): void => {
+  //   console.log('data', data)
+  //   getUserInfo()
+  // }, [data])
 
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
 
   const deleteStoryFromDom = (id: string) => {
-    let filteredStories = userStories.filter((story: IStory) => {
-      console.log ('Story ID', typeof story.id)
-      console.log('ID', typeof id)
+    let filteredStories = data.fetchUser.stories.filter((story: IStory) => {
       return story.id !== id
     })
     let idNumber: number = parseInt(id)
     deleteStory( {
       variables: {id: idNumber}
     })
-    setUserStories(filteredStories)
+    data.fetchUser.stories = filteredStories
   }
 
-  const mapStories = userStories.map((story: IStory) => {
+  const mapStories = data.fetchUser.stories.map((story: IStory) => {
     return (
       <SingleStory
         id={story.id}
