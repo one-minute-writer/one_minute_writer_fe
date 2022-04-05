@@ -66,7 +66,6 @@ const WritingPage: React.FC = () => {
     getImage()
     getNewWord()
   }, [])
-  console.log(createError)
   
   const saveWriting = () => {
     const variables = {
