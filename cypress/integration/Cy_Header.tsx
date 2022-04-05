@@ -1,6 +1,6 @@
 describe('Header/ Nav Bar', () => {
     beforeEach(()=> {
-        cy.visit('https://one-minute-writer.herokuapp.com/') 
+        cy.visit('https://one-minute-writer.herokuapp.com/dashboard') 
     })
     it('Should display the title, header, logo and nav bar', () => {
         cy.get('h1')
