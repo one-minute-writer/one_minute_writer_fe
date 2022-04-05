@@ -18,12 +18,12 @@ const UserInfo: React.FC<Props> = (props: Props) => {
       return (
         <>
         <article className='words-per-minute'>
-            <p><img className='fire-emoji' src={fire} alt="fire icon" />Words per minute: </p>
-              <p>{props.words_per_minute}</p>
+            <p className='words-per-min-display'> Words Per Minute: </p>
+              <p>You Have Written {props.words_per_minute} Per Minute!</p>
           </article>
           <article className='total-words'>
-              <p>Total Words: </p>
-              <p>{props.total_words}</p>
+              <p className='total-words-display'>Total Words: </p>
+              <p>You Have Written A Total Of {props.total_words} words!</p>
 
           </article>
         </>
@@ -33,7 +33,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
 
   return (
     <section className='user-info'>
-        <h3 className='welcome-user'>Welcome, {props.userName}</h3>
+        <h3 className='welcome-user'>Welcome {props.userName} !</h3>
       <section className='all-user-statistics'>
         {displayWords()}
       </section>
