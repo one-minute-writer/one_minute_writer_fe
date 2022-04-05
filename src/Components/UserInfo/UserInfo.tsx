@@ -24,6 +24,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
           <article className='total-words'>
               <p>Total Words: </p>
               <p>{props.total_words}</p>
+
           </article>
         </>
       )
@@ -34,7 +35,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
     <section className='user-info'>
         <h3 className='welcome-user'>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
-            {displayWords()}
+        {displayWords()}
       </section>
     </section>
   )

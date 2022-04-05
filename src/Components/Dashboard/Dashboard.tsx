@@ -6,11 +6,13 @@ import UserInfo from '../UserInfo/UserInfo';
 import SingleStory from '../SingleStory/SingleStory'
 import '../Loader/Loader.tsx';
 import Loader from '../Loader/Loader';
+import NavBar from '../NavBar/NavBar'
 
 interface IStory {
   id: string,
   title: string,
-  word: string
+  word: string,
+  createdAt: string
 }
 
 const Dashboard: React.FC = () => {
@@ -18,7 +20,6 @@ const Dashboard: React.FC = () => {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   })
-
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
 
@@ -29,15 +30,18 @@ const Dashboard: React.FC = () => {
         key={story.id}
         title={story.title}
         bodyText={story.word}
+        createdAt={story.createdAt}
       />
     )
   })
 
   return (
+    <>
+    <NavBar />
     <section className='dashboard'>
       <UserInfo
-        words_per_minute={52}
-        total_words={1689}
+        words_per_minute={data.fetchUser.dashboardMetrics.average_words_per_minute}
+        total_words={data.fetchUser.dashboardMetrics.total_words_all_time}
         userName={data.fetchUser.username}
       />
       <h1 className='past-writings'>Past Writings</h1>
@@ -45,6 +49,7 @@ const Dashboard: React.FC = () => {
         { mapStories }
       </article>
     </section>
+   </>
   )
 }
 

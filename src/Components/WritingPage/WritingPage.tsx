@@ -4,9 +4,9 @@ import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
 import { useMutation, useLazyQuery } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
-import { useParams } from 'react-router-dom'
 import { getImages } from './imageApiCalls';
 import wordsData from './wordsData.js';
+import NavBar from '../NavBar/NavBar'
 
 interface IImageData {
   author: string,
@@ -54,15 +54,15 @@ const WritingPage: React.FC = () => {
       setErrorHandle(true)
     })
   }
-
+  
   const randomIndex = (data: IImageData[]) => data[Math.floor(Math.random() * data.length)]
-
+  
   const randomWord = wordsData[Math.floor(Math.random() * wordsData.length)]
-
+  
   const getNewWord = () => {
     setWord(randomWord)
   }
-
+  
   useEffect((): void => {
     getImage()
     getNewWord()
@@ -82,34 +82,37 @@ const WritingPage: React.FC = () => {
   }
   
   return (
-    <div className="writing-page">
-      <Inspirations
-        time={time}
-        writingInProgress={writingInProgress}
-        setWritingInProgress={setWritingInProgress}
-        setSound={setSound}
-        setTime={setTime}
-        saveWriting={saveWriting}
-        getImage={getImage}
-        image={image}
-        errorHandle={errorHandle}
-        word={word}
-        getNewWord={getNewWord}
-        totalSeconds={totalSeconds}
-        setTotalSeconds={setTotalSeconds}
-        timeChosen={timeChosen}
-        setTimeChosen={setTimeChosen}
-        showSetTimeModal={showSetTimeModal}
-        setShowSetTimeModal={setShowSetTimeModal}
-      />
-      <TextInput
-        title={title}
-        textBody={textBody}
-        setTextBody={setTextBody}
-        setTitle={setTitle}
-        writingInProgress={writingInProgress}
-      />
-    </div>
+    <>
+      <NavBar />
+      <div className="writing-page">
+        <Inspirations
+          time={time}
+          writingInProgress={writingInProgress}
+          setWritingInProgress={setWritingInProgress}
+          setSound={setSound}
+          setTime={setTime}
+          saveWriting={saveWriting}
+          getImage={getImage}
+          image={image}
+          errorHandle={errorHandle}
+          word={word}
+          getNewWord={getNewWord}
+          totalSeconds={totalSeconds}
+          setTotalSeconds={setTotalSeconds}
+          timeChosen={timeChosen}
+          setTimeChosen={setTimeChosen}
+          showSetTimeModal={showSetTimeModal}
+          setShowSetTimeModal={setShowSetTimeModal}
+        />
+        <TextInput
+          title={title}
+          textBody={textBody}
+          setTextBody={setTextBody}
+          setTitle={setTitle}
+          writingInProgress={writingInProgress}
+        />
+      </div>
+    </>
   )
 }
 
