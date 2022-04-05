@@ -1,8 +1,5 @@
 describe('UserFlow', () => {
-  beforeEach(() => {
-    cy.visit('http://localhost:4000/writing-page')
-  })
-
+  
   it('should be able to get new inspiration image', () => {
     cy.intercept('GET', 'https://picsum.photos/v2/list', [{ 
       author: 'Roberto Nickson',
@@ -21,15 +18,18 @@ describe('UserFlow', () => {
     .get('.img-inspo').should('exist').should('have.attr', 'src').should('include','https://picsum.photos/id/1011/5472/3648')  
   })
   
+  beforeEach(() => {
+    cy.visit('http://localhost:4000/writing-page')
+  })
   it('should be able to get new inspiration word', () => {
     cy.get('.word-inspo').should('exist')
     .get('.new-word-btn').click()
     .get('.word-inspo').should('exist')
 })
 
-  it('should be able to get new inspiration sound', () => {
+  // it('should be able to get new inspiration sound', () => {
     
-  })
+  // })
 
   it('should be able to choose a time to start writing', () => {
     cy.get('.choose-time-btn').should('exist').click()
@@ -95,8 +95,8 @@ describe('UserFlow', () => {
     })
     .visit('http://localhost:4000/')
   })
-  it('should be able to go to the dashboard and see their writing', () => {
+  // it('should be able to go to the dashboard and see their writing', () => {
     
-  })
+  // })
 })
 
