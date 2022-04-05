@@ -23,6 +23,7 @@ const Dashboard: React.FC = () => {
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
 
+
   const mapStories = data.fetchUser.stories.map((story: IStory) => {
     return (
       <SingleStory
@@ -38,19 +39,13 @@ const Dashboard: React.FC = () => {
   const calcWordsPerMinute = (metrics: {
     total_words_all_time: number,
     total_time: number
-  }) => {
-    if (metrics) {
-      return metrics.total_words_all_time / metrics.total_time / 60
-    } else {
-      return 52
-    }
-  }
+  }) => Math.round(metrics.total_words_all_time / metrics.total_time * 60)
 
   return (
     <>
       <UserInfo
-        words_per_minute={calcWordsPerMinute(data.fetchUser.dashboard_metrics)}
-        total_words={16825}
+        words_per_minute={calcWordsPerMinute(data.fetchUser.dashboardMetrics)}
+        total_words={data.fetchUser.dashboardMetrics.total_words_all_time}
         userName={data.fetchUser.username}
       />
       <section className='past-stories'>
