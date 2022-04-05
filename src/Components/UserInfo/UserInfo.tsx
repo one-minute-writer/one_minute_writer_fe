@@ -19,11 +19,11 @@ const UserInfo: React.FC<Props> = (props: Props) => {
         <>
         <article className='words-per-minute'>
             <p><img className='fire-emoji' src={fire} alt="fire icon" />Words per minute: </p>
-              <p>{props.words_per_minute}</p>
+              <p className='words-per-min-display'>{props.words_per_minute}</p>
           </article>
           <article className='total-words'>
               <p>Total Words: </p>
-              <p>{props.total_words}</p>
+              <p className='total-words-display'>{props.total_words}</p>
 
           </article>
         </>
