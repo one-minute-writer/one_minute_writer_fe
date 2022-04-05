@@ -40,6 +40,7 @@ const WritingPage: React.FC = () => {
     loading: createLoading,
     error: createError
   }] = useMutation(CREATE_STORY)
+
   const getImage = () => {
     getImages()
     .then((data: IImageData[]) => {
@@ -66,7 +67,6 @@ const WritingPage: React.FC = () => {
     getImage()
     getNewWord()
   }, [])
-  console.log(createError)
   
   const saveWriting = () => {
     const variables = {

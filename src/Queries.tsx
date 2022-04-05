@@ -16,6 +16,7 @@ query ($id: ID!) {
         id
         username
         email
+        dashboardMetrics
         stories {
             id
             title

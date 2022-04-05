@@ -38,7 +38,6 @@ const EditPage = () => {
   const { data, loading, error } = useQuery(GET_STORY, {
     variables: {id: params.id}
   })
-  console.log(loading)
 
   useEffect(() => {
     getSingleStory()

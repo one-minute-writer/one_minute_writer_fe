@@ -19,10 +19,6 @@ const Dashboard: React.FC = () => {
     fetchPolicy: "no-cache",
     variables: {id: 1},
   })
-  console.log('Loading', loading)
-  console.log('Error', error)
-  console.log('Data', data)
-
   if (loading) return <Loader/>
   if (error) return <p>We're sorry, there's been an error! Please try again.</p>
 
@@ -38,22 +34,11 @@ const Dashboard: React.FC = () => {
     )
   })
 
-  const calcWordsPerMinute = (metrics: {
-    total_words_all_time: number,
-    total_time: number
-  }) => {
-    if (metrics) {
-      return metrics.total_words_all_time / metrics.total_time / 60
-    } else {
-      return 52
-    }
-  }
-
   return (
     <>
       <UserInfo
-        words_per_minute={calcWordsPerMinute(data.fetchUser.dashboard_metrics)}
-        total_words={16825}
+        words_per_minute={data.fetchUser.dashboardMetrics.average_words_per_minute}
+        total_words={data.fetchUser.dashboardMetrics.total_words_all_time}
         userName={data.fetchUser.username}
       />
       <section className='past-stories'>
