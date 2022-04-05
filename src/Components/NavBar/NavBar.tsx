@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './NavBar.scss';
 import mainlogo from './OneMinuteWriter.png';
-import { NavLink } from 'react-router-dom';
 import { NavLink, useParams } from 'react-router-dom';
 
 
