@@ -27,10 +27,10 @@ const SingleStory: React.FC<Props> = ( { bodyText, title, id, createdAt } ) => {
 
   return (
     <article className='single-story'>
-      <h3>{title}</h3>
-      <p>created: {formatDate(createdAt)}</p>
-      <p>{bodyText}</p>
-      <button onClick={() =>goToEditPage(id)}>edit</button>
+      <h3 className='title-display'>{title}</h3>
+      <p className='date-display'>created: {formatDate(createdAt)}</p>
+      <p className='bodyText-display'>{bodyText}</p>
+      <button className='edit-btn' onClick={() =>goToEditPage(id)}>edit</button>
     </article>
   )
 }

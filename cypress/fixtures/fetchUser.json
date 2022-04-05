@@ -1,0 +1,28 @@
+{
+  "data": {
+    "fetchUser": {
+      "id": "1",
+      "username": "Pythagoras",
+      "email": "chanel_dickens@brown.io",
+      "dashboardMetrics": {
+        "total_words_all_time": 1000,
+        "total_time": 800,
+        "average_words_per_minute": 75
+      },
+      "stories": [
+        {
+          "id": "1",
+          "title": "Those Barren Leaves, Thrones, Dominations",
+          "word": "official",
+          "createdAt": "2022-04-03T17:55:52Z"
+        },
+        {
+          "id": "10",
+          "title": "The Waste Land",
+          "word": "eum",
+          "createdAt": "2022-04-03T17:56:17Z"
+        }
+      ]
+    }
+  }
+}

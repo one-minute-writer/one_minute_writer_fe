@@ -1,3 +1,5 @@
+import { aliasQuery, aliasMutation } from "../utils/graphql-test-utils.js";
+
 describe('UserFlow', () => {
   
   it('should be able to get new inspiration image', () => {
@@ -28,9 +30,11 @@ describe('UserFlow', () => {
     // .get('.word-inspo').should('exist')
 })
 
-  // it('should be able to get new inspiration sound', () => {
-    
-  // })
+  it('should be able to get new inspiration sound', () => {
+    cy.get('.audio-box').should('exist')
+      .get('.play-button').click().should('exist')
+      .get('.pause-button').click().should('exist') 
+  })
 
   it('should be able to choose a time to start writing', () => {
     cy.get('.choose-time-btn').should('exist').click()
@@ -80,7 +84,14 @@ describe('UserFlow', () => {
   })
 
   it('should be able to save their writing', () => {
-    cy.get('.choose-time-btn').should('exist').click()
+    cy.intercept(
+      "POST",
+      "https://one-minute-writer-be.herokuapp.com/graphql",
+      (req) => {
+        aliasQuery(req, "fetchUser", "fetchUser.json")
+    })
+    .get('#start-writing-nav-button').click()
+    .get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
     .get('p').should('have.text', 'target: 01:00')
@@ -91,11 +102,27 @@ describe('UserFlow', () => {
     .get('textarea').should('have.text', 'Our story begins....')
     .get('.start-stop-btn').click()
     .get('.save-writing-button').click()
-    .intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql')
-    .visit('https://one-minute-writer.herokuapp.com/dashboard')
+    cy.intercept(
+      "POST",
+      "https://one-minute-writer-be.herokuapp.com/graphql",
+      (req) => {
+        aliasMutation(req, "createStory", "createStory.json")
+      })
   })
-  // it('should be able to go to the dashboard and see their writing', () => {
-    
-  // })
+
+  it('should be able to edit a story', () => {
+    cy.intercept(
+      "POST",
+      "https://one-minute-writer-be.herokuapp.com/graphql",
+      (req) => {
+        aliasQuery(req, "fetchUser", "fetchUser.json")
+    })
+    //create getStory fixture 
+    //add the alias query and operationName
+    //alias query the dashboard page
+    //click the edit button 
+    //stub the get story fixture 
+    //and test to check if those stories and inputs are the same 
+  })
 })
 
