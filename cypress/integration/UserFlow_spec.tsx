@@ -5,7 +5,7 @@ describe('UserFlow', () => {
       author: 'Roberto Nickson',
       download_url: 'https://picsum.photos/id/1011/5472/3648'
     }])
-    .visit('http://localhost:4000/writing-page')
+    .visit('https://one-minute-writer.herokuapp.com/writing-page')
     .get('header').should('exist')
     .get('.menu') 
     .get('#start-writing-nav-button').click()
@@ -18,15 +18,14 @@ describe('UserFlow', () => {
     .get('.img-inspo').should('exist').should('have.attr', 'src').should('include','https://picsum.photos/id/1011/5472/3648')  
   })
   
-  // beforeEach(() => {
-  //   cy.visit('http://localhost:4000/writing-page')
-  // })
+  beforeEach(() => {
+    cy.visit('https://one-minute-writer.herokuapp.com/writing-page')
+  })
 
   it('should be able to get new inspiration word', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('.word-inspo').should('exist')
-    .get('.new-word-btn').click()
-    .get('.word-inspo').should('exist')
+    // .get('.new-word-btn').click()
+    // .get('.word-inspo').should('exist')
 })
 
   // it('should be able to get new inspiration sound', () => {
@@ -34,7 +33,6 @@ describe('UserFlow', () => {
   // })
 
   it('should be able to choose a time to start writing', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -46,7 +44,6 @@ describe('UserFlow', () => {
     .get('.modal').should('not.exist')
   })
   it('should have a pop up a modal when time is up', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -58,13 +55,11 @@ describe('UserFlow', () => {
   })
 
   it('should be able to enter a title', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('input').type('One minute writer')
     .get('input').should('have.value', 'One minute writer')
   })
 
   it('text area should be disabled if user has not chosen a time', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('textarea').should('be.disabled')
     .get('.choose-time-btn').should('exist').click()
     .get('select')
@@ -75,7 +70,6 @@ describe('UserFlow', () => {
   })
 
   it('should be able to start writing in the text area', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -86,7 +80,6 @@ describe('UserFlow', () => {
   })
 
   it('should be able to save their writing', () => {
-    cy.visit('http://localhost:4000/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -98,10 +91,8 @@ describe('UserFlow', () => {
     .get('textarea').should('have.text', 'Our story begins....')
     .get('.start-stop-btn').click()
     .get('.save-writing-button').click()
-    .intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql', { 
-      fixture: 'UserData.json' 
-    })
-    .visit('http://localhost:4000/')
+    .intercept('GET', 'https://one-minute-writer-be.herokuapp.com/graphql')
+    .visit('https://one-minute-writer.herokuapp.com')
   })
   // it('should be able to go to the dashboard and see their writing', () => {
     
