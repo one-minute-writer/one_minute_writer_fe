@@ -30,7 +30,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
 
   return (
     <section className='user-info'>
-        <h3>Welcome, {props.userName}</h3>
+        <h3 data-testid='user-greeting'>Welcome, {props.userName}</h3>
       <section className='all-user-statistics'>
             {displayWords()}
       </section>

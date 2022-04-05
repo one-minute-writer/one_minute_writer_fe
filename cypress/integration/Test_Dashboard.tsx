@@ -1,11 +1,32 @@
+import {
+    GET_SINGLE_USER
+} from '../../src/Queries';
+
 describe('Dashboard Page', () => {
-    beforeEach(()=> {
-        cy.intercept('GET', 'http://localhost:4000/', { fixture: 'UserData.json' })
-        cy.visit('http://localhost:4000/') 
+    beforeEach(() => {
+        cy.intercept({
+            method: 'GET',
+            url: '/',
+            headers: {
+                'x-gql-operation-name': 'fetchUser'
+            },
+        }, { fixture: 'UserData.json' })
+            .visit('http://localhost:4000/')
     })
     it(`It should display user's name and user's statistics`, () => {
+        cy.request({
+            url: '/',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application.json' 
+            },
+            body: {
+                query: GET_SINGLE_USER
+            },
+            failOnStatusCode: false
+        })
         cy.get('[data-testid=user-greeting]')
-            .should('have.text', 'Welcome Plutarch')
+            .should('have.text', 'Welcome, plutarch')
         // cy.get('[data-testid=user-stats]')
         //     .should('be.visible')
         // cy.get('[data-testid=words-per-minute]')

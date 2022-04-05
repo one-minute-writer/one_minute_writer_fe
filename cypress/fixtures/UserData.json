@@ -1,32 +1,8 @@
 {
-  "data": {
-    "id": 4,
-    "type": "user",
-    "attributes": {
+    "fetchUser": {
+      "email": "plutarch@inwell.com",
+      "id": "1",
       "username": "plutarch",
-      "email": "pluto@athens.com",
-      "stories": [
-        {
-          "id": 6,
-          "user_id": 4,
-          "total_time_in_seconds": 120,
-          "body_text": "I went to the pool today",
-          "image": "fake_image.com",
-          "word": "hooray",
-          "sound": "fake_sound.com",
-          "title": "expedita",
-        },
-        {
-          "id": 10,
-          "user_id": 4,
-          "total_time_in_seconds": 180,
-          "body_text": "I went to the store today",
-          "image": "fakest_image.com",
-          "word": "hooray yall",
-          "sound": "fakest_sound.com",
-          "title": "earnum",
-        }
-      ]
+      "__typename": "User"
     }
-  }
 }

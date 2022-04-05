@@ -11,7 +11,7 @@ query {
 `;
 
 export const GET_SINGLE_USER = gql`
-query ($id: ID!) {
+query fetchUser ($id: ID!) {
     fetchUser(id: $id) {
         id
         username
@@ -24,6 +24,18 @@ query ($id: ID!) {
     }
 }
 `;
+
+// export const aliasQuery = (GET, GET_SINGLE_USER) => {
+//     if (fetchUser(GET, fetchUser)) {
+//       req.alias = `gql${GET_SINGLE_USER}Query`
+//     }
+// }
+
+// export const aliasQuery = (req, operationName) => {
+//     if (hasOperationName(req, operationName)) {
+//       req.alias = `gql${operationName}Query`
+//     }
+//   }
 
 // export const CREATE_NEW_USER = gql`
 // mutation {
