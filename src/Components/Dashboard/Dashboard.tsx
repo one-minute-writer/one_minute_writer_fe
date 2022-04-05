@@ -6,6 +6,7 @@ import UserInfo from '../UserInfo/UserInfo';
 import SingleStory from '../SingleStory/SingleStory'
 import '../Loader/Loader.tsx';
 import Loader from '../Loader/Loader';
+import NavBar from '../NavBar/NavBar'
 
 interface IStory {
   id: string,
@@ -36,6 +37,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
+    <NavBar />
       <UserInfo
         words_per_minute={data.fetchUser.dashboardMetrics.average_words_per_minute}
         total_words={data.fetchUser.dashboardMetrics.total_words_all_time}

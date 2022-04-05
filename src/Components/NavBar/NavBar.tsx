@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
         <ul className='menu'>
           <li>
             <NavLink
-              to='/'
+              to='/dashboard/'
               style={({ isActive }) => isActive ? {color: '#a17f1a'}:{}} 
               id="dashboard-nav-button">Dashboard
             </NavLink>

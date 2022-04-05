@@ -10,10 +10,9 @@ import LandingPage from '../Components/LandingPage/LandingPage'
 const App: React.FC = () => {
   return (
     <main>
-      <NavBar />
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
-        <Route path='/' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/writing-page' element={<WritingPage/>}/>
         <Route path='/edit/:id' element={<EditPage/>}/>
       </Routes>
