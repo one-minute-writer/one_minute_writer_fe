@@ -1,9 +1,7 @@
 describe('Writing Page', () => {
-    beforeEach( () => {
-        beforeEach(()=> {
+    beforeEach(()=> {
             cy.visit('https://one-minute-writer.herokuapp.com/writing-page') 
-        })
-    } )
+    })
     it('show the header', () => {
       cy.get('header').should('be.visible')
     })
