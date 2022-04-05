@@ -26,9 +26,9 @@ const Dashboard: React.FC = () => {
   });
 
   const [ deleteStory, {
-    data: createData,
-    loading: createLoading,
-    error: createError
+    data: deleteData,
+    loading: deleteLoading,
+    error: deleteError
   }] = useMutation(DELETE_STORY)
 
   const getUserInfo = async () => {
@@ -45,11 +45,14 @@ const Dashboard: React.FC = () => {
 
   const deleteStoryFromDom = (id: string) => {
     let filteredStories = userStories.filter((story: IStory) => {
-      // console.log ('Story ID', typeof story.id)
-      // console.log('ID', typeof id)
+      console.log ('Story ID', typeof story.id)
+      console.log('ID', typeof id)
       return story.id !== id
     })
-    deleteStory({ id: id })
+    let idNumber: number = parseInt(id)
+    deleteStory( {
+      variables: {id: idNumber}
+    })
     setUserStories(filteredStories)
   }
 

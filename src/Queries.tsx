@@ -123,7 +123,7 @@ mutation (
 
 export const DELETE_STORY = gql`
 mutation (
-    $id: String!
+    $id: ID!
     ){
     deleteStory(input:
       { id: $id } ) {
