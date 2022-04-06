@@ -13,7 +13,9 @@
 .welcome-user {
     color: white;
     font-size: 20px;
+    text-align: center;
     margin: 0;
+    
 }
 
 .total-words-display,
@@ -59,7 +61,8 @@ background-color: #ADD8E6;
 }
 .welcome-box {
     width: 20%;
-    margin-left: 5%;
+    margin-left: 8%;
+    background-color: #778899;
 }
 .fire-emoji {
     width: 10%;
@@ -74,6 +77,18 @@ background-color: #ADD8E6;
         margin-top: 5%;
         align-self: center;
     }
+.welcome-box {
+    width: 20%;
+    margin-left: 8%;
+    background-color: #778899;
+    margin-top: 10%;
+    height: 30%;
+}
+    .welcome-box {
+    width: 20%;
+    margin-left: 8%;
+    background-color: #778899;
+}
 
     .words-per-minute,
     .total-words {
