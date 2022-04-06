@@ -5,19 +5,19 @@ import './Error.scss'
 const Error = () => {
     return (
         <section className='error-page'>
-
+            <h2>UH OH</h2>
+            <h4 className='error-message'>We're sorry, we're a bit of a mess right now. <br></br>There seems to be an error! <br></br>Feel free to head back to the dashboard. <br></br>Or...hang out a while and type something up!
+            </h4>
+            <textarea
+                className='err-textarea'
+                aria-label='text area'
+                placeholder='What is on your mind?'
+            >
+            </textarea>
+            <Link to='/dashboard'>
+                <button className="back-home-btn">Go to dashboard</button>
+            </Link>
         </section>
-        // <section className='error-page'>
-        //     <section className='404'>
-        //         <article className='err'>4</article>
-        //         <i className='far fa-question-circle fa-spin'></i>
-        //         <article className="err2">4</article>
-        //     </section>
-        //         <article className='message'>
-        //             Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go 
-        //             <Link to='/'> home </Link>and try from there.</p>
-        //         </article>
-        // </section>
     )
 }
 
