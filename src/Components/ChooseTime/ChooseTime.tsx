@@ -37,10 +37,10 @@ const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
   const checkTimeInput = () => {
   let min = parseInt(minutes)
   let secs = parseInt(seconds)
-    if(min && secs) {
-      return true
+    if(!min && !secs) {
+      return (<h3 className='select-time'>Please Select time</h3>)
     } else {
-      return false
+      return (<button onClick={selectTime}>Choose</button>)
     }
   }
   
@@ -70,7 +70,7 @@ const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
             onChange={event => handleSecondsInput(event)}
           />
         </span>
-        {checkTimeInput()  && <button onClick={selectTime}>Choose</button>}
+        {checkTimeInput()}
       </div>
     </section>
   )
