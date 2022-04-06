@@ -1,16 +1,16 @@
 import React from 'react'
 import './SingleStory.scss'
-import { IUserData } from '../../types'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
   bodyText: string,
   title: string,
   id: string,
-  createdAt: string
+  createdAt: string,
+  deleteStoryFromDom: (id: string) => void
 }
 
-const SingleStory: React.FC<Props> = ( { bodyText, title, id, createdAt } ) => {
+const SingleStory: React.FC<Props> = ( { bodyText, title, id, createdAt, deleteStoryFromDom } ) => {
   const navigate = useNavigate()
 
   const goToEditPage = (id: string) => {
@@ -27,10 +27,11 @@ const SingleStory: React.FC<Props> = ( { bodyText, title, id, createdAt } ) => {
 
   return (
     <article className='single-story'>
-      <h3>{title}</h3>
-      <p>created: {formatDate(createdAt)}</p>
-      <p>{bodyText}</p>
-      <button onClick={() =>goToEditPage(id)}>edit</button>
+      <h3 className='title-display'>{title}</h3>
+      <p className='date-display'>created: {formatDate(createdAt)}</p>
+      <p className='bodyText-display'>{bodyText}</p>
+      <button className='edit-btn' onClick={() =>goToEditPage(id)}>edit</button>
+      <button className='delete-btn' onClick={() => deleteStoryFromDom(id)}>Delete</button>
     </article>
   )
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './WritingPage.scss';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
-import { useMutation, useLazyQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
 import { getImages } from './imageApiCalls';
 import wordsData from './wordsData.js';

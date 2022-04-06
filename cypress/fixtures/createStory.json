@@ -1,0 +1,22 @@
+{
+  "data": {
+    "createStory": {
+      "story": {
+        "title": "Thoughts",
+        "bodyText": "hello world",
+        "word": "test",
+        "image": {
+          "author": "william",
+          "download_url": "http:test_url.com"
+        },
+        "sound": {
+          "title": "denver skyline",
+          "src": "http:beautifuldenver.com"
+        },
+        "totalTimeInSeconds": 120,
+        "createdAt": "2022-04-04T17:36:45Z",
+        "updatedAt": "2022-04-04T17:36:45Z"
+      }
+    }
+  }
+}

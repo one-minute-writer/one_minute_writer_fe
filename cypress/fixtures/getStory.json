@@ -1,0 +1,21 @@
+{
+  "data": {
+    "fetchStory": {
+      "id": "1",
+      "title": "The Doors of Perception",
+      "word": "sed",
+      "bodyText": "Dolores pariatur ea. Et ut omnis. Quia sequi autem. Ad deserunt ratione.",
+      "image": {
+        "author": "Archimedes",
+        "download_url": "http://mertz.io/romelia"
+      },
+      "sound": {
+        "src": "http://walker.org/amber.waters",
+        "title": "odit"
+      },
+      "totalTimeInSeconds": 298,
+      "createdAt": "2022-04-04T19:40:36Z",
+      "updatedAt": "2022-04-04T19:40:36Z"
+    }
+  }
+ }
