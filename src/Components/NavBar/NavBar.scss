@@ -6,6 +6,7 @@
   margin-left: 5%;
   align-self: center;
   margin-top: -1%;
+  width: 70vw;
 }
 
 header {
@@ -52,8 +53,12 @@ nav {
 }
   
 @media (max-width: 700px) {
+  .logo {
+    width: 35vw;
+  }
   header {
     @include m.flexbox(row, nowrap, normal, center, center);
+    width: 80%;
   }
 nav {
   position: fixed;

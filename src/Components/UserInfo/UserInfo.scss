@@ -60,8 +60,8 @@
 background-color: #ADD8E6;
 }
 .welcome-box {
-    width: 20%;
-    margin-left: 8%;
+    width: 32%;
+    margin-left: 12%;
     background-color: #778899;
 }
 .fire-emoji {
@@ -70,25 +70,29 @@ background-color: #ADD8E6;
 }
 
 @media (max-width: 480px) {
-    .user-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 5%;
-        align-self: center;
-    }
-.welcome-box {
+  .user-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 5%;
+      align-self: center;
+  }
+  .welcome-user {
+    margin-left: 2em;
+    text-align: none;
+  }
+  .welcome-box {
+      width: 20%;
+      margin-left: 8%;
+      background-color: #778899;
+      margin-top: 10%;
+      height: 30%;
+  }
+  .welcome-box {
     width: 20%;
     margin-left: 8%;
     background-color: #778899;
-    margin-top: 10%;
-    height: 30%;
-}
-    .welcome-box {
-    width: 20%;
-    margin-left: 8%;
-    background-color: #778899;
-}
+  }
 
     .words-per-minute,
     .total-words {
