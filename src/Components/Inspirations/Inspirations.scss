@@ -1,49 +1,51 @@
+@use '../Styles/_variables' as v;
+@use '../Styles/_mixins' as m;
 $button-size: 7.5em;
 $arrow-base-size: $button-size/5;
 $button-size: 7.5em;
 
+.container {
+  @include m.flexbox(column, no-wrap, center, center, center);
+  width: 50%;
+  margin-top: 3%;
+}
+
 .inspirations {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin-bottom: 1em;
-  height: 100%;
+  display: grid;
+  height: 90%;
   overflow-x: hidden;
   overflow: hidden;
+  margin: 4%;
 }
 
-.container {
-  display: flex;
-  align-items: center;
+.img-container,
+.word-inspiration,
+.audio-inspiration {
+  box-sizing: content-box;
+  @include m.flexbox(column, no-wrap, center, center, center);
 }
 
-.img-inspo {
-  height: 5%;
-  width: 10%;
+.img-container > img {
+  height: 60%;
+  width: 60%;
+  border: white 3px solid;
+  border-radius: 5px;
 }
 
-.new-img-btn {
+.img-container > button {
   margin-top: 5%;
 }
 
-.word-inspo {
-  display: flex;
-  height: 6.5vh;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 1.5em;
-}
-
-.image-box, .word-box {
-  height: 10vh;
-  width: 25vw;
-  margin-top: 1vh;
-}
-
-.img-inspo {
-  height: 100%;
+.word-inspiration,
+.audio-inspiration,
+.img-container {
   width: 100%;
+  height: 100%;
+  margin: 1%;
+}
+
+.word-inspiration {
+  color: v.$offWhite;
 }
 
 .new-img-btn,
@@ -51,8 +53,8 @@ $button-size: 7.5em;
 .new-audio-btn {
   background-color: #52736B;
   color: white;
-  width: 100%;
-  height: 3vh;
+  width: 12vw;
+  height: 4vh;
   box-shadow: none;
   border: none;
   border-radius: 3px;
@@ -61,76 +63,38 @@ $button-size: 7.5em;
 .choose-time-btn {
   background-color: #3b544d;
   color: white;
-  width: 100%;
-  height: 3vh;
+  width: 20vw;
+  height: 4vh;
   box-shadow: none;
   border: none;
   border-radius: 3px;
   margin-top: 2em;
 }
 
-@media screen and (min-width: 40em) {
+@media (max-width: 700px) {
   .container {
-    display: flex;
-    flex-direction: column;
-    width: 76%;
+    @include m.flexbox(row, no-wrap, normal, normal, center);
+    width: 90%;
+    margin: 1%;
+  }
+
+  .inspirations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     margin: 0;
   }
-  .inspirations {
-    display: flex;
-    flex-direction: column;
-    margin-left: 2em;
-    align-items: flex-start;
+  
+  .img-container > img {
+    height: 60%;
     width: 60%;
+    margin: 0;
   }
-  .image-box, .word-box {
-    height: 10%;
-    width: 30%;
-  }
-  .play-arrow-btn {
-    border-width: $arrow-base-size*2 0 $arrow-base-size*2 ($arrow-base-size*1.6)*2;
-    transition: transform .25s ease-in;
-    margin-left: 3em;
-  }
-  .img-inspo {
-    height: 21vh;
-    width: 20vw;
-  }
-  .word-inspo {
-    font-size: 32px;
-    margin-left: 2vw;
-    margin-top: 45px;
-  }
-  .audio-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .new-img-btn,
-  .new-word-btn,
-  .new-audio-btn {
-    width: 10vw;
-    height: 3vh;
-  }
-  .play-button {
-    display: flex;
-    justify-content: center;
-    justify-content: flex-start;
-  }
-  .choose-time-btn{
-    width: 15em;
-    margin-left: 2em;
-  }
-}
 
-@media screen and (min-width: 640px) {
-  .new-img-btn,
-  .new-word-btn,
-  .new-audio-btn {
-    width: 15vw;
-    height: 3vh;
-  }
-  .inspirations {
-    margin-right: 0;
-  }
+    .word-inspiration,
+    .audio-inspiration,
+    .img-container {
+      margin: 0%;
+      width: 100%;
+      height: 100%;
+    }
 }

@@ -1,16 +1,30 @@
+@use '../Styles/_variables' as v;
+@use '../Styles/_mixins' as m;
+
+.writing-section {
+  margin-top: 3%;
+}
+
 .writing-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include m.flexbox(column, no-wrap, normal, center, normal);
   overflow-x: hidden;
   overflow: hidden;
-  margin-top: 5%;
+  margin: 3%;
 }
 
 @media screen and (min-width: 40em) {
   .writing-page {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @include m.flexbox(row, no-wrap, normal, center, normal);
+  }
+}
+
+@media (max-width: 700px) {
+  .writing-section {
+    margin-top: 10%;
+    @include m.flexbox(column, no-wrap, normal, center, normal);
+  }
+  .writing-page {
+    @include m.flexbox(column, no-wrap, center, center, center);
+    margin-left: 3%;
   }
 }

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import './NavBar.scss';
 import mainlogo from './OneMinuteWriter.png';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const NavBar: React.FC = () => {
-  const params = useParams()
   return (
     <header>
-      <img className='logo' src={mainlogo} alt='One Minute Writer' />
+      <img className='logo' src={mainlogo} alt='One Minute Writer' aria-label='title'/>
       <nav>
         <ul className='menu'>
           <li>

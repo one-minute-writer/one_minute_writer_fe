@@ -3,7 +3,7 @@ import './WritingPage.scss';
 import Inspirations from '../Inspirations/Inspirations';
 import TextInput from '../TextInput/TextInput';
 import { useMutation } from '@apollo/client';
-import { CREATE_STORY, GET_STORY, UPDATE_STORY } from '../../Queries'
+import { CREATE_STORY } from '../../Queries'
 import { getImages } from './imageApiCalls';
 import wordsData from './wordsData.js';
 import NavBar from '../NavBar/NavBar'
@@ -11,15 +11,6 @@ import NavBar from '../NavBar/NavBar'
 interface IImageData {
   author: string,
   download_url: string
-}
-
-interface IStoryData {
-  title: string,
-  bodyText: string,
-  word: string,
-  image: string,
-  sound: string,
-  totalTimeInSeconds: number
 }
 
 const WritingPage: React.FC = () => {
@@ -82,7 +73,7 @@ const WritingPage: React.FC = () => {
   }
   
   return (
-    <>
+    <section className='writing-section'>
       <NavBar />
       <div className="writing-page">
         <Inspirations
@@ -114,7 +105,7 @@ const WritingPage: React.FC = () => {
           writingInProgress={writingInProgress}
         />
       </div>
-    </>
+    </section>
   )
 }
 

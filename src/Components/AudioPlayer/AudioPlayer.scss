@@ -1,17 +1,21 @@
+@use '../Styles/_mixins' as m;
+@use '../Styles/variables' as v;
 
 .audio-box {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  align-items: center;
-  height: 20%;
-  width: 80%;
+  @include m.flexbox(row, no-wrap, center, space-evenly, center);
+  height: 60%;
+  width: 60%;
+  box-sizing: content-box;
 }
 
 .play-button,
 .pause-button {
   height: 50%;
   width: 50%;
+  margin: 5%;
+  border: #24382e 3px solid;
+  border-radius: 5px;
+  background-color: v.$offWhite;
 }
 
 .play-button,
@@ -19,14 +23,6 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
-  .play-button,
-  .pause-button {
-    height: 20%;
-    width: 20%;
-  }
-}
-
 .is-clicked {
-  background-color: rgb(176,176,176, 1)
+  background-color: v.$yellow
 }
