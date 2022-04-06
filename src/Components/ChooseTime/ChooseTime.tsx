@@ -9,6 +9,7 @@ interface Props {
 const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
   const [ minutes, setMinutes ] = useState<string>('0')
   const [ seconds, setSeconds ] = useState<string>('0')
+  const [isSelected , setIstSelected] = useState<boolean>(false)
   
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const totalSeconds = parseInt(event.target.value)
@@ -30,6 +31,17 @@ const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
     const totalSeconds = parseInt(minutes) * 60 + parseInt(seconds)
     setTimer(totalSeconds)
     setShowSetTimeModal(false)
+    checkTimeInput()
+  }
+
+  const checkTimeInput = () => {
+  let min = parseInt(minutes)
+  let secs = parseInt(seconds)
+    if(min && secs) {
+      return true
+    } else {
+      return false
+    }
   }
   
   return (
@@ -58,7 +70,7 @@ const ChooseTime: React.FC<Props> = ({ setTimer, setShowSetTimeModal }) => {
             onChange={event => handleSecondsInput(event)}
           />
         </span>
-        <button onClick={selectTime}>Choose</button>
+        {checkTimeInput()  && <button onClick={selectTime}>Choose</button>}
       </div>
     </section>
   )
