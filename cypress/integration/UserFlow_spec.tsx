@@ -48,7 +48,7 @@ describe('UserFlow', () => {
     .get('.continue-writing-button').click()
     .get('.modal').should('not.exist')
   })
-  it.skip('should have a pop up a modal when time is up', () => {
+  it('should have a pop up a modal when time is up', () => {
     cy.visit('https://one-minute-writer.herokuapp.com/writing-page')
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
@@ -126,8 +126,18 @@ beforeEach(() => {
       .get('.save-writing-button').click() 
   })
 
-  it('should be able to edit a story', () => {
+  it.only('should be able to edit a story', () => {
       cy.get('.edit-btn').first().click()
+      cy.on('uncaught:exception', (err, runnable) => {
+        return false
+      })
+      cy.intercept(
+        "POST",
+        "https://one-minute-writer-be.herokuapp.com/graphql",
+        (req) => {
+          aliasQuery(req, "fetchStory", "getStory.json")
+        })
+        // cy.visit('https://one-minute-writer-be.herokuapp.com/edit/1')
     //create getStory fixture 
     //add the alias query and operationName
     //alias query the dashboard page
@@ -135,8 +145,8 @@ beforeEach(() => {
     //stub the get story fixture 
     //and test to check if those stories and inputs are the same 
   })
-  
-  it.only('should be able to delete a story', () => {
+
+  it('should be able to delete a story', () => {
     cy.get('.delete-btn').first().click()
     cy.intercept(
       "POST",

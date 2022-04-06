@@ -1,4 +1,4 @@
-import { aliasQuery, aliasMutation } from "../utils/graphql-test-utils.js";
+import { aliasQuery } from "../utils/graphql-test-utils.js";
 
 describe('UserFlow', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('UserFlow', () => {
       })
   })
 
-  it('should be able to get new inspiration image', () => {
+  it('should display', () => {
 
   })
 }) 
