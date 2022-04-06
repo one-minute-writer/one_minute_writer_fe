@@ -82,7 +82,7 @@ const WritingPage: React.FC = () => {
   }
   
   return (
-    <>
+    <section className='writing-section'>
       <NavBar />
       <div className="writing-page">
         <Inspirations
@@ -112,7 +112,7 @@ const WritingPage: React.FC = () => {
           writingInProgress={writingInProgress}
         />
       </div>
-    </>
+    </section>
   )
 }
 
