@@ -19,14 +19,6 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
-  .play-button,
-  .pause-button {
-    height: 100%;
-    width: 100%;
-  }
-}
-
 .is-clicked {
   background-color: rgb(176,176,176, 1)
 }
