@@ -126,24 +126,20 @@ beforeEach(() => {
       .get('.save-writing-button').click() 
   })
 
-  it.only('should be able to edit a story', () => {
-      cy.get('.edit-btn').first().click()
-      cy.on('uncaught:exception', (err, runnable) => {
-        return false
+  it('should be able to edit a story', () => {
+    cy.intercept(
+      "POST",
+      "https://one-minute-writer-be.herokuapp.com/graphql",
+      (req) => {
+        aliasQuery(req, "fetchStory", "getStory.json")
       })
-      cy.intercept(
-        "POST",
-        "https://one-minute-writer-be.herokuapp.com/graphql",
-        (req) => {
-          aliasQuery(req, "fetchStory", "getStory.json")
-        })
-        // cy.visit('https://one-minute-writer-be.herokuapp.com/edit/1')
-    //create getStory fixture 
-    //add the alias query and operationName
-    //alias query the dashboard page
-    //click the edit button 
-    //stub the get story fixture 
-    //and test to check if those stories and inputs are the same 
+    cy.get('.edit-btn').first().click()
+    cy.on('uncaught:exception', (err, runnable) => {
+      return false
+    })
+    cy.get('textarea').should('have.text', 'Dolores pariatur ea. Et ut omnis. Quia sequi autem. Ad deserunt ratione.')
+      .get('input').should('have.value', 'The Doors of Perception')
+      .get('.word-inspo').should('have.text', 'sed')
   })
 
   it('should be able to delete a story', () => {
