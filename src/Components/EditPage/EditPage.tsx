@@ -41,7 +41,9 @@ const EditPage = () => {
   })
 
   useEffect(() => {
-    getSingleStory()
+    if (!loading) {
+      getSingleStory()
+    }
   }, [loading])
 
   const getSingleStory = async () => {
@@ -89,7 +91,7 @@ const EditPage = () => {
 
   const saveWriting = () => {
     const variables = {
-      userId: params.id,
+      id: params.id,
       title: title,
       bodyText: textBody,
       word: word,
