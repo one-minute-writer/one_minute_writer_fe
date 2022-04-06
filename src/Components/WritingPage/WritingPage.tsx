@@ -103,6 +103,8 @@ const WritingPage: React.FC = () => {
           setTimeChosen={setTimeChosen}
           showSetTimeModal={showSetTimeModal}
           setShowSetTimeModal={setShowSetTimeModal}
+          textInput={textBody}
+          title={title}
         />
         <TextInput
           title={title}

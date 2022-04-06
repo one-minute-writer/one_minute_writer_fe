@@ -24,6 +24,8 @@ interface Props {
   setTimeChosen: (arg0: boolean) => void
   showSetTimeModal: boolean,
   setShowSetTimeModal: (arg0: boolean) => void
+  textInput: string,
+  title: string
 }
 
 const Inspirations: React.FC<Props> = ({
@@ -43,7 +45,9 @@ const Inspirations: React.FC<Props> = ({
     timeChosen,
     setTimeChosen,
     showSetTimeModal,
-    setShowSetTimeModal
+    setShowSetTimeModal,
+    textInput,
+    title
   }) => {
 
   const setTimer = (seconds: number) => {
@@ -65,6 +69,8 @@ const Inspirations: React.FC<Props> = ({
           totalSeconds={totalSeconds}
           setTime={setTime}
           time={time}
+          textInput={textInput}
+          title={title}
         /> :
         <button className='choose-time-btn' onClick={chooseTime}>Choose Time</button>
       }

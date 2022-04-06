@@ -20,7 +20,7 @@ interface IStoryData {
   word: string,
   image: {author: string, download_url: string},
   sound: string,
-  totalTimeInSeconds: number
+  totalTimeInSeconds: number,
 }
 
 const EditPage = () => {
@@ -124,6 +124,8 @@ const EditPage = () => {
             setTimeChosen={setTimeChosen}
             showSetTimeModal={showSetTimeModal}
             setShowSetTimeModal={setShowSetTimeModal}
+            textInput={textBody}
+            title={title}
           />
           <TextInput
             title={title}
