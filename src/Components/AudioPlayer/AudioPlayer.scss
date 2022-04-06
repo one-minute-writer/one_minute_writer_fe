@@ -1,11 +1,11 @@
+@use '../Styles/_mixins' as m;
+@use '../Styles/variables' as v;
 
 .audio-box {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  align-items: center;
-  height: 20%;
-  width: 80%;
+  @include m.flexbox(row, no-wrap, center, normal, center);
+  height: 60%;
+  width: 60%;
+  box-sizing: content-box;
 }
 
 .play-button,
@@ -22,8 +22,8 @@
 @media only screen and (max-width: 600px) {
   .play-button,
   .pause-button {
-    height: 20%;
-    width: 20%;
+    height: 100%;
+    width: 100%;
   }
 }
 

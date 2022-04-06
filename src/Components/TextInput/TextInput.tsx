@@ -23,8 +23,6 @@ const TextInput: React.FC<Props> = ({ title, textBody, setTextBody, setTitle,wri
         aria-label='text area'
         disabled={!writingInProgress}
         placeholder='Begin writing here...'
-        // rows={15}
-        // cols={30}
         value={textBody}
         onChange={(event) => setTextBody(event.target.value)}
       >
