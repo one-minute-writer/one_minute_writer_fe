@@ -1,55 +1,59 @@
 @use '../Styles/_variables' as v;
 
+.error-page {
+  background-image: url('https://i.pinimg.com/564x/e5/74/a1/e574a146fef0235e2423ad272fb3d38a.jpg');
+}  
+
+
+  // .error-page {
+  //   background-color: v.$navBg;
+  //   margin: auto;
+  //   height: 600px;
+  //   width: 600px;
+  //   position: relative;
+  // }
   
-  .error-page {
-    background-color: v.$navBg;
-    margin: auto;
-    height: 600px;
-    width: 600px;
-    position: relative;
-  }
+  //   .err {
+  //     color: v.$offWhite;
+  //     font-family: 'Nunito Sans', sans-serif;
+  //     font-size: 11rem;
+  //     position:absolute;
+  //     left: 20%;
+  //     top: 8%;
+  //   }
   
-    .err {
-      color: v.$offWhite;
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 11rem;
-      position:absolute;
-      left: 20%;
-      top: 8%;
-    }
+  // .far {
+  //   position: absolute;
+  //   font-size: 8.5rem;
+  //   left: 42%;
+  //   top: 15%;
+  //   color: v.$offWhite;
+  // }
   
-  .far {
-    position: absolute;
-    font-size: 8.5rem;
-    left: 42%;
-    top: 15%;
-    color: v.$offWhite;
-  }
+  //  .err2 {
+  //     color: v.$offWhite;
+  //     font-family: 'Nunito Sans', sans-serif;
+  //     font-size: 11rem;
+  //     position:absolute;
+  //     left: 68%;
+  //     top: 8%;
+  //   }
   
-   .err2 {
-      color: v.$offWhite;
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 11rem;
-      position:absolute;
-      left: 68%;
-      top: 8%;
-    }
+  // .msg {
+  //     text-align: center;
+  //     font-family: 'Nunito Sans', sans-serif;
+  //     font-size: 1.6rem;
+  //     position:absolute;
+  //     left: 16%;
+  //     top: 45%;
+  //     width: 75%;
+  //   }
   
-  .msg {
-      text-align: center;
-      font-family: 'Nunito Sans', sans-serif;
-      font-size: 1.6rem;
-      position:absolute;
-      left: 16%;
-      top: 45%;
-      width: 75%;
-    }
+  // a {
+  //   text-decoration: none;
+  //   color: v.$offWhite;
+  // }
   
-  a {
-    text-decoration: none;
-    color: v.$offWhite;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+  // a:hover {
+  //   text-decoration: underline;
+  // }
