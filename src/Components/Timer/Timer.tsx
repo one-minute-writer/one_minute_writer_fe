@@ -9,9 +9,11 @@ interface Props {
   setWritingInProgress: (arg0: boolean) => void
   setTime: (arg0: number) => void
   time: number
+  textInput: string
+  title: string
 }
 
-const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, setWritingInProgress, setTime, time }) => {
+const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, setWritingInProgress, setTime, time, textInput, title }) => {
   const [ showModal, setShowModal ] = useState(false)
   const [ modalMessage, setModalMessage ] = useState('')
   const [ colorClass, setColorClass ] = useState('green')
@@ -80,6 +82,8 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
         saveWriting={saveWriting}
         modalMessage={modalMessage}
         setShowModal={setShowModal}
+        textInput={textInput}
+        title={title}
       />}
     </section>
   )
