@@ -70,7 +70,6 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
   }
 
   const checkClicked = (event: any) => {
-    console.log(event.target.className);
     if (event.target.className === 'play-button') {
       setPauseClicked('pause-button')
       setPlayClicked('play-button is-clicked')

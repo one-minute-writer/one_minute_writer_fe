@@ -74,7 +74,6 @@ mutation (
 export const UPDATE_STORY = gql`
 mutation (
     $id: Int!,
-    $userId: Int!,
     $title: String!,
     $bodyText: String!,
     $word: String!,
@@ -84,7 +83,6 @@ mutation (
     ){
     updateStory(input: {
         id: $id
-        userId: $userId,
         title: $title,
         bodyText: $bodyText,
         word: $word,
