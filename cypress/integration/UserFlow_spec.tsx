@@ -25,7 +25,7 @@ describe('UserFlow', () => {
 
   })
 
-  it.only('should be able to get new inspiration word', () => {
+  it('should be able to get new inspiration word', () => {
     cy.get('.word-inspo').should('exist')
       .get('.new-word-btn').click()
       .get('.word-inspo').should('exist')
