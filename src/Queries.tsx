@@ -36,6 +36,8 @@ query fetchStory($id: ID!) {
         image
         sound
         totalTimeInSeconds
+        createdAt
+        updatedAt
     }
 }
 `;
