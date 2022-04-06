@@ -26,8 +26,8 @@ $button-size: 7.5em;
 }
 
 .img-container > img {
-  height: 70%;
-  width: 70%;
+  height: 60%;
+  width: 60%;
   border: white 3px solid;
   border-radius: 5px;
 }
@@ -75,7 +75,7 @@ $button-size: 7.5em;
   .container {
     @include m.flexbox(row, no-wrap, normal, normal, center);
     width: 90%;
-    margin: 5%;
+    margin: 1%;
   }
 
   .inspirations {

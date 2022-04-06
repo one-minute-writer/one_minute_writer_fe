@@ -1,6 +1,10 @@
 @use '../Styles/_variables' as v;
 @use '../Styles/_mixins' as m;
 
+.writing-section {
+  margin-top: 3%;
+}
+
 .writing-page {
   @include m.flexbox(column, no-wrap, normal, center, normal);
   overflow-x: hidden;

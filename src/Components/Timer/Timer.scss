@@ -27,6 +27,11 @@
   margin: 2%;
 }
 
+.timer-container > p {
+  color: white;
+  text-align: center;
+}
+
 .green {
   border: 5px solid green;
 }
@@ -37,4 +42,11 @@
 
 .red {
   border: 5px solid red;
+}
+
+@media (max-width: 700px) {
+  .timer-button {
+    height: 5rem;
+    width: 5rem;
+  }
 }

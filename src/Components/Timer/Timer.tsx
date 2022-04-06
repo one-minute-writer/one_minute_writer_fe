@@ -70,7 +70,7 @@ const Timer: React.FC<Props> = ({ totalSeconds, saveWriting, writingInProgress, 
         className={`timer-button ${colorClass}`}
         onClick={toggleTimer}>{formatTime(time)}
       </button>
-      <p>target: {formatTime(totalSeconds)}</p>
+      <p>Target Time: {formatTime(totalSeconds)}</p>
       {writingInProgress ?
         <button className='start-stop-btn' onClick={() => stopTimer(stopTimerMessage)}>STOP</button> :
         <button className='start-stop-btn' onClick={() => toggleTimer()}>START</button>
