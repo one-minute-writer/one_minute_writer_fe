@@ -11,11 +11,19 @@
 header {
   @include m.flexbox(row, nowrap, normal, space-between, center);
   background-color: v.$navBg;
+  width: 70%;
   color: v.$white;
-
+  top: 0;
+  margin-left: 15%;
+  align-self: center;
+  z-index: 1000;
+  position: fixed;
+  opacity: 90%;
+  border-radius: 5px;
 }
   
 nav {
+  align-self: center;
   flex: 1;
   @include m.flexbox(row, nowrap, normal, flex-end, normal);
   white-space: nowrap;
