@@ -82,10 +82,10 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
 
   return (
     <>
-      <div className='audio-box'>
+      <section className='audio-box'>
         <img onClick={(event) => { playMusic(event)}} className={`${playClick}`} src={playButton} alt="play-button" />
         <img onClick={(event) => { pauseMusic(event) }} className={`${pauseClick}`} src={pauseButton} alt="play-button" />
-      </div>
+      </section>
       <button onClick={() => generateNewSong()} className='new-audio-btn'>New Audio</button>
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Inspirations.scss'
 import errorImage from './error-image.png'
 
@@ -16,14 +16,16 @@ const InspirationImage: React.FC<Props> = ({ getImage, image, errorHandle }) => 
 
   if (!errorHandle) {
     return (
-      <>
+      <section className='img-container'>
         <img className='img-inspo' src={image.download_url} alt={image.author} />
         <button onClick={() => getNewImage()}className='new-img-btn'>New Image</button>
-      </>
+      </section>
     )
   } else {
     return (
-      <img className='img-inspo' src={errorImage} alt='error-no-image'/>
+      <section className='img-container'>
+        <img className='img-inspo' src={errorImage} alt='error-no-image'/>
+      </section>
     )
   }
 }

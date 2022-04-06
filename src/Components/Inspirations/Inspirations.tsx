@@ -74,23 +74,25 @@ const Inspirations: React.FC<Props> = ({
         />
       }
       <section className='inspirations'>
-        <div className='image-box' >
+        <article className='img-inspiration' >
           <InspirationImage
             getImage={getImage}
             image={image}
             errorHandle={errorHandle}
           />
-        </div>
-        <div className='word-box' >
+        </article>
+        <article className='word-inspiration' >
           <InspirationText
             getNewWord={getNewWord}
             word={word}
           />
-        </div>
-        <AudioPlayer
-          data-testid='audio-player'
-          setSound={setSound}
-        />
+        </article>
+        <article className='audio-inspiration'>
+          <AudioPlayer
+            data-testid='audio-player'
+            setSound={setSound}
+          />
+        </article>
       </section>
     </section>  
   )

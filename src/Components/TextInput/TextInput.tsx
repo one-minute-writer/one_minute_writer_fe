@@ -11,7 +11,7 @@ interface Props {
 
 const TextInput: React.FC<Props> = ({ title, textBody, setTextBody, setTitle,writingInProgress }) => {
   return (
-    <section>
+    <section className='entry'>
       <input
         type="text"
         aria-label="text input"
@@ -23,8 +23,6 @@ const TextInput: React.FC<Props> = ({ title, textBody, setTextBody, setTitle,wri
         aria-label='text area'
         disabled={!writingInProgress}
         placeholder='Begin writing here...'
-        rows={20}
-        cols={30}
         value={textBody}
         onChange={(event) => setTextBody(event.target.value)}
       >
