@@ -1,32 +1,40 @@
+@use '../Styles/_variables' as v;
+@use '../Styles/_mixins' as m;
+
 .timer-button {
   border-radius: 50%;
-  height: 5rem;
-  width: 5rem;
+  height: 8rem;
+  width: 8rem;
   background: none;
   cursor: pointer;
   overflow: hidden;
+  background-color: v.$offWhite;
 }
 
 .start-stop-btn {
-  margin-top: 1em;
+  margin-top: 1%;
+  background-color: #52736B;
+  color: white;
+  width: 12vw;
+  height: 4vh;
+  box-shadow: none;
+  border: none;
+  border-radius: 3px;
 }
 
 .timer-container {
-  display: flex;
-  margin: .5em;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  @include m.flexbox(column, no-wrap, center, center, center);
+  margin: 2%;
 }
 
 .green {
-  border: 3px solid green;
+  border: 5px solid green;
 }
 
 .yellow {
-  border: 3px solid yellow;
+  border: 5px solid yellow;
 }
 
 .red {
-  border: 3px solid red;
+  border: 5px solid red;
 }

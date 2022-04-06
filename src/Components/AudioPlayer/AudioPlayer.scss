@@ -2,7 +2,7 @@
 @use '../Styles/variables' as v;
 
 .audio-box {
-  @include m.flexbox(row, no-wrap, center, normal, center);
+  @include m.flexbox(row, no-wrap, center, space-evenly, center);
   height: 60%;
   width: 60%;
   box-sizing: content-box;
@@ -12,6 +12,10 @@
 .pause-button {
   height: 50%;
   width: 50%;
+  margin: 5%;
+  border: #24382e 3px solid;
+  border-radius: 5px;
+  background-color: v.$offWhite;
 }
 
 .play-button,
@@ -20,5 +24,5 @@
 }
 
 .is-clicked {
-  background-color: rgb(176,176,176, 1)
+  background-color: v.$yellow
 }

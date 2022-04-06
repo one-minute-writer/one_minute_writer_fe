@@ -5,8 +5,7 @@
   @include m.flexbox(column, no-wrap, normal, center, normal);
   overflow-x: hidden;
   overflow: hidden;
-  margin-top: 7%;
-
+  margin: 3%;
 }
 
 @media screen and (min-width: 40em) {
@@ -20,5 +19,8 @@
     margin-top: 10%;
     @include m.flexbox(column, no-wrap, normal, center, normal);
   }
-  
+  .writing-page {
+    @include m.flexbox(column, no-wrap, center, center, center);
+    margin-left: 3%;
+  }
 }
