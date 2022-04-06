@@ -1,7 +1,5 @@
 import React from 'react';
 import './UserInfo.scss';
-import fire from './danger.png'
-import all from './all.png'
 
 interface Props {
   words_per_minute: number;
@@ -33,7 +31,7 @@ const UserInfo: React.FC<Props> = (props: Props) => {
   return (
     <section className='user-info'>
       <div className='welcome-box'>
-        <h3 className='welcome-user'>Welcome {props.userName} !</h3>
+        <h3 className='welcome-user'>Welcome {props.userName}</h3>
       </div>
       <section className='all-user-statistics'>
         {displayWords()}

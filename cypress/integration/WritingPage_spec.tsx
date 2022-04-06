@@ -4,7 +4,7 @@ describe('Writing Page', () => {
     author: 'Roberto Nickson',
     download_url: 'https://picsum.photos/id/1011/5472/3648'
   }])
-      .visit('http://localhost:4000/writing-page') 
+      .visit('https://one-minute-writer.herokuapp.com/writing-page') 
   })
 
   it('show the header', () => {

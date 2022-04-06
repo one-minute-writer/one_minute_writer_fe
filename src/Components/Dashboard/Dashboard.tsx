@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useQuery, useLazyQuery } from "@apollo/client";
+import React from 'react';
+import { useQuery } from "@apollo/client";
 import { GET_SINGLE_USER, DELETE_STORY } from '../../Queries';
 import './Dashboard.scss';
 import UserInfo from '../UserInfo/UserInfo';

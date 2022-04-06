@@ -21,14 +21,12 @@ describe('UserFlow', () => {
   })
   
   beforeEach(() => {
-    cy.visit('http://localhost:4000/writing-page')
+    cy.visit('https://one-minute-writer.herokuapp.com/writing-page')
 
   })
 
   it('should be able to get new inspiration word', () => {
     cy.get('.word-inspo').should('exist')
-    // .get('.new-word-btn').click()
-    // .get('.word-inspo').should('exist')
 })
 
   it('should be able to get new inspiration sound', () => {
