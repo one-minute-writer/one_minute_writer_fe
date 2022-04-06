@@ -57,7 +57,7 @@ describe('UserFlow', () => {
     .get('.start-stop-btn').click()
     .wait(60000)
     .get('.modal').should('exist')
-    .get('.end-timer-message').should('have.text', 'Your time is up! Would you like to keep writing or save your work?')
+    .get('.end-timer-message').should('have.text', 'Please input title and text to save')
   })
 
   it('should be able to enter a title', () => {
