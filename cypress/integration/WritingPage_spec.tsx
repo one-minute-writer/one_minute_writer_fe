@@ -4,7 +4,7 @@ describe('Writing Page', () => {
     author: 'Roberto Nickson',
     download_url: 'https://picsum.photos/id/1011/5472/3648'
   }])
-      .visit('https://one-minute-writer.herokuapp.com/writing-page') 
+      .visit('http://localhost:4000/writing-page') 
   })
 
   it('show the header', () => {
@@ -13,13 +13,13 @@ describe('Writing Page', () => {
 
   it('should have an inspiration section', () => {
       cy.get('.inspirations').should('be.visible')
-        .get('.image-box').should('be.visible')
+        .get('.img-container').should('be.visible')
         .get('img').should('be.visible')
         .get('.new-img-btn').should('be.visible')
-        .get('.word-box').should('be.visible')
+        .get('.word-inspiration').should('be.visible')
         .get('.word-inspo').should('be.visible')
         .get('.new-word-btn').should('be.visible')
-        .get('.audio-box').should('be.visible')
+        .get('.audio-inspiration').should('be.visible')
         .get('.new-audio-btn').should('be.visible')
   })
 

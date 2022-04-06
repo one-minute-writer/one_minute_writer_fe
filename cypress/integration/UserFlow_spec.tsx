@@ -25,19 +25,19 @@ describe('UserFlow', () => {
 
   })
 
-  it.skip('should be able to get new inspiration word', () => {
+  it('should be able to get new inspiration word', () => {
     cy.get('.word-inspo').should('exist')
     // .get('.new-word-btn').click()
     // .get('.word-inspo').should('exist')
 })
 
-  it.skip('should be able to get new inspiration sound', () => {
+  it('should be able to get new inspiration sound', () => {
     cy.get('.audio-box').should('exist')
       .get('.play-button').click().should('exist')
       .get('.pause-button').click().should('exist') 
   })
 
-  it.skip('should be able to choose a time to start writing', () => {
+  it('should be able to choose a time to start writing', () => {
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -48,7 +48,7 @@ describe('UserFlow', () => {
     .get('.continue-writing-button').click()
     .get('.modal').should('not.exist')
   })
-  it.skip('should have a pop up a modal when time is up', () => {
+  it('should have a pop up a modal when time is up', () => {
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -59,7 +59,7 @@ describe('UserFlow', () => {
     .get('.end-timer-message').should('have.text', 'Your time is up! Would you like to keep writing or save your work?')
   })
 
-  it.skip('should be able to enter a title', () => {
+  it('should be able to enter a title', () => {
     cy.get('input').type('One minute writer')
     .get('input').should('have.value', 'One minute writer')
   })
@@ -74,7 +74,7 @@ describe('UserFlow', () => {
     .get('textarea').should('exist')
   })
 
-  it.skip('should be able to start writing in the text area', () => {
+  it('should be able to start writing in the text area', () => {
     cy.get('.choose-time-btn').should('exist').click()
     .get('select')
     .select('60')
@@ -84,7 +84,7 @@ describe('UserFlow', () => {
     .get('textarea').should('have.text', 'Our story begins....')
   })
 
-  it.skip('should be able to save their writing', () => {
+  it ('should be able to save their writing', () => {
     cy.intercept(
       "POST",
       "https://one-minute-writer-be.herokuapp.com/graphql",
@@ -111,7 +111,7 @@ describe('UserFlow', () => {
       })
   })
 
-  it.skip('should be able to edit a story', () => {
+  it('should be able to edit a story', () => {
     cy.intercept(
       "POST",
       "https://one-minute-writer-be.herokuapp.com/graphql",
