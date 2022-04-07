@@ -6,11 +6,16 @@ import playButton from './play-button.png'
 
 
 interface Props {
-  setSound: (arg0: string) => void
+  setSound: (arg0: {title: string, src: string}) => void
+}
+
+interface ISoundData {
+  title: string,
+  src: string
 }
 
 const AudioPlayer: React.FC<Props> = ({ setSound }) => {
-  const [audio, setAudio] = useState<string>('')
+  const [audio, setAudio] = useState<ISoundData>({title: '', src: ''})
   const [playClick, setPlayClicked] = useState<string>('play-button')
   const [pauseClick, setPauseClicked] = useState<string>('pause-button')
   const [audioClip, setAudioClip] = useState<any>(null)
@@ -22,10 +27,10 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
 
   useEffect(() => {
     setAudioClip(new Howl({
-      src: [audio],
+      src: [audio.src],
       html5: true,
     }))
-    setSound(audio)
+    setSound({src: audio.src, title: audio.title})
   }, [audio])
 
   const audioOptions = [
@@ -57,13 +62,13 @@ const AudioPlayer: React.FC<Props> = ({ setSound }) => {
 
   const  assignAudio = () => {
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-    setAudio(randomSong.src)
+    setAudio(randomSong)
   }
 
   const generateNewSong= () => {
     setIsPlaying(false)
     let randomSong = audioOptions[Math.floor(Math.random() * audioOptions.length)];
-    setAudio(randomSong.src)
+    setAudio(randomSong)
     setPauseClicked('pause-button')
     setPlayClicked('play-button')
     return audioClip.pause()

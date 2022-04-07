@@ -19,8 +19,13 @@ interface IStoryData {
   bodyText: string,
   word: string,
   image: {author: string, download_url: string},
-  sound: string,
+  sound: {title: string, src: string},
   totalTimeInSeconds: number,
+}
+
+interface ISoundData {
+  title: string,
+  src: string
 }
 
 const EditPage = () => {
@@ -29,7 +34,7 @@ const EditPage = () => {
   const [ title, setTitle ] = useState<string>('')
   const [ word, setWord ] = useState<string>('')
   const [ image, setImage ] = useState<IImageData>({author: '', download_url: ''})
-  const [ sound, setSound ] = useState<string>('')
+  const [ sound, setSound ] = useState<ISoundData>({title: '', src: ''})
   const [ time, setTime ] = useState<number>(60)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
   const [ errorHandle, setErrorHandle ] = useState<boolean>(false)
