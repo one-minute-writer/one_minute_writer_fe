@@ -30,8 +30,11 @@ const SingleStory: React.FC<Props> = ( { bodyText, title, id, createdAt, deleteS
       <h3 className='title-display'>{title}</h3>
       <p className='date-display'>created: {formatDate(createdAt)}</p>
       <p className='bodyText-display'>{bodyText}</p>
-      <button className='edit-btn' onClick={() =>goToEditPage(id)}>edit</button>
-      <button className='delete-btn' onClick={() => deleteStoryFromDom(id)}>Delete</button>
+      <section className='writing-btns'>
+        <button className='edit-btn' onClick={() =>goToEditPage(id)}>edit</button>
+        <button className='delete-btn' onClick={() => deleteStoryFromDom(id)}>Delete</button>
+      </section>
+
     </article>
   )
 }
