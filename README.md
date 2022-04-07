@@ -38,6 +38,7 @@ Click the start timer to set a time for writing and begin writing
 ![start-timer](https://media.giphy.com/media/BFrhiLSidppQaT3cN9/giphy.gif)
 
 Get new image and/or word to get inspired for your writing 
+
 ![new-inspiration](https://media.giphy.com/media/fUerZvwu7hMuSxsYYD/giphy.gif)
 
 Application has responsive layout for mobile view or browser view. 
@@ -82,6 +83,7 @@ In hindsight, we probably could have done only GraphQL and not implement TypeScr
 
 - GraphQL
 - TypeScript 
+- React
 - Continuous Integrations/Deployment 
 - Heroku
 - React Router
