@@ -15,12 +15,17 @@ interface IImageData {
   download_url: string
 }
 
+interface ISoundData {
+  title: string,
+  src: string
+}
+
 const WritingPage: React.FC = () => {
   const [ textBody, setTextBody ] = useState<string>('')
   const [ title, setTitle ] = useState<string>('')
   const [ word, setWord ] = useState<string>('')
   const [ image, setImage ] = useState<IImageData>({author: '', download_url: ''})
-  const [ sound, setSound ] = useState<string>('')
+  const [ sound, setSound ] = useState<ISoundData>({title: '', src: ''})
   const [ time, setTime ] = useState<number>(0)
   const [ writingInProgress, setWritingInProgress ] = useState<boolean>(false)
   const [ errorHandle, setErrorHandle ] = useState<boolean>(false)

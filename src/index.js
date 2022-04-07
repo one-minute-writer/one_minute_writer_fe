@@ -16,7 +16,6 @@ const operationNameLink = new ApolloLink ((operation, forward) => {
   return forward(operation)
 });
 
-
 const client = new ApolloClient({
   link: concat(operationNameLink, httpLink),
   cache: new InMemoryCache({

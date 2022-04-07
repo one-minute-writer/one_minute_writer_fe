@@ -7,7 +7,7 @@ import ChooseTime from '../ChooseTime/ChooseTime'
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
 
 interface Props {
-  setSound: (arg0: string) => void,
+  setSound: (arg0: {title: string, src: string}) => void,
   time: number,
   setTime: (arg0: number) => void,
   writingInProgress: boolean,
