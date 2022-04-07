@@ -18,13 +18,11 @@
   }
 }
 
-
-// @media screen and (min-width: 40em) {
-//   .writing-page {
-//     display: grid;
-//     grid-template-columns: 3fr 5fr;
-//   }
-// }
+@media (min-width:641px) {
+  .writing-page {
+    margin-top: 8%;
+  }
+}
 
 @media (max-width: 700px) {
   .writing-section {

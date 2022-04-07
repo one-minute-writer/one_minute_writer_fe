@@ -16,11 +16,13 @@
   border: #24382e 3px solid;
   border-radius: 5px;
   background-color: v.$offWhite;
-}
+  box-shadow: 5px 8px 14px 6px rgba(0,0,0,0.50);
 
-.play-button,
-.pause-button:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s all;
+  }
 }
 
 .is-clicked {
