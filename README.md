@@ -23,26 +23,38 @@ https://one-minute-writer.herokuapp.com/
 
 Home Page View 
 
-![home-view]()
+![home-view](https://media.giphy.com/media/Y6BP3TE2hGk8fnbdZG/giphy.gif)
+
+User Dashboard
+
+![user-dashboard](https://user-images.githubusercontent.com/89872714/162117514-8a0c16e7-9048-4225-8159-ec3f8f3ed994.png)
+
+Click the start writing button to get to the writing page 
+
+![start-writing](https://media.giphy.com/media/MnP203uYgDfGLmxGHw/giphy.gif)
+
+Click the start timer to set a time for writing and begin writing
+
+![start-timer](https://media.giphy.com/media/BFrhiLSidppQaT3cN9/giphy.gif)
+
+Get new image and/or word to get inspired for your writing 
+![new-inspiration](https://media.giphy.com/media/fUerZvwu7hMuSxsYYD/giphy.gif)
 
 Application has responsive layout for mobile view or browser view. 
 
-![responsive-layout]()
+![responsive-layout](https://media.giphy.com/media/YQen9S6UuHhGTe5xcc/giphy.gif)
 
-Application has a 100% Lighthouse Accessibility Score.
 
-![Accessibility-Score]()
 
 ## Joint Learning Goal
 Our learning goal was to build this application using a new technology that none of us had previous experience with. We chose GraphQL and TypeScript.
 
 ## Group Reflection 
-In hindsight, we probably should have done only GraphQL and not implement TypeScript as well. In our research, we learned that graphQL also types our properties, and data that we're passsing. But implementing TypeScript was a great learning experience for all of us, since we aren't completely familiar with TypeScript. 
+In hindsight, we probably could have done only GraphQL and not implement TypeScript as well. In our research, we learned that graphQL also types our properties, and data that we're passsing. But implementing TypeScript was a great learning experience for all of us and is an extra layer to prevent future bugs or typing errors. 
 
 ## Future Enhancements
-- Add login page for multiple users experience
-- Add larger curated words list for users to have more inspiration words. 
-- Add more curated images for user to have more inspiration images. 
+- Add login page for multiple user experience.
+- Add larger curated words list to have more inspiration words. 
 - Add a section in the writing page for users to be able to check for synonyms of words. 
 
 ## Install and Setup
