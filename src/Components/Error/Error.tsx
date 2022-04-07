@@ -5,9 +5,11 @@ import './Error.scss'
 const Error = () => {
     return (
         <section className='error-page'>
-            <h2>UH OH</h2>
-            <h4 className='error-message'>We're sorry, we're a bit of a mess right now. <br></br>There seems to be an error! <br></br>Feel free to head back to the dashboard. <br></br>Or...hang out a while and type something up!
-            </h4>
+            <div className='message'>
+                <h2>UH OH</h2>
+                <h4 className='error-message'>We're sorry, we're a bit of a mess right now. <br></br>There seems to be an error! <br></br>Feel free to head back to the dashboard. <br></br>Or...hang out a while and type something up!
+                </h4>
+            </div>
             <textarea
                 className='err-textarea'
                 aria-label='text area'
