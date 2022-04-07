@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 
 const LandingPage: React.FC = () => {
   return (
-    <section className="landing-page">
-      <h2 className="landing-page-header">One Minute Writer</h2>
-      <p className="description">One minute writer is for creatives who are seeking inspiration and a space to document and organize their ideas and writing. Users can track their progress through metrics on a user dashboard as well as revisit and edit past writings.</p>
-      <Link to='/dashboard'>
+    <article className='contain'>
+      <div className="landing-titles">
+        <h2 className="landing-page-header">One Minute Writer</h2>
+        <p className="description">One minute writer is for creatives who are seeking inspiration and a space to document and organize their ideas and writings.</p>
+        <Link to='/dashboard'>
         <button className="go-to-dashboard-button">Go to dashboard</button>
-      </Link>
-    </section>
+        </Link>
+      </div>
+    </article>
   )
 }
 

@@ -3,6 +3,13 @@
   pointer-events: none;
 }
 
+.contain {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
