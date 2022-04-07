@@ -7,6 +7,8 @@ import { CREATE_STORY } from '../../Queries'
 import { getImages } from './imageApiCalls';
 import wordsData from './wordsData.js';
 import NavBar from '../NavBar/NavBar'
+import Loader from '../Loader/Loader';
+import Error from '../Error/Error';
 
 interface IImageData {
   author: string,
@@ -71,6 +73,9 @@ const WritingPage: React.FC = () => {
     }
     createStory({variables: variables})
   }
+
+  if (createLoading) return <Loader/>
+  if (createError) return <Error/>
   
   return (
     <section className='writing-section'>

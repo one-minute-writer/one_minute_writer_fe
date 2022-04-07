@@ -18,13 +18,18 @@
   }
 }
 
+@media (min-width:641px) {
+  .writing-page {
+    margin-top: 8%;
+  }
+}
+
 @media (max-width: 700px) {
   .writing-section {
-    margin-top: 10%;
     @include m.flexbox(column, no-wrap, normal, center, normal);
   }
   .writing-page {
     @include m.flexbox(column, no-wrap, center, center, center);
-    margin-left: 3%;
+    margin: 14% 0% 0% 3%;
   }
 }

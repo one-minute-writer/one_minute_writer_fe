@@ -8,6 +8,7 @@ import '../Loader/Loader.tsx';
 import Loader from '../Loader/Loader';
 import NavBar from '../NavBar/NavBar'
 import { useMutation } from '@apollo/client';
+import Error from '../Error/Error';
 
 interface IStory {
   id: string,
@@ -30,7 +31,7 @@ const Dashboard: React.FC = () => {
   }] = useMutation(DELETE_STORY)
 
   if (loading) return <Loader/>
-  if (error) return <p>We're sorry, there's been an error! Please try again.</p>
+  if (error) return <Error/>
 
   const deleteStoryFromDom = (id: string) => {
     let filteredStories = data.fetchUser.stories.filter((story: IStory) => {
