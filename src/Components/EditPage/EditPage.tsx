@@ -94,7 +94,7 @@ const EditPage = () => {
     setWord(randomWord)
   }
 
-  const saveWriting = () => {
+  const saveWriting = async () => {
     const variables = {
       id: params.id,
       title: title,
@@ -104,7 +104,7 @@ const EditPage = () => {
       sound: sound,
       totalTimeInSeconds: time
     }
-    updateStory({variables: variables})
+    return await updateStory({variables: variables})
   }
   if (loading) {
     return <p>Loading...</p>

@@ -66,7 +66,7 @@ const WritingPage: React.FC = () => {
     getNewWord()
   }, [])
   
-  const saveWriting = () => {
+  const saveWriting = async () => {
     const variables = {
       userId: 1,
       title: title,
@@ -76,7 +76,7 @@ const WritingPage: React.FC = () => {
       sound: sound,
       totalTimeInSeconds: time
     }
-    createStory({variables: variables})
+    return await createStory({variables: variables})
   }
 
   if (createLoading) return <Loader/>
