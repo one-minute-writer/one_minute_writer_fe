@@ -58,6 +58,13 @@ $button-size: 7.5em;
   box-shadow: none;
   border: none;
   border-radius: 3px;
+  box-shadow: 5px 8px 14px 6px rgba(0,0,0,0.50);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s all;
+  }
 }
 
 .choose-time-btn {
@@ -69,6 +76,13 @@ $button-size: 7.5em;
   border: none;
   border-radius: 3px;
   margin-top: 2em;
+  box-shadow: 5px 8px 14px 6px rgba(0,0,0,0.50);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s all;
+  }
 }
 
 @media (max-width: 700px) {
