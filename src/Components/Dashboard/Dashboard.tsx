@@ -57,6 +57,24 @@ const Dashboard: React.FC = () => {
     )
   })
 
+  const displayStories = () => {
+    if (data.fetchUser.stories.length === 0) {
+      return (
+        <section className='no-stories'>
+          <p className='no-stories-message'>
+            Looks like you don't have any saved stories. Start writing now!
+          </p>
+          <button className='go-to-writing-page'>Go to Writing Page</button>
+        </section>
+      )
+    } else {
+      return (
+        mapStories
+      )
+    }
+
+  }
+
   return (
     <>
     <NavBar />
@@ -68,7 +86,7 @@ const Dashboard: React.FC = () => {
       />
       <h1 className='past-writings'>Past Writings</h1>
       <article className='past-stories'>
-        { mapStories }
+        { displayStories() }
       </article>
     </section>
    </>
