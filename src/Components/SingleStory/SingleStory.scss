@@ -1,4 +1,6 @@
 @use '../Styles/_variables' as v;
+@use '../Styles/_mixins' as m;
+
 
 
 .single-story {
@@ -12,9 +14,12 @@
     box-shadow: 5px 8px 14px 6px rgba(0,0,0,0.60);
 }
 
+.writing-btns {
+    @include m.flexbox(column, no-wrap, normal, center, center)
+
+}
+
 button {
-    background-color: v.$navBg;
-    color: v.$offWhite;
     border: none;
     padding: 2.5%;
     border-radius: 2px;
@@ -22,8 +27,8 @@ button {
     box-shadow: 5px 8px 14px 6px rgba(0,0,0,0.10);
     margin: 1%;
     &:hover {
-        background-color: white;
-        color: rgba(68, 25, 109, 0.623);
+        background-color: v.$navBg;
+        color: v.$offWhite;
         font-weight: bold;
         opacity: 100%;
         cursor: pointer;
