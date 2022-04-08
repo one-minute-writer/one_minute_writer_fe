@@ -73,7 +73,7 @@ mutation (
 
 export const UPDATE_STORY = gql`
 mutation (
-    $id: Int!,
+    $id: ID!,
     $title: String!,
     $bodyText: String!,
     $word: String!,
